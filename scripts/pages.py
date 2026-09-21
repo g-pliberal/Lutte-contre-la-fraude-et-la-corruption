@@ -22,9 +22,9 @@ def accueil() -> str:
         "Le programme",
         "La fraude prospère<br>là où l'État<br>"
         '<span class="cle-texte">est illisible</span>',
-        "La France prélève au plus haut niveau de l'Union européenne et "
-        "dépense près de 1&nbsp;670&nbsp;milliards d'euros par an — sans publier "
-        "le moindre chiffrage officiel de ce qui lui échappe. Notre programme "
+        "La France prélève au deuxième rang de l'Union européenne, derrière "
+        "le Danemark, et dépense 1&nbsp;714&nbsp;milliards d'euros par an — "
+        "sans publier le moindre chiffrage officiel de ce qui lui échappe. Notre programme "
         "tient en une phrase&nbsp;: rendre l'argent public traçable à l'euro "
         "près, et rendre la règle assez simple pour qu'on ne puisse plus s'y "
         "cacher.",
@@ -60,7 +60,7 @@ def accueil() -> str:
          "méthode, une série, un débat. La France n'a jamais publié "
          "d'estimation officielle consolidée — les chiffres qui circulent "
          "viennent d'un syndicat, d'un institut ou d'une commission, et vont "
-         "de 9 à 100&nbsp;milliards d'euros selon le périmètre retenu."),
+         "de 6 à 100&nbsp;milliards d'euros selon le périmètre retenu."),
         ("30 %",
          "Jusqu'à 30&nbsp;% des sommes recouvrées pour qui fait tomber une "
          "fraude.",
@@ -71,16 +71,17 @@ def accueil() -> str:
          "confidentielle et sans barème public."),
         ("0",
          "Zéro marché public attribué sans que le contrat soit publié d'abord.",
-         "La commande publique pèse de l'ordre de 160&nbsp;milliards d'euros "
-         "par an. C'est le premier lieu de la corruption ordinaire, et le "
-         "relèvement répété des seuils de gré à gré l'a rendu moins visible, "
-         "pas plus honnête."),
+         "La commande publique pèse 233&nbsp;milliards d'euros recensés en "
+         "2024, près de 8&nbsp;% du PIB, dont 101 pour les seules "
+         "collectivités. C'est le premier lieu de la corruption ordinaire, et "
+         "le relèvement répété des seuils de gré à gré l'a rendu moins "
+         "visible, pas plus honnête."),
     ))
 
     corps += "<h2>Notre méthode&nbsp;: trois gestes, dans cet ordre</h2>"
     corps += gestes((
         "<strong>Assécher.</strong> Une règle illisible est une règle qu'on "
-        "contourne, et près de 470 dépenses fiscales font une règle illisible. "
+        "contourne, et 465 dépenses fiscales font une règle illisible. "
         "Assiette large, taux bas, moins d'exceptions&nbsp;: la première "
         "politique anti-fraude est une politique fiscale.",
         "<strong>Exposer.</strong> Ce qui est public doit être public. La "
@@ -141,7 +142,7 @@ def accueil() -> str:
   <a href="chiffrage.html"><b>Chiffrage</b></a> — ce que cela coûte, ce que
   cela peut rapporter, et notre degré de confiance dans chaque ligne.<br>
   <a href="objections.html"><b>Objections</b></a> — les neuf critiques les plus
-  solides qui nous sont faites, et nos réponses, dont trois qui concèdent.<br>
+  solides qui nous sont faites, et nos réponses, dont quatre qui concèdent.<br>
   <a href="sources.html"><b>Sources</b></a> — tout ce qui est cité, avec le
   lien et la date.</p>
 </div>
@@ -169,7 +170,7 @@ def constat() -> str:
         "Ce n'est pas une formule&nbsp;: aucune administration française ne "
         "publie d'estimation officielle et consolidée de la fraude. Les "
         "chiffres qui circulent viennent d'un syndicat, d'un institut de "
-        "statistique, d'une commission ou d'une caisse — et vont de 9 à "
+        "statistique, d'une commission ou d'une caisse — et vont de 6 à "
         "100&nbsp;milliards d'euros selon le périmètre retenu. Voici ce qu'ils "
         "disent, avec leur date et leur périmètre.",
     )
@@ -184,23 +185,24 @@ def constat() -> str:
     ))
 
     corps += reperes((
-        ("Ce qui échapperait au fisc", "60 à 100 Md €",
-         "Fourchette la plus citée dans le débat public&nbsp;: estimation "
-         "syndicale de 2019, jamais reprise à son compte par l'État."),
-        ("Ce que le contrôle fiscal notifie", "≈ 15 Md €",
-         "Par an, droits et pénalités. Environ 70&nbsp;% seulement finissent "
-         "encaissés en 2023 (DGFiP)."),
-        ("Cotisations sociales éludées", "6,8 à 8,4 Md €",
-         "Par an, essentiellement du travail dissimulé "
-         "(Haut Conseil du financement de la protection sociale, 2022)."),
-        ("Perception de la corruption", "67 / 100",
-         "Note de la France en 2024, 25ᵉ rang mondial&nbsp;; elle était de "
-         "71/100 et 20ᵉ en 2023 (Transparency International)."),
+        ("Ce qui échapperait au fisc", "6 à 100 Md €",
+         "L'écart entre la plus basse et la plus haute des estimations "
+         "publiques. En décembre&nbsp;2025, la Cour des comptes refuse "
+         "toujours d'arbitrer entre elles."),
+        ("Ce que le contrôle fiscal notifie", "17,1 Md €",
+         "En 2025, droits et pénalités&nbsp;; 11,4&nbsp;Md&nbsp;€ encaissés, "
+         "soit ≈ 67&nbsp;% — contre 80&nbsp;% en 2021 (DGFiP)."),
+        ("Cotisations sociales éludées", "6 à 7,8 Md €",
+         "Par an, travail dissimulé des salariés du privé non agricole "
+         "(HCFiPS, décembre&nbsp;2024)."),
+        ("Perception de la corruption", "66 / 100",
+         "Note de la France en 2025, 27ᵉ sur 182&nbsp;; elle était de 72/100 "
+         "en 2022 (Transparency International)."),
     ))
 
     corps += cle(
         "Combien coûte la fraude fiscale ?",
-        "Cinq sources publiques, quatre chiffres, un refus de chiffrer — et "
+        "Sept sources publiques, six chiffres, un refus de chiffrer — et "
         "aucun arbitrage de l'État. "
         "L'écart n'est pas seulement statistique&nbsp;: les <b>périmètres</b> "
         "diffèrent, et personne n'est chargé de les réconcilier.",
@@ -210,31 +212,40 @@ def constat() -> str:
             (
                 ("Solidaires Finances Publiques", "2019", "Fraude fiscale, tous impôts",
                  "80 à 100 Md&nbsp;€/an"),
+                ("G. Zucman, repris par la Cour des comptes", "2025",
+                 "Fraude fiscale", "70 à 80 Md&nbsp;€/an"),
                 ("Conseil des prélèvements obligatoires", "2007",
                  "Fraude aux prélèvements obligatoires", "29 à 40 Md&nbsp;€/an"),
-                ("Insee", "2022 (année 2012)", "TVA seule", "20 à 25 Md&nbsp;€"),
+                ("Insee", "2022 (année 2012)", "TVA seule", "20 à 26 Md&nbsp;€"),
                 ("Commission européenne, <i>VAT&nbsp;Gap</i>", "2023 (année 2021)",
                  "TVA seule, fraude <b>et</b> erreurs et défaillances",
-                 "≈ 9 Md&nbsp;€, soit ≈ 5&nbsp;% des recettes théoriques"),
-                ("Cour des comptes", "2023", "Fraude fiscale",
-                 "Aucun chiffrage&nbsp;: la Cour constate qu'il n'existe pas "
-                 "d'estimation fiable et récente"),
+                 "≈ 9,6 Md&nbsp;€, soit 4,9&nbsp;% des recettes théoriques"),
+                ("DGFiP, travaux préliminaires", "2024",
+                 "TVA <b>déclarée</b> seule", "6 à 10 Md&nbsp;€"),
+                ("<b>Cour des comptes</b>", "décembre&nbsp;2025",
+                 "Fraude fiscale",
+                 "<b>Aucun chiffrage.</b> La Cour refuse d'arbitrer entre les "
+                 "estimations en circulation et recommande de mesurer l'écart "
+                 "fiscal, ce qu'une trentaine d'administrations de l'OCDE font "
+                 "déjà"),
             ),
             ("texte", "date", "long", "long"),
         ),
         "Les périmètres ne se recouvrent pas et les millésimes s'échelonnent "
-        "sur quinze ans&nbsp;: ce tableau ne dit pas laquelle de ces "
+        "sur dix-huit ans&nbsp;: ce tableau ne dit pas laquelle de ces "
         "estimations est juste, il dit qu'aucune institution n'est chargée de "
-        "le trancher. Voir <a href=\"sources.html#fiscal\">Sources</a>.",
+        "le trancher — et que la Cour des comptes le constatait encore en "
+        "décembre&nbsp;2025. Voir "
+        "<a href=\"sources.html#fiscal\">Sources</a>.",
         "fiscale",
     )
 
     corps += cle(
         "Le contrôle fiscal rapporte-t-il ?",
-        "Il notifie de l'ordre de 15&nbsp;milliards d'euros par an et en "
-        "encaisse environ 10. <b>L'écart d'un tiers est structurel</b>, et "
-        "c'est lui qu'il faudrait suivre&nbsp;: un redressement annoncé et "
-        "jamais recouvré ne finance rien.",
+        "Il notifie 17,1&nbsp;milliards d'euros en 2025 et en encaisse 11,4. "
+        "L'écart d'un tiers est structurel — et <b>il se creuse</b>&nbsp;: la "
+        "part encaissée est passée de 80&nbsp;% en 2021 à 67&nbsp;% en 2025, "
+        "pendant que le montant annoncé, lui, monte.",
         tableau(
             "Contrôle fiscal : droits et pénalités notifiés puis encaissés (ordres de grandeur)",
             ("Année", "Notifié", "Encaissé", "Part encaissée"),
@@ -245,45 +256,61 @@ def constat() -> str:
                 ("2021", "≈ 13,4 Md&nbsp;€", "≈ 10,7 Md&nbsp;€", "≈ 80&nbsp;%"),
                 ("2022", "≈ 14,6 Md&nbsp;€", "≈ 10,6 Md&nbsp;€", "≈ 73&nbsp;%"),
                 ("2023", "≈ 15,2 Md&nbsp;€", "≈ 10,6 Md&nbsp;€", "≈ 70&nbsp;%"),
+                ("2024", "16,7 Md&nbsp;€", "11,4 Md&nbsp;€", "≈ 68&nbsp;%"),
+                ("<b>2025</b>", "<b>17,1 Md&nbsp;€</b>", "<b>11,4 Md&nbsp;€</b>",
+                 "<b>≈ 67&nbsp;%</b>"),
             ),
             ("date", "nombre", "nombre", "nombre"),
-        ),
-        "Ordres de grandeur arrondis, tels qu'ils ressortent des rapports "
-        "d'activité et des communiqués annuels de la DGFiP&nbsp;; les "
-        "périmètres de publication ont évolué sur la période, et les montants "
-        "encaissés une année donnée portent en partie sur des contrôles "
-        "antérieurs. À lire comme une tendance, pas comme une comptabilité.",
+        )
+        + "<p>Le montant annoncé est un mauvais indicateur pour une seconde "
+        "raison, que la Cour des comptes établit en décembre&nbsp;2025&nbsp;: "
+        "<b>rapporté aux recettes fiscales, le rendement du contrôle recule</b>"
+        " — de 4,3&nbsp;% en 2015 à 2,8&nbsp;% en 2024. Il progresse en euros "
+        "courants et décroît en proportion de ce qu'il devrait protéger.</p>",
+        "Chiffres des rapports d'activité et communiqués annuels de la "
+        "DGFiP&nbsp;; les périmètres de publication ont évolué sur la période, "
+        "et les montants encaissés une année donnée portent en partie sur des "
+        "contrôles antérieurs. À lire comme une tendance, pas comme une "
+        "comptabilité. Voir <a href=\"sources.html#fiscal\">Sources</a>.",
         "controle",
     )
 
     corps += cle(
         "Et la fraude sociale ?",
-        "Elle est réelle, et elle est <b>plus petite d'un ordre de grandeur</b> "
-        "que la fraude aux prélèvements. Le dire n'est pas l'excuser&nbsp;: "
-        "c'est refuser de se tromper de cible.",
+        "Elle est réelle, elle est mieux mesurée que la fraude fiscale, et "
+        "elle reste <b>plus petite d'un ordre de grandeur</b> que ce qui "
+        "échappe aux prélèvements. Le dire n'est pas l'excuser&nbsp;: c'est "
+        "refuser de se tromper de cible.",
         tableau(
             "Fraude sociale : estimations et montants détectés",
             ("Poste", "Source", "Nature", "Montant"),
             (
-                ("Cotisations sociales éludées", "HCFiPS, 2022",
-                 "Estimation (travail dissimulé)", "6,8 à 8,4 Md&nbsp;€/an"),
-                ("Prestations familiales et RSA", "CNAF",
+                ("<b>Fraude sociale, toutes natures</b>", "HCFiPS, 2025",
+                 "Estimation&nbsp;; 17,5&nbsp;Md&nbsp;€ si l'on y ajoute les "
+                 "erreurs de bonne foi", "<b>≈ 14 Md&nbsp;€/an</b>"),
+                ("dont cotisations éludées", "HCFiPS, décembre&nbsp;2024",
+                 "Travail dissimulé, salariés du privé non agricole",
+                 "6 à 7,8 Md&nbsp;€/an"),
+                ("dont prestations familiales et RSA", "CNAF",
                  "Préjudice estimé par la caisse", "≈ 2,5 à 3 Md&nbsp;€/an"),
-                ("Assurance maladie", "CNAM",
-                 "Fraude <b>détectée et stoppée</b>", "≈ 0,5 Md&nbsp;€ en 2023"),
-                ("Toutes branches", "Ministère des comptes publics",
-                 "Fraude <b>détectée et stoppée</b>", "≈ 2,1 Md&nbsp;€ en 2023"),
-                ("<b>Pour mémoire&nbsp;:</b> non-recours au RSA", "DREES, 2022",
-                 "Droits non réclamés par des allocataires éligibles",
-                 "≈ 34&nbsp;% des éligibles chaque trimestre"),
+                ("Travail dissimulé redressé", "URSSAF, 2025",
+                 "Redressements notifiés", "1,5 Md&nbsp;€"),
+                ("Toutes branches", "Sécurité sociale, 2024",
+                 "Fraude <b>détectée et redressée</b>", "≈ 2,9 Md&nbsp;€"),
+                ("<b>Pour mémoire&nbsp;:</b> non-recours au RSA",
+                 "DREES, mai&nbsp;2026",
+                 "Foyers éligibles ne percevant pas la prestation (fin 2021)",
+                 "33 à 37&nbsp;%, soit ≈ 560&nbsp;000 foyers"),
             ),
             ("texte", "texte", "long", "nombre"),
         ),
-        "La dernière ligne n'est pas une provocation&nbsp;: un système que "
-        "l'on rend plus contrôlable doit l'être dans les deux sens, et un tiers "
-        "d'allocataires qui ne réclament pas ce à quoi ils ont droit est le "
-        "symptôme de la même complexité. Voir "
-        "<a href=\"sources.html#social\">Sources</a>.",
+        "Deux remarques. La fraude sociale est <b>mieux estimée que la fraude "
+        "fiscale</b> — il existe un chiffre annuel, révisé, discuté&nbsp;; "
+        "c'est exactement ce qui manque de l'autre côté, et cela montre que "
+        "notre mesure n°&nbsp;8 n'a rien d'irréaliste. Et la dernière ligne "
+        "n'est pas une provocation&nbsp;: un tiers d'allocataires qui ne "
+        "réclament pas ce à quoi ils ont droit est le symptôme de la même "
+        "complexité. Voir <a href=\"sources.html#social\">Sources</a>.",
         "sociale",
     )
 
@@ -303,6 +330,7 @@ def constat() -> str:
                 ("2022", "72", "21ᵉ"),
                 ("2023", "71", "20ᵉ"),
                 ("2024", "67", "25ᵉ"),
+                ("<b>2025</b>", "<b>66</b>", "<b>27ᵉ sur 182</b>"),
             ),
             ("date", "nombre", "nombre"),
         )
@@ -313,27 +341,31 @@ def constat() -> str:
         "recommande de comparer <b>les notes et non les rangs</b>, le nombre "
         "de pays évalués et les sources retenues variant d'un millésime à "
         "l'autre. Ce qui est significatif ici, c'est donc le passage de 72 à "
-        "67 en deux ans — pas le recul de cinq places, que nous donnons pour "
+        "66 en trois ans — pas le recul de six places, que nous donnons pour "
         "mémoire. Deux autres signaux complètent le tableau&nbsp;:</p>"
         "<p>— le <b>GRECO</b>, organe anticorruption du Conseil de l'Europe, "
         "classe la France en conformité seulement <i>partielle</i> sur la "
         "majorité des recommandations de son cinquième cycle, qui porte sur "
         "les hautes fonctions de l'exécutif et les services répressifs&nbsp;;<br>"
-        "— la justice prononce de l'ordre de <b>250 à 300 condamnations par "
-        "an</b> pour atteintes à la probité — corruption, favoritisme, prise "
-        "illégale d'intérêts, détournement de fonds publics —, un chiffre "
-        "stable et sans commune mesure avec les estimations de l'ampleur du "
-        "phénomène.</p>",
-        "Dernier millésime repris ici&nbsp;: 2024. Voir "
+        "— la justice condamne, d'après l'analyse de l'AFA portant sur "
+        "2016-2022, de l'ordre de <b>400 infractions par an</b> au titre des "
+        "atteintes à la probité — corruption, favoritisme, prise illégale "
+        "d'intérêts, détournement de fonds publics —, soit environ "
+        "3&nbsp;000 sur la période et 502 pour la seule année 2022. Un ordre "
+        "de grandeur sans commune mesure avec l'ampleur supposée du "
+        "phénomène&nbsp;; et il s'agit d'<i>infractions</i> sanctionnées, non "
+        "de personnes, une même décision pouvant en retenir plusieurs.</p>",
+        "Dernier millésime repris ici&nbsp;: 2025 pour l'indice, 2022 pour "
+        "les condamnations. Voir "
         "<a href=\"sources.html#corruption\">Sources</a>.",
         "corruption",
     )
 
     corps += cle(
         "Où la corruption se joue-t-elle ?",
-        "Dans la <b>commande publique</b>, d'abord&nbsp;: de l'ordre de "
-        "160&nbsp;milliards d'euros par an, près de 6&nbsp;% du PIB, et le "
-        "premier poste de risque identifié par toutes les évaluations.",
+        "Dans la <b>commande publique</b>, d'abord&nbsp;: "
+        "233&nbsp;milliards d'euros recensés en 2024, près de 8&nbsp;% du PIB, "
+        "et le premier poste de risque identifié par toutes les évaluations.",
         "<p>La Commission européenne estimait en 2014 le coût de la corruption "
         "pour l'Union à environ <b>120&nbsp;milliards d'euros par an</b>&nbsp;; "
         "une étude du Parlement européen de 2016, retenant un périmètre plus "
@@ -341,6 +373,15 @@ def constat() -> str:
         "L'écart de un à huit entre deux travaux européens — l'un de la "
         "Commission, l'autre du Parlement — dit l'état réel de la "
         "connaissance.</p>"
+        "<p><b>Une démonstration, offerte par le recensement lui-même.</b> Le "
+        "montant recensé bondit de ≈ 160 à 233&nbsp;Md&nbsp;€ en 2024 — non "
+        "parce que l'achat public aurait explosé, mais parce que le seuil de "
+        "déclaration obligatoire est passé de 90&nbsp;000 à "
+        "40&nbsp;000&nbsp;€. Soixante-dix milliards d'euros de contrats "
+        "existaient déjà&nbsp;; ils n'étaient simplement pas comptés. C'est "
+        "tout l'argument de ce site en une ligne&nbsp;: <i>on ne connaît que "
+        "ce que l'on mesure</i>. Le secteur public <b>local</b> en concentre "
+        "100,7&nbsp;Md&nbsp;€, soit 43&nbsp;% du total.</p>"
         "<p>Trois traits rendent le risque français particulier&nbsp;:</p>"
         "<p>— les <b>seuils de dispense de publicité</b> ont été relevés à "
         "plusieurs reprises depuis 2020, jusqu'à 100&nbsp;000&nbsp;€ pour "
@@ -365,15 +406,17 @@ répondre aujourd'hui&nbsp;:</p>
         ("Question", "État de la connaissance"),
         (
             ("Quel est l'écart entre l'impôt dû et l'impôt perçu&nbsp;?",
-             "Aucune estimation officielle, aucune série. Le Royaume-Uni la "
-             "publie chaque année depuis 2005, l'Italie, la Suède et les "
-             "États-Unis également."),
+             "Aucune estimation officielle, aucune série — la Cour des comptes "
+             "le constate encore en décembre&nbsp;2025, hors travaux "
+             "préliminaires sur la seule TVA. Une <b>trentaine "
+             "d'administrations de l'OCDE</b> en publient un régulièrement, "
+             "dont le Royaume-Uni depuis 2005."),
             ("Combien de fraude est détectée, rapportée à la fraude commise&nbsp;?",
              "Inconnu, faute de dénominateur. On publie le numérateur — les "
              "montants détectés — et on l'appelle un résultat."),
             ("Quel est le taux de recouvrement effectif, service par service&nbsp;?",
              "Agrégé au niveau national, jamais détaillé publiquement."),
-            ("Combien coûtent les 470 dépenses fiscales, et lesquelles sont "
+            ("Combien coûtent les 465 dépenses fiscales, et lesquelles sont "
              "détournées&nbsp;?",
              "Le coût est publié chaque année dans l'annexe « Voies et moyens » "
              "du budget&nbsp;; l'évaluation de leur efficacité et de leur "
@@ -390,11 +433,14 @@ répondre aujourd'hui&nbsp;:</p>
 <p><b>Une objection nous est faite ici, et elle est juste&nbsp;:</b> le plan
 antifraude de 2023 a créé un <i>conseil d'évaluation des fraudes</i>, chargé
 précisément de produire ces estimations. Nous en prenons acte. Mais un conseil
-qui délibère n'est pas une série publiée&nbsp;: tant qu'il n'existe pas une
-estimation annuelle, de méthode publiée et critiquable, révisable d'un exercice
-à l'autre et débattue au Parlement avant le vote du budget, le dénominateur
-manque. C'est la différence entre une instance et une statistique, et c'est
-tout l'objet de la mesure n°&nbsp;8.</p>
+qui délibère n'est pas une série publiée&nbsp;: <b>deux ans après son
+installation, la Cour des comptes constate en décembre&nbsp;2025 qu'il n'existe
+toujours pas d'estimation de l'écart fiscal</b>, hors travaux préliminaires sur
+la seule TVA déclarée. Tant qu'il n'y a pas d'estimation annuelle, de méthode
+publiée et critiquable, révisable d'un exercice à l'autre et débattue au
+Parlement avant le vote du budget, le dénominateur manque. C'est la différence
+entre une instance et une statistique, et c'est tout l'objet de la mesure
+n°&nbsp;8.</p>
 """
 
     corps += vigilance(
@@ -450,8 +496,8 @@ def dispositif() -> str:
          "Deux ministères, quatre autorités ou agences, trois réseaux "
          "juridictionnels, cinq caisses."),
         ("Amendes des conventions judiciaires", "≈ 4 Md €",
-         "Cumul des CJIP conclues depuis 2016, dont 2,08&nbsp;Md&nbsp;€ pour "
-         "la seule affaire Airbus (2020)."),
+         "Cumul des 22 CJIP conclues entre 2016 et décembre&nbsp;2024, dont "
+         "2,08&nbsp;Md&nbsp;€ pour la seule affaire Airbus (2020)."),
         ("Agents promis au contrôle fiscal", "+ 1 500",
          "D'ici 2027, annoncés par le plan antifraude de mai 2023 — après une "
          "décennie de baisse des effectifs."),
@@ -527,8 +573,9 @@ colonnes qui est instructive.</p>
         (
             ("DGFiP — contrôle fiscal", "—",
              "Contrôle et recouvrement de l'impôt",
-             "≈ 10&nbsp;000 agents dédiés au contrôle, contre ≈ 13&nbsp;000 "
-             "au début des années 2010"),
+             "≈ 10&nbsp;000 agents dédiés au contrôle&nbsp;: −19&nbsp;% "
+             "entre 2015 et 2024 (Cour des comptes), sur une DGFiP qui a perdu "
+             "plus de 30&nbsp;000 emplois depuis 2008"),
             ("TRACFIN", "1990",
              "Cellule de renseignement financier&nbsp;: reçoit les "
              "déclarations de soupçon des banques, notaires, casinos",
@@ -596,11 +643,12 @@ l'administration les met en avant.</p>
 """
     corps += points((
         ("Le contrôle fiscal tient",
-         "≈ 15&nbsp;Md&nbsp;€ notifiés par an, en hausse depuis 2020. "
-         "<b>Mais</b> environ un tiers n'est jamais encaissé, et ce montant "
-         "rapporté aux estimations basses de la fraude reste minoritaire."),
+         "17,1&nbsp;Md&nbsp;€ notifiés en 2025, en hausse continue depuis "
+         "2020. <b>Mais</b> la part encaissée tombe de 80&nbsp;% (2021) à "
+         "67&nbsp;% (2025), et le rendement rapporté aux recettes fiscales "
+         "recule de 4,3&nbsp;% (2015) à 2,8&nbsp;% (2024)."),
         ("Les grandes entreprises transigent",
-         "Une quarantaine de CJIP depuis 2016, ≈ 4&nbsp;Md&nbsp;€ d'amendes. "
+         "Vingt-deux CJIP entre 2016 et 2024, ≈ 4&nbsp;Md&nbsp;€ d'amendes. "
          "<b>Mais</b> la convention éteint les poursuites sans reconnaissance "
          "de culpabilité, et n'entraîne pas d'exclusion des marchés publics."),
         ("La coordination existe enfin",
@@ -695,18 +743,22 @@ def diagnostic() -> str:
     ))
 
     corps += reperes((
-        ("Dépenses fiscales recensées", "≈ 470",
-         "Pour plus de 80&nbsp;Md&nbsp;€ par an&nbsp;: autant de régimes "
-         "particuliers, autant de frontières à contourner "
-         "(annexe « Voies et moyens » du budget)."),
-        ("Taux de prélèvements obligatoires", "≈ 43 % du PIB",
-         "Au plus haut niveau de l'Union européenne, au coude à coude avec le "
-         "Danemark selon le millésime (Eurostat)."),
-        ("Part des redressements jamais encaissée", "≈ 1/3",
-         "Chaque année, de façon structurelle (DGFiP)."),
+        ("Dépenses fiscales recensées", "465",
+         "Pour 88,3&nbsp;Md&nbsp;€ en 2026&nbsp;: autant de régimes "
+         "particuliers, autant de frontières à contourner (annexe « Voies et "
+         "moyens » du projet de loi de finances pour 2026)."),
+        ("Taux de prélèvements obligatoires", "43,6 % du PIB",
+         "En 2025, net des crédits d'impôt (Insee). Selon la définition "
+         "d'Eurostat, qui inclut les cotisations imputées&nbsp;: 45,3&nbsp;% "
+         "en 2024, <b>deuxième rang de l'Union derrière le Danemark</b> "
+         "(45,8&nbsp;%)."),
+        ("Part des redressements jamais encaissée", "≈ 33 %",
+         "En 2025. Elle n'était que de 20&nbsp;% en 2021&nbsp;: l'écart se "
+         "creuse (DGFiP)."),
         ("Registre des bénéficiaires effectifs", "fermé",
          "Accès public restreint depuis l'arrêt de la CJUE de "
-         "novembre&nbsp;2022."),
+         "novembre&nbsp;2022&nbsp;; le délai européen de réouverture aux "
+         "porteurs d'un intérêt légitime a expiré le 10&nbsp;juillet&nbsp;2026."),
     ))
 
     corps += cle(
@@ -715,8 +767,8 @@ def diagnostic() -> str:
         "<b>arbitrage de frontière</b>. Plus il y a de régimes particuliers, "
         "plus il y a de frontières, et plus il est facile de se ranger du bon "
         "côté d'une ligne qu'on a soi-même dessinée.",
-        "<p>Près de 470 dépenses fiscales, plus de 80&nbsp;milliards d'euros "
-        "par an, un code général des impôts de plusieurs milliers de pages, un "
+        "<p>465 dépenses fiscales pour 88,3&nbsp;milliards d'euros en 2026, "
+        "un code général des impôts de plusieurs milliers de pages, un "
         "code du travail et un code de la sécurité sociale du même ordre. À "
         "chaque niche correspond une définition, à chaque définition une zone "
         "grise, et à chaque zone grise une industrie du conseil dont le métier "
@@ -757,7 +809,8 @@ def diagnostic() -> str:
         "déclare, et où il faut donc croire sur parole.</p>"
         "<p><b>Et le niveau des prélèvements&nbsp;?</b> Nous avons d'abord "
         "écrit ici que la France prélevant au plus haut niveau de l'Union — "
-        "environ 43&nbsp;% du PIB, au coude à coude avec le Danemark —, un "
+        "elle est en réalité <b>deuxième</b>, à 45,3&nbsp;% du PIB en 2024 "
+        "selon Eurostat, derrière le Danemark et ses 45,8&nbsp;% —, un "
         "taux élevé appelait mécaniquement la fraude. C'est plus incertain "
         "que nous ne l'avions écrit, et il faut le dire&nbsp;: dans le modèle "
         "d'Allingham et Sandmo (1972) que nous invoquions, le signe de cet "
@@ -783,10 +836,11 @@ def diagnostic() -> str:
 
     corps += cle(
         "3. On notifie, on n'encaisse pas",
-        "Chaque année, l'administration annonce un montant de redressements. "
-        "Chaque année, <b>environ un tiers n'est jamais recouvré</b> — "
-        "entreprises liquidées, avoirs déplacés, contentieux qui s'éternisent. "
-        "Le chiffre annoncé n'est pas le chiffre rentré.",
+        "L'administration annonce un montant de redressements qui monte "
+        "— 17,1&nbsp;Md&nbsp;€ en 2025. La part qu'elle encaisse, elle, "
+        "descend&nbsp;: <b>de 80&nbsp;% en 2021 à 67&nbsp;% en 2025</b>. "
+        "Entreprises liquidées, avoirs déplacés, contentieux qui s'éternisent. "
+        "Le chiffre annoncé n'est pas le chiffre rentré, et l'écart grandit.",
         "<p>Le problème est d'abord un problème d'indicateur. L'administration "
         "est jugée sur ce qu'elle notifie&nbsp;; elle publie donc ce qu'elle "
         "notifie. Le taux d'encaissement effectif, lui, n'est pas détaillé "
@@ -809,7 +863,11 @@ def diagnostic() -> str:
         "public au registre des bénéficiaires effectifs des sociétés est "
         "restreint. La décision protège un droit réel — la vie privée — mais "
         "elle a privé journalistes, chercheurs et ONG de l'outil qui avait "
-        "permis la plupart des révélations de la décennie.</p>"
+        "permis la plupart des révélations de la décennie. Le paquet "
+        "anti-blanchiment de 2024 organise sa réouverture aux porteurs d'un "
+        "intérêt légitime&nbsp;: le délai de transposition de ces articles a "
+        "expiré le <b>10&nbsp;juillet&nbsp;2026</b>, et le registre n'est "
+        "toujours pas rouvert.</p>"
         "<p><b>La commande publique.</b> Les données existent, mais dispersées "
         "entre des centaines de profils d'acheteurs, publiées avec retard, "
         "dans des formats hétérogènes, et sans les avenants — qui font "
@@ -846,10 +904,10 @@ def diagnostic() -> str:
 
     corps += cle(
         "6. Les moyens ne suivent pas le discours",
-        "Entre le début des années 2010 et 2020, les effectifs du contrôle "
-        "fiscal ont baissé d'environ un quart. Le plan de 2023 promet "
-        "1&nbsp;500 agents d'ici 2027&nbsp;: <b>cela ne rattrape pas ce qui a "
-        "été perdu</b>.",
+        "Les effectifs du contrôle fiscal ont baissé de <b>19&nbsp;% entre "
+        "2015 et 2024</b> — le chiffre est de la Cour des comptes, "
+        "décembre&nbsp;2025. Le plan de 2023 promet 1&nbsp;500 agents d'ici "
+        "2027&nbsp;: cela ne rattrape pas ce qui a été perdu.",
         "<p>Le contraste est plus net encore sur le versant anticorruption. "
         "L'Agence française anticorruption compte de l'ordre de 50 agents pour "
         "contrôler les programmes de conformité de milliers d'entreprises et "
@@ -857,6 +915,12 @@ def diagnostic() -> str:
         "publique en compte une soixantaine pour ≈ 16&nbsp;000 déclarants. Le "
         "parquet national financier, une vingtaine de magistrats pour des "
         "centaines de procédures, souvent internationales.</p>"
+        "<p>Le même reflux se lit du côté pénal, et la Cour des comptes le "
+        "documente&nbsp;: les poursuites pour fraude fiscale sont passées de "
+        "plus de <b>850 par an avant 2018 à environ 700 en 2023-2024</b>, et "
+        "le taux moyen des sanctions fiscales est tombé de 30&nbsp;% de "
+        "l'impôt éludé en 2015 à <b>15&nbsp;% dix ans plus tard</b>. Pendant "
+        "que le discours durcit, la sanction s'allège.</p>"
         "<p>Ce n'est pas une question de budget global&nbsp;: les sommes en "
         "jeu sont dérisoires au regard des montants récupérés. C'est une "
         "question de priorité affichée.</p>",
@@ -960,9 +1024,9 @@ trois, et c'est le plus déterminant.</p>
          "<p>Une assiette large et des régimes voisins peu dissemblables "
          "produisent mécaniquement moins de frontières à contourner, moins de "
          "contentieux, et moins de fraude involontaire.</p>",
-         "près de 470 dépenses fiscales pour plus de 80&nbsp;Md&nbsp;€, "
-         "recensées chaque année dans l'annexe « Voies et moyens » du budget, "
-         "et dont une minorité seulement a fait l'objet d'une évaluation."),
+         "465 dépenses fiscales pour 88,3&nbsp;Md&nbsp;€ en 2026, recensées "
+         "chaque année dans l'annexe « Voies et moyens » du budget, et dont "
+         "une minorité seulement a fait l'objet d'une évaluation."),
 
         ("Un droit fiscal opposable : rescrit de droit sous trois mois",
          "<p>Toute personne, physique ou morale, peut demander à "
@@ -995,9 +1059,10 @@ trois, et c'est le plus déterminant.</p>
          "source par source, à mesure qu'un tiers peut déclarer à la place de "
          "l'allocataire.</p>",
          "l'allocataire déclare lui-même ses ressources, plusieurs fois par "
-         "an&nbsp;; la DREES estime qu'environ un tiers des éligibles au RSA "
-         "ne le demandent pas, pendant que les caisses poursuivent des indus "
-         "qu'elles ont elles-mêmes provoqués."),
+         "an&nbsp;; la DREES estime en mai&nbsp;2026 que 33 à 37&nbsp;% des "
+         "foyers éligibles au RSA ne le perçoivent pas — environ "
+         "560&nbsp;000 foyers —, pendant que les caisses poursuivent des "
+         "indus qu'elles ont elles-mêmes provoqués."),
     ))
 
     corps += """
@@ -1042,9 +1107,12 @@ ne commence pas par le sien ne mérite pas d'être cru.</p>
          "chercheurs, les ONG et les entreprises soumises à des obligations "
          "de vigilance — exactement le cadre que la Cour de justice de "
          "l'Union européenne a jugé proportionné, et que le paquet "
-         "anti-blanchiment européen de 2024 organise. La France le transpose "
-         "au maximum de ce que le droit permet, et non au minimum, dans le "
-         "délai qui lui est imparti.</p>"
+         "anti-blanchiment européen de 2024 organise. Le délai de "
+         "transposition de ces articles a <b>expiré le "
+         "10&nbsp;juillet&nbsp;2026</b> et le registre n'est toujours pas "
+         "rouvert&nbsp;: il ne s'agit donc plus de choisir, mais de rattraper "
+         "un retard — au maximum de ce que le droit permet, et non au "
+         "minimum.</p>"
          "<p><b>La déclaration pays par pays</b>&nbsp;: le droit européen "
          "impose déjà aux grands groupes de publier où ils réalisent leur "
          "chiffre d'affaires et où ils paient leur impôt. La France retient "
@@ -1054,9 +1122,10 @@ ne commence pas par le sien ne mérite pas d'être cru.</p>
          "<p>Aucune de ces deux obligations n'est nouvelle&nbsp;: l'une et "
          "l'autre rendent consultable ce qui est déjà déclaré.</p>",
          "l'accès du grand public au registre est restreint depuis l'arrêt de "
-         "la CJUE de novembre&nbsp;2022, et l'outil qui avait permis "
-         "l'essentiel des révélations de la décennie est devenu difficile "
-         "d'accès&nbsp;; "
+         "la CJUE de novembre&nbsp;2022, l'outil qui avait permis l'essentiel "
+         "des révélations de la décennie est devenu difficile d'accès, et le "
+         "délai européen de réouverture est dépassé depuis le "
+         "10&nbsp;juillet&nbsp;2026&nbsp;; "
          "les déclarations pays par pays existent mais sont publiées en ordre "
          "dispersé, sans format commun ni point d'accès unique."),
 
@@ -1110,9 +1179,10 @@ ne commence pas par le sien ne mérite pas d'être cru.</p>
          "budget.</p>"
          "<p>C'est la mesure qui rend toutes les autres évaluables. Sans "
          "dénominateur, « un milliard récupéré » ne veut rien dire.</p>",
-         "aucune estimation officielle consolidée n'existe&nbsp;; le "
-         "Royaume-Uni publie la sienne depuis 2005, l'Italie, la Suède et les "
-         "États-Unis également."),
+         "aucune estimation officielle consolidée n'existe — la Cour des "
+         "comptes le constate encore en décembre&nbsp;2025 et en fait sa "
+         "première recommandation&nbsp;; une trentaine d'administrations de "
+         "l'OCDE en publient une, dont le Royaume-Uni depuis 2005."),
     ), depart=4)
 
     corps += """
@@ -1285,7 +1355,7 @@ pas les moyens d'avoir tort demande une confiance qu'il n'a pas méritée.</p>
   possible, et surtout <b>notre degré de confiance</b> dans chaque ligne — y
   compris quand il est faible. La page <a href="objections.html">Objections</a>
   traite ensuite les neuf critiques les plus solides qui nous sont faites, dont
-  trois qui portent.</p>
+  quatre qui portent.</p>
   <p class="actions"><a class="bouton" href="chiffrage.html">Voir le chiffrage</a>
   <a class="bouton second" href="objections.html">Lire les objections</a></p>
 </div>
@@ -1394,11 +1464,11 @@ effectifs et la refonte des systèmes d'information.</p>
         ("texte", "long", "nombre", "texte"),
     )
     corps += """
-<p class="discret">À comparer aux ≈&nbsp;10,6&nbsp;Md&nbsp;€ que le seul
-contrôle fiscal a <b>effectivement encaissés</b> en 2023 — et non aux
-≈&nbsp;15&nbsp;Md&nbsp;€ notifiés, car la distinction que nous demandons à
-l'État vaut d'abord pour nous&nbsp;: le coût du programme représente de l'ordre
-de 2 à 3,5&nbsp;% de ce montant.</p>
+<p class="discret">À comparer aux 11,4&nbsp;Md&nbsp;€ que le seul contrôle
+fiscal a <b>effectivement encaissés</b> en 2025 — et non aux
+17,1&nbsp;Md&nbsp;€ notifiés, car la distinction que nous demandons à l'État
+vaut d'abord pour nous&nbsp;: le coût du programme représente de l'ordre de 2 à
+3&nbsp;% de ce montant.</p>
 """
 
     corps += '<h2 id="rendement" tabindex="-1">Ce que cela peut rapporter</h2>'
@@ -1420,15 +1490,16 @@ législature.</p>
              "résorbé", "Faible"),
             ("Publication intégrale de la commande publique",
              "Baisse des prix d'attribution et de la surfacturation&nbsp;; "
-             "effet dissuasif avant contrôle. Une baisse de 1&nbsp;% sur "
-             "≈ 160&nbsp;Md&nbsp;€ vaut 1,6&nbsp;Md&nbsp;€",
-             "0,5 à 3 Md&nbsp;€", "Moyenne"),
+             "effet dissuasif avant contrôle. Une baisse de 1&nbsp;% sur les "
+             "233&nbsp;Md&nbsp;€ recensés en 2024 vaut 2,3&nbsp;Md&nbsp;€",
+             "0,7 à 4,4 Md&nbsp;€", "Moyenne"),
             ("Recouvrement effectif renforcé",
-             "Ramener <b>durablement</b> la part encaissée de ≈ 70&nbsp;% "
-             "(2023) à ≈ 80&nbsp;% des montants notifiés — un niveau déjà "
+             "Ramener <b>durablement</b> la part encaissée de 67&nbsp;% "
+             "(2025) à ≈ 80&nbsp;% des montants notifiés — un niveau déjà "
              "atteint en 2019 et en 2021, ce qui rend le gain plausible mais "
-             "interdit de le présenter comme acquis",
-             "1 à 1,5 Md&nbsp;€", "Moyenne"),
+             "interdit de le présenter comme acquis. La borne basse retient "
+             "un simple retour au niveau de 2022",
+             "1 à 2,2 Md&nbsp;€", "Moyenne"),
             ("Prime au lanceur d'alerte",
              "Signalements exploitables sur des montages que le contrôle de "
              "routine ne voit pas",
@@ -1445,7 +1516,7 @@ législature.</p>
             ("<b>Ordre de grandeur agrégé</b>",
              "Somme des trois lignes chiffrables, hors effets non chiffrables "
              "et sans double compte",
-             "<b>≈ 1,7 à 5,5 Md&nbsp;€/an</b>", "Moyenne"),
+             "<b>≈ 1,9 à 7,6 Md&nbsp;€/an</b>", "Moyenne"),
         ),
         ("texte", "long", "nombre", "texte"),
     )
@@ -1510,8 +1581,8 @@ def objections() -> str:
         "Voici ce qu'on<br>nous oppose de<br>"
         '<span class="cle-texte">plus solide</span>',
         "Neuf objections, dans leur version la plus forte — pas la version "
-        "commode. Trois d'entre elles portent, au moins en partie, et nous le "
-        "disons. Un programme qui ne publie pas ses points faibles demande "
+        "commode. Quatre d'entre elles portent, au moins en partie, et nous "
+        "le disons. Un programme qui ne publie pas ses points faibles demande "
         "qu'on le croie sur parole&nbsp;; ce n'est pas ce que nous demandons.",
     )
 
@@ -1544,7 +1615,7 @@ def objections() -> str:
         "<p>Un rendement n'a pas besoin d'une assiette connue pour être "
         "estimé, s'il passe par un canal observable. Nous n'écrivons jamais "
         "« la fraude coûte X, nous en récupérerons Y&nbsp;% ». Nous écrivons "
-        "« la part encaissée des redressements est de 70&nbsp;%, la porter à "
+        "« la part encaissée des redressements est de 67&nbsp;%, la porter à "
         "80&nbsp;% vaut tant » — une règle de trois sur deux nombres "
         "publiés.</p>"
         "<p>Là où ce canal n'existe pas, la ligne ne porte aucun montant. Sur "
@@ -1564,7 +1635,7 @@ def objections() -> str:
     )
 
     corps += cle(
-        "« 1,7 à 5,5 milliards, c'est dérisoire au regard des enjeux »",
+        "« 1,9 à 7,6 milliards, c'est dérisoire au regard des enjeux »",
         "C'est exact, et c'est volontaire. <b>Tout programme qui annonce "
         "davantage vend une assiette pour un rendement</b> — la confusion la "
         "plus répandue du débat français.",
@@ -1583,12 +1654,12 @@ def objections() -> str:
         "compter.</p>"
         "<p>Enfin, la comparaison qui compte n'est pas au montant de la "
         "fraude&nbsp;: elle est au coût. Un programme qui coûte de 215 à "
-        "365&nbsp;M&nbsp;€ par an et en rapporte de 1,7 à "
-        "5,5&nbsp;Md&nbsp;€ rapporte <b>cinq fois sa mise dans l'hypothèse la "
-        "plus défavorable</b> — 1,7&nbsp;Md&nbsp;€ pour 365&nbsp;M&nbsp;€ — et "
-        "vingt-cinq fois dans la plus favorable. C'est la seule multiplication "
-        "de cette page que nous faisons dans les deux sens, et c'est exprès."
-        "</p>",
+        "365&nbsp;M&nbsp;€ par an et en rapporte de 1,9 à "
+        "7,6&nbsp;Md&nbsp;€ rapporte <b>cinq fois sa mise dans l'hypothèse la "
+        "plus défavorable</b> — 1,9&nbsp;Md&nbsp;€ pour 365&nbsp;M&nbsp;€ — et "
+        "trente-cinq fois dans la plus favorable. C'est la seule "
+        "multiplication de cette page que nous faisons dans les deux sens, et "
+        "c'est exprès.</p>",
         "",
         "maigre",
     )
@@ -1754,13 +1825,17 @@ def objections() -> str:
 
     corps += depliant(
         "Trois objections plus courtes, et leurs réponses",
-        "<p><b>« Vos chiffres datent. »</b> En partie vrai. Le contrôle "
-        "fiscal s'arrête à 2023, l'indice de perception à 2024, le "
-        "non-recours et les cotisations éludées à 2022 — ce sont les "
-        "millésimes publiés par ces sources à la date de notre dernière "
-        "revue. Quand une source publie plus récent et que ce site ne l'a pas "
-        "repris, c'est un défaut&nbsp;: il se signale sur le dépôt et se "
-        "corrige.</p>"
+        "<p><b>« Vos chiffres datent. »</b> L'objection a porté, et elle a "
+        "été traitée&nbsp;: contrôle fiscal 2025, indice de perception 2025, "
+        "non-recours au RSA publié en mai&nbsp;2026, commande publique 2024, "
+        "comptes publics 2025, dépenses fiscales du budget pour 2026. Deux "
+        "chiffres restent vieux et nous les gardons faute de mieux&nbsp;: "
+        "l'estimation du Conseil des prélèvements obligatoires (2007) et "
+        "l'étude de l'Insee sur la TVA (portant sur 2012). Leur ancienneté "
+        "n'est pas un défaut de ce site&nbsp;; <b>c'est le sujet de ce "
+        "site</b>. La liste complète des millésimes est sur "
+        "<a href=\"sources.html\">Sources</a>, et un retard se signale sur "
+        "le dépôt.</p>"
         "<p><b>« Vous ne créez aucune agence, mais vous ajoutez 2 000 "
         "agents. »</b> Les deux sont compatibles, et c'est le cœur de notre "
         "position&nbsp;: la France n'a pas besoin d'une quinzième institution, "
@@ -1778,22 +1853,25 @@ def objections() -> str:
     )
 
     corps += vigilance(
-        "<b>Trois des objections ci-dessus portent</b>, et nous l'écrivons à "
+        "<b>Quatre des objections ci-dessus portent</b>, et nous l'écrivons à "
         "l'endroit où on les lira&nbsp;: nous ne savons pas quelle fraction "
         "du problème ce programme traite tant que l'écart fiscal n'est pas "
         "publié&nbsp;; la neutralité de la réforme fiscale vaut en masse et "
         "non pour chaque contribuable&nbsp;; et notre première version "
         "soutenait sur le niveau des prélèvements une thèse que la "
         "littérature ne soutient pas, ce qui nous a valu de réécrire une "
-        "page. Les corrections sont dans l'historique du dépôt, à la vue de "
-        "tous."
+        "page&nbsp;; et notre estimation du rendement de la publication des "
+        "marchés repose sur une assiette qui a elle-même bougé de 160 à "
+        "233&nbsp;Md&nbsp;€ en un exercice, pour une raison de mesure et non "
+        "de dépense. Les corrections sont dans l'historique du dépôt, à la "
+        "vue de tous."
     )
 
     return page(
         "objections.html",
         "Objections — ce qu'on nous oppose, et ce que nous répondons",
         "Les neuf objections les plus solides faites à ce programme, dans "
-        "leur version la plus forte, et nos réponses — y compris les trois "
+        "leur version la plus forte, et nos réponses — y compris les quatre "
         "qui portent.",
         corps,
     )
@@ -1827,11 +1905,14 @@ def sources() -> str:
   détecter fait monter les chiffres sans que rien ait changé&nbsp;;<br>
   — un montant <b>notifié</b> n'est pas un montant <b>encaissé</b>.</p>
   <p>Les <b>millésimes</b> repris ici sont les plus récents publiés par chaque
-  source à la date de notre dernière revue&nbsp;: contrôle fiscal 2023 (DGFiP),
-  fraude sociale détectée 2023, cotisations éludées 2022 (HCFiPS), non-recours
-  2022 (DREES), indice de perception 2024 (Transparency International),
-  estimation du CPO 2007 — faute de plus récente. Quand une source publie un
-  millésime plus neuf et que ce site ne l'a pas repris, <b>c'est un
+  source à la date de notre dernière revue&nbsp;: contrôle fiscal 2025 (DGFiP),
+  fraude sociale 2025 et travail dissimulé décembre 2024 (HCFiPS), non-recours
+  au RSA mai 2026 (DREES), indice de perception 2025 (Transparency
+  International), commande publique 2024 (OECP), comptes publics 2025 (Insee),
+  dépenses fiscales du projet de loi de finances pour 2026, condamnations pour
+  atteinte à la probité 2016-2022 (AFA) et estimation du Conseil des
+  prélèvements obligatoires de 2007 — faute de plus récente. Quand une source
+  publie un millésime plus neuf et que ce site ne l'a pas repris, <b>c'est un
   défaut</b>&nbsp;: il se signale sur le dépôt et se corrige.</p>
   <p class="discret">Liens vérifiés en septembre&nbsp;2026.</p>
 </div>
@@ -1848,13 +1929,25 @@ def sources() -> str:
              "fraude.",
              _lien("ccomptes.fr — CPO",
                    "https://www.ccomptes.fr/fr/conseil-des-prelevements-obligatoires")),
-            ("Cour des comptes",
-             "Rapports annuels et thématiques&nbsp;; constat de l'absence "
-             "d'estimation fiable et récente de la fraude fiscale.",
-             _lien("ccomptes.fr", "https://www.ccomptes.fr/")),
+            ("<b>Cour des comptes</b>, <i>La lutte contre la fraude "
+             "fiscale</i>, rapport public thématique, 16&nbsp;décembre&nbsp;2025",
+             "La référence la plus récente et la plus complète. Elle "
+             "établit&nbsp;: l'absence d'estimation de l'écart fiscal et le "
+             "refus d'arbitrer entre les chiffres en circulation&nbsp;; le "
+             "recul du rendement du contrôle rapporté aux recettes fiscales, "
+             "de 4,3&nbsp;% (2015) à 2,8&nbsp;% (2024)&nbsp;; la baisse de "
+             "19&nbsp;% des effectifs du contrôle entre 2015 et 2024&nbsp;; "
+             "le reflux des poursuites pénales (plus de 850 par an avant 2018, "
+             "≈ 700 en 2023-2024) et du taux de sanction (30&nbsp;% de "
+             "l'impôt éludé en 2015, 15&nbsp;% dix ans plus tard).",
+             _lien("ccomptes.fr — La lutte contre la fraude fiscale",
+                   "https://www.ccomptes.fr/fr/publications/la-lutte-contre-la-fraude-fiscale")),
             ("DGFiP",
-             "Résultats annuels du contrôle fiscal&nbsp;: montants notifiés, "
-             "montants encaissés, nombre de contrôles.",
+             "Rapports d'activité et communiqués annuels&nbsp;: montants "
+             "notifiés et encaissés, nombre de contrôles. Millésime 2025 "
+             "retenu ici&nbsp;: 17,1&nbsp;Md&nbsp;€ notifiés, "
+             "11,4&nbsp;Md&nbsp;€ encaissés. Travaux préliminaires de 2024 sur "
+             "l'écart de TVA déclarée&nbsp;: 6 à 10&nbsp;Md&nbsp;€.",
              _lien("economie.gouv.fr — DGFiP",
                    "https://www.economie.gouv.fr/dgfip")),
             ("Insee",
@@ -1865,7 +1958,10 @@ def sources() -> str:
              "Rapports annuels <i>VAT Gap</i>&nbsp;: écart entre la TVA "
              "théorique et la TVA perçue, par État membre. Attention, le "
              "périmètre inclut les erreurs et les défaillances, pas seulement "
-             "la fraude.",
+             "la fraude. Édition de décembre&nbsp;2025, portant sur "
+             "2023&nbsp;: 128&nbsp;Md&nbsp;€ pour l'Union. Dernier chiffre "
+             "français que nous ayons pu vérifier&nbsp;: 9,6&nbsp;Md&nbsp;€ "
+             "et 4,9&nbsp;% des recettes pour 2021.",
              _lien("taxation-customs.ec.europa.eu — TVA",
                    "https://taxation-customs.ec.europa.eu/taxation/vat_en")),
             ("Solidaires Finances Publiques",
@@ -1888,9 +1984,14 @@ def sources() -> str:
         ("Source", "Ce qu'elle établit", "Où la trouver"),
         (
             ("Haut Conseil du financement de la protection sociale",
-             "Estimation de la fraude aux cotisations sociales&nbsp;: 6,8 à "
-             "8,4&nbsp;Md&nbsp;€ par an (rapport de 2022).",
-             _lien("securite-sociale.fr", "https://www.securite-sociale.fr/")),
+             "Note annuelle de suivi et d'évaluation des fraudes "
+             "sociales&nbsp;: ≈ 14&nbsp;Md&nbsp;€ estimés pour 2025, "
+             "17,5&nbsp;Md&nbsp;€ en y ajoutant les erreurs de bonne foi. "
+             "Observatoire du travail dissimulé (décembre&nbsp;2024)&nbsp;: "
+             "6 à 7,8&nbsp;Md&nbsp;€ par an pour les salariés du privé non "
+             "agricole.",
+             _lien("strategie-plan.gouv.fr — HCFiPS",
+                   "https://www.strategie-plan.gouv.fr/")),
             ("URSSAF Caisse nationale",
              "Résultats annuels de la lutte contre le travail "
              "dissimulé&nbsp;: montants redressés.",
@@ -1904,8 +2005,10 @@ def sources() -> str:
              "sociales et sur la fiabilité des données des caisses.",
              _lien("ccomptes.fr", "https://www.ccomptes.fr/")),
             ("DREES",
-             "Travaux sur le non-recours aux prestations&nbsp;: environ un "
-             "tiers des éligibles au RSA ne le demandent pas (étude de 2022).",
+             "<i>Études et résultats</i> n°&nbsp;1370, mai&nbsp;2026&nbsp;: "
+             "33 à 37&nbsp;% des foyers éligibles au RSA ne le percevaient "
+             "pas fin 2021, soit ≈ 560&nbsp;000 foyers et près d'un million "
+             "de personnes.",
              _lien("drees.solidarites-sante.gouv.fr",
                    "https://drees.solidarites-sante.gouv.fr/")),
         ),
@@ -1919,18 +2022,23 @@ def sources() -> str:
         (
             ("Transparency International",
              "Indice de perception de la corruption&nbsp;: note et rang de la "
-             "France, millésimes 2019 à 2024. Mesure une perception, pas un "
-             "nombre d'actes.",
-             _lien("transparency.org — CPI 2024",
-                   "https://www.transparency.org/en/cpi/2024")),
+             "France, millésimes 2019 à 2025 — 66/100 et 27ᵉ sur 182 en 2025. "
+             "Mesure une perception par des experts et des milieux "
+             "d'affaires, pas un nombre d'actes&nbsp;; l'organisation "
+             "recommande de comparer les notes et non les rangs.",
+             _lien("transparency.org — CPI 2025",
+                   "https://www.transparency.org/en/cpi/2025")),
             ("GRECO — Conseil de l'Europe",
              "Rapports d'évaluation et de conformité sur la France, "
              "notamment le cinquième cycle (hautes fonctions de l'exécutif et "
              "services répressifs).",
              _lien("coe.int — GRECO", "https://www.coe.int/fr/web/greco")),
             ("Agence française anticorruption",
-             "Rapports annuels, recommandations, données sur les "
-             "condamnations pour atteintes à la probité, suivi des CJIP.",
+             "Rapports annuels, recommandations, suivi des CJIP, et analyse "
+             "des condamnations pénales pour atteinte à la probité portant "
+             "sur 2016-2022&nbsp;: ≈ 3&nbsp;000 infractions sanctionnées sur "
+             "la période, soit de l'ordre de 400 par an, dont 502 pour la "
+             "seule année 2022.",
              _lien("agence-francaise-anticorruption.gouv.fr",
                    "https://www.agence-francaise-anticorruption.gouv.fr/")),
             ("Haute Autorité pour la transparence de la vie publique",
@@ -1961,16 +2069,29 @@ def sources() -> str:
         ("Source", "Ce qu'elle établit", "Où la trouver"),
         (
             ("Observatoire économique de la commande publique",
-             "Recensement annuel des marchés publics&nbsp;: montants, nombre "
-             "de contrats, répartition par acheteur.",
+             "Recensement annuel des marchés publics. Millésime 2024&nbsp;: "
+             "233,3&nbsp;Md&nbsp;€ pour 223&nbsp;383 marchés, dont "
+             "100,7&nbsp;Md&nbsp;€ pour le secteur public local. Le bond par "
+             "rapport aux exercices précédents tient pour l'essentiel à "
+             "l'abaissement du seuil de déclaration obligatoire de "
+             "90&nbsp;000 à 40&nbsp;000&nbsp;€&nbsp;: c'est la mesure qui a "
+             "changé, pas l'achat.",
              _lien("economie.gouv.fr — DAJ",
                    "https://www.economie.gouv.fr/daj")),
             ("Insee",
-             "Comptes nationaux&nbsp;: dépense publique, prélèvements "
-             "obligatoires, PIB.",
+             "<i>Le compte des administrations publiques en 2025</i>&nbsp;: "
+             "dépense publique de 1&nbsp;714,2&nbsp;Md&nbsp;€, soit "
+             "57,3&nbsp;% du PIB&nbsp;; taux de prélèvements obligatoires de "
+             "43,6&nbsp;% du PIB, net des crédits d'impôt.",
              _lien("insee.fr", "https://www.insee.fr/")),
             ("Eurostat",
-             "Comparaison européenne du taux de prélèvements obligatoires.",
+             "Comparaison européenne du taux de prélèvements obligatoires. "
+             "<b>Attention au périmètre&nbsp;:</b> Eurostat inclut les "
+             "cotisations sociales imputées et ne déduit pas les crédits "
+             "d'impôt, d'où 45,3&nbsp;% du PIB pour la France en 2024 quand "
+             "l'Insee retient 42,7&nbsp;%. Sur la définition d'Eurostat, la "
+             "France est <b>deuxième</b> de l'Union, derrière le Danemark "
+             "(45,8&nbsp;%) et devant la Belgique (45,1&nbsp;%).",
              _lien("ec.europa.eu/eurostat", "https://ec.europa.eu/eurostat")),
             ("data.gouv.fr",
              "Jeux de données publics existants&nbsp;: marchés, subventions, "
@@ -2017,6 +2138,18 @@ def sources() -> str:
             ("Directive (UE) 2019/1937 du 23 octobre 2019",
              "Protection des personnes qui signalent des violations du droit "
              "de l'Union."),
+            ("Directive (UE) 2021/2101 du 24 novembre 2021",
+             "Publication par les grands groupes des informations relatives à "
+             "l'impôt sur les bénéfices, pays par pays. Le fondement de la "
+             "seconde moitié de notre mesure n°&nbsp;5."),
+            ("Règlement (UE) 2024/1624 et directive (UE) 2024/1640 du "
+             "31 mai 2024 (paquet anti-blanchiment)",
+             "Réorganisent le cadre européen et rouvrent les registres de "
+             "bénéficiaires effectifs aux porteurs d'un intérêt légitime. La "
+             "transposition générale court jusqu'au 10&nbsp;juillet&nbsp;2027, "
+             "<b>mais les articles 11 à 13 et 15, qui portent précisément sur "
+             "ces registres, devaient l'être au 10&nbsp;juillet&nbsp;2026</b> "
+             "— échéance dépassée."),
             ("LOI n°&nbsp;2022-401 du 21 mars 2022 (Waserman)",
              "Amélioration de la protection des lanceurs d'alerte&nbsp;; "
              "transposition de la directive de 2019."),
@@ -2086,15 +2219,16 @@ des hypothèses, et ces hypothèses sont de nous. Les voici, isolées et nommée
              "en réutilisant des briques existantes plutôt qu'en repartant de "
              "zéro."),
             ("Effet de la publication des marchés",
-             "− 0,5 à − 3&nbsp;% sur ≈ 160&nbsp;Md&nbsp;€",
+             "− 0,3 à − 1,9&nbsp;% sur 233&nbsp;Md&nbsp;€",
              "Travaux sur <i>Prozorro</i> et sur l'ouverture des enchères "
-             "publiques. C'est notre hypothèse la plus incertaine&nbsp;; la "
-             "fourchette est large pour cette raison."),
+             "publiques, appliqués au montant recensé par l'OECP en 2024. "
+             "C'est notre hypothèse la plus incertaine&nbsp;; la fourchette "
+             "est large pour cette raison."),
             ("Part encaissée visée",
              "80 % des montants notifiés",
              "Niveau atteint en 2019 et en 2021 (DGFiP). Nous le retenons "
              "comme cible parce qu'il a déjà été observé, et non comme un "
-             "progrès inédit."),
+             "progrès inédit&nbsp;— la part est retombée à 67&nbsp;% en 2025."),
         ),
         ("texte", "nombre", "long"),
     )
