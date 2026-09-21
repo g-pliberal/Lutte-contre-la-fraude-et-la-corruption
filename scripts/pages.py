@@ -1,4 +1,4 @@
-"""Le contenu des sept pages.
+"""Le contenu des huit pages.
 
 Une fonction par page, qui rend le corps de ``<main>`` ; le gabarit fait le
 reste. Les chiffres sont tous datés et attribués : la page « Sources » tient la
@@ -22,7 +22,7 @@ def accueil() -> str:
         "Le programme",
         "La fraude prospère<br>là où l'État<br>"
         '<span class="cle-texte">est illisible</span>',
-        "La France prélève plus que tout autre pays de l'Union européenne et "
+        "La France prélève au plus haut niveau de l'Union européenne et "
         "dépense près de 1&nbsp;670&nbsp;milliards d'euros par an — sans publier "
         "le moindre chiffrage officiel de ce qui lui échappe. Notre programme "
         "tient en une phrase&nbsp;: rendre l'argent public traçable à l'euro "
@@ -37,7 +37,7 @@ def accueil() -> str:
   lois, ses agences, ses moyens, ses résultats — puis il propose <b>une
   alternative libérale</b>, mesure par mesure, avec son coût et ses limites.</p>
   <p class="actions">
-    <a class="bouton" href="programme.html">Lire les dix mesures</a>
+    <a class="bouton" href="programme.html">Lire les douze mesures</a>
     <a class="bouton second" href="constat.html">Commencer par les chiffres</a>
   </p>
 </div>
@@ -127,7 +127,7 @@ def accueil() -> str:
     corps += """
 <div class="creme">
   <p class="surtitre">La suite</p>
-  <h2 class="serif" style="text-transform:none">Six pages, et l'on a fait le tour</h2>
+  <h2 class="serif" style="text-transform:none">Sept pages, et l'on a fait le tour</h2>
   <p><a href="constat.html"><b>Constat</b></a> — ce que l'on sait et ce que
   l'on ne sait pas de la fraude et de la corruption en France, chiffre par
   chiffre.<br>
@@ -136,10 +136,12 @@ def accueil() -> str:
   qu'elles obtiennent.<br>
   <a href="diagnostic.html"><b>Diagnostic</b></a> — pourquoi ce dispositif
   plafonne, en sept causes.<br>
-  <a href="programme.html"><b>Programme</b></a> — les dix mesures, et ce que
-  chacune remplace.<br>
+  <a href="programme.html"><b>Programme</b></a> — les douze mesures, et ce
+  que chacune remplace.<br>
   <a href="chiffrage.html"><b>Chiffrage</b></a> — ce que cela coûte, ce que
   cela peut rapporter, et notre degré de confiance dans chaque ligne.<br>
+  <a href="objections.html"><b>Objections</b></a> — les neuf critiques les plus
+  solides qui nous sont faites, et nos réponses, dont trois qui concèdent.<br>
   <a href="sources.html"><b>Sources</b></a> — tout ce qui est cité, avec le
   lien et la date.</p>
 </div>
@@ -307,7 +309,12 @@ def constat() -> str:
         + "<p>L'indice mesure une <b>perception</b> par des experts et des "
         "milieux d'affaires, pas un nombre d'actes&nbsp;: il ne dit pas "
         "combien on vole, il dit ce que l'on croit. C'est une limite, et elle "
-        "vaut d'être écrite. Deux autres signaux la complètent&nbsp;:</p>"
+        "vaut d'être écrite. Une seconde&nbsp;: Transparency International "
+        "recommande de comparer <b>les notes et non les rangs</b>, le nombre "
+        "de pays évalués et les sources retenues variant d'un millésime à "
+        "l'autre. Ce qui est significatif ici, c'est donc le passage de 72 à "
+        "67 en deux ans — pas le recul de cinq places, que nous donnons pour "
+        "mémoire. Deux autres signaux complètent le tableau&nbsp;:</p>"
         "<p>— le <b>GRECO</b>, organe anticorruption du Conseil de l'Europe, "
         "classe la France en conformité seulement <i>partielle</i> sur la "
         "majorité des recommandations de son cinquième cycle, qui porte sur "
@@ -379,13 +386,26 @@ répondre aujourd'hui&nbsp;:</p>
         ("long", "long"),
     )
 
+    corps += """
+<p><b>Une objection nous est faite ici, et elle est juste&nbsp;:</b> le plan
+antifraude de 2023 a créé un <i>conseil d'évaluation des fraudes</i>, chargé
+précisément de produire ces estimations. Nous en prenons acte. Mais un conseil
+qui délibère n'est pas une série publiée&nbsp;: tant qu'il n'existe pas une
+estimation annuelle, de méthode publiée et critiquable, révisable d'un exercice
+à l'autre et débattue au Parlement avant le vote du budget, le dénominateur
+manque. C'est la différence entre une instance et une statistique, et c'est
+tout l'objet de la mesure n°&nbsp;8.</p>
+"""
+
     corps += vigilance(
         "<b>Une estimation n'est pas une mesure.</b> Toute la difficulté de "
         "cette page tient en une phrase&nbsp;: on ne connaît que la fraude que "
         "l'on a détectée, et détecter davantage fait monter les chiffres sans "
         "que la fraude ait bougé. C'est pourquoi nous ne prétendons pas "
         "« récupérer 100&nbsp;milliards » — et pourquoi notre premier "
-        "engagement porte sur la mesure elle-même."
+        "engagement porte sur la mesure elle-même. Les critiques adressées à "
+        "cette page sont traitées sur "
+        "<a href=\"objections.html#chiffrage\">Objections</a>."
     )
 
     return page(
@@ -659,14 +679,14 @@ def diagnostic() -> str:
         "On a multiplié<br>les gendarmes.<br>"
         '<span class="cle-texte">Pas la clarté.</span>',
         "Sept causes, et une seule idée derrière&nbsp;: un État qui écrit des "
-        "règles illisibles, prélève au taux le plus élevé d'Europe, garde ses "
-        "données pour lui et contrôle ses propres poursuites fabrique de la "
-        "fraude plus vite qu'il n'en réprime.",
+        "règles illisibles, multiplie les régimes voisins aux prélèvements "
+        "très différents, garde ses données pour lui et contrôle ses propres "
+        "poursuites fabrique de la fraude plus vite qu'il n'en réprime.",
     )
 
     corps += plan((
         ("complexite", "La complexité"),
-        ("taux", "Le taux"),
+        ("tiers", "La déclaration par un tiers"),
         ("recouvrement", "Le recouvrement"),
         ("opacite", "L'opacité"),
         ("poursuites", "Les poursuites"),
@@ -680,7 +700,8 @@ def diagnostic() -> str:
          "particuliers, autant de frontières à contourner "
          "(annexe « Voies et moyens » du budget)."),
         ("Taux de prélèvements obligatoires", "≈ 43 % du PIB",
-         "Le plus élevé de l'Union européenne avec le Danemark (Eurostat)."),
+         "Au plus haut niveau de l'Union européenne, au coude à coude avec le "
+         "Danemark selon le millésime (Eurostat)."),
         ("Part des redressements jamais encaissée", "≈ 1/3",
          "Chaque année, de façon structurelle (DGFiP)."),
         ("Registre des bénéficiaires effectifs", "fermé",
@@ -716,23 +737,48 @@ def diagnostic() -> str:
     )
 
     corps += cle(
-        "2. Le taux appelle la fraude",
-        "Ce n'est pas une excuse, c'est une régularité&nbsp;: <b>plus le taux "
-        "marginal est élevé, plus le gain espéré de la dissimulation est "
-        "grand</b>, à probabilité de contrôle inchangée. La France prélève "
-        "environ 43&nbsp;% du PIB, le plus haut niveau de l'Union.",
-        "<p>Cette mécanique est connue depuis les travaux d'Allingham et "
-        "Sandmo (1972) et elle a été vérifiée dans de nombreux pays&nbsp;: la "
-        "fraude répond au produit « gain attendu × probabilité d'impunité ». "
-        "Un État qui veut la réduire dispose donc de trois leviers, et non "
-        "d'un seul&nbsp;: baisser le gain, augmenter la probabilité de "
-        "détection, augmenter la sanction.</p>"
-        "<p>La France n'actionne, depuis trente ans, que les deux "
-        "derniers — et encore, imparfaitement. Le premier est traité comme un "
-        "sujet tabou, alors qu'il est le seul dont l'effet ne dépend ni du "
-        "nombre de contrôleurs ni de l'encombrement des tribunaux.</p>",
-        "",
-        "taux",
+        "2. Ce qui protège l'impôt, c'est la déclaration par un tiers",
+        "La régularité la mieux établie de toute la littérature n'est pas "
+        "celle du taux&nbsp;: <b>là où un employeur ou une banque déclare à la "
+        "place du contribuable, la fraude est marginale&nbsp;; là où l'on "
+        "s'auto-déclare, elle est massive</b> — à barème identique.",
+        "<p>Le contraste a été mesuré, et il est spectaculaire&nbsp;: sur les "
+        "revenus déclarés par un tiers, l'écart entre l'impôt dû et l'impôt "
+        "payé se compte en fractions de point&nbsp;; sur les revenus "
+        "auto-déclarés, il se compte en dizaines de points. Même contribuable, "
+        "même barème, même administration — seule change la personne qui "
+        "remplit la case.</p>"
+        "<p>Ce résultat commande le programme entier. La mesure n°&nbsp;3 — "
+        "verser les prestations à partir de données qu'un employeur a déjà "
+        "déclarées — n'est pas une mesure de confort&nbsp;: c'est "
+        "l'application directe de la seule chose que l'on sache faire contre "
+        "la fraude déclarative. Et la mesure n°&nbsp;1 s'y rattache&nbsp;: "
+        "chaque régime particulier ouvre une zone où plus aucun tiers ne "
+        "déclare, et où il faut donc croire sur parole.</p>"
+        "<p><b>Et le niveau des prélèvements&nbsp;?</b> Nous avons d'abord "
+        "écrit ici que la France prélevant au plus haut niveau de l'Union — "
+        "environ 43&nbsp;% du PIB, au coude à coude avec le Danemark —, un "
+        "taux élevé appelait mécaniquement la fraude. C'est plus incertain "
+        "que nous ne l'avions écrit, et il faut le dire&nbsp;: dans le modèle "
+        "d'Allingham et Sandmo (1972) que nous invoquions, le signe de cet "
+        "effet est ambigu, et Yitzhaki (1974) montre que lorsque la pénalité "
+        "est proportionnelle à l'impôt éludé — le cas français —, une hausse "
+        "du taux peut au contraire <i>réduire</i> la fraude.</p>"
+        "<p>Ce qui reste solide, c'est l'effet des <b>écarts</b> de taux, et "
+        "non celui de leur niveau. Quand un même travail supporte des "
+        "prélèvements qui varient de plusieurs dizaines de points selon qu'il "
+        "est salarié, auto-entrepreneur, en portage ou sur plateforme, "
+        "l'arbitrage n'est plus moral&nbsp;: il est offert par la règle. C'est "
+        "cette dispersion-là, et non la moyenne, qui fabrique du travail "
+        "dissimulé.</p>"
+        "<p class=\"discret\">Corollaire, et il oriente tout le bloc I du "
+        "programme&nbsp;: on ne réduit pas la fraude en baissant un taux "
+        "moyen, mais en supprimant les écarts entre régimes voisins et en "
+        "étendant la déclaration par un tiers partout où elle est "
+        "techniquement possible.</p>",
+        "Sur la correction apportée à cette section et sur l'objection qui "
+        "l'a provoquée, voir <a href=\"objections.html#taux\">Objections</a>.",
+        "tiers",
     )
 
     corps += cle(
@@ -864,24 +910,26 @@ def diagnostic() -> str:
 
 
 # ---------------------------------------------------------------------------
-# 5. Programme — les dix mesures
+# 5. Programme — les douze mesures
 # ---------------------------------------------------------------------------
 
 def programme() -> str:
     corps = affiche(
         "La proposition libérale",
-        "Dix mesures.<br>Aucune n'ajoute<br>"
+        "Douze mesures.<br>Aucune n'ajoute<br>"
         '<span class="cle-texte">une agence.</span>',
         "Trois blocs, dans l'ordre où ils doivent être menés&nbsp;: assécher "
         "la fraude en simplifiant la règle, l'exposer en publiant tout ce qui "
-        "est public, la sanctionner en rendant les poursuites indépendantes et "
-        "le recouvrement mesurable. Chaque mesure dit ce qu'elle remplace.",
+        "est public — à commencer par l'argent de la vie politique —, la "
+        "sanctionner en rendant les poursuites indépendantes et le "
+        "recouvrement mesurable. Chaque mesure dit ce qu'elle remplace.",
     )
 
     corps += plan((
         ("assecher", "Assécher"),
         ("exposer", "Exposer"),
         ("sanctionner", "Sanctionner"),
+        ("calendrier", "Le calendrier"),
         ("refus", "Ce que nous refusons"),
     ))
 
@@ -900,9 +948,18 @@ trois, et c'est le plus déterminant.</p>
          "la loi organique qui porte la réforme&nbsp;: sans elle, la "
          "simplification devient une hausse d'impôt déguisée, et la mesure se "
          "retourne contre son objet.</p>"
-         "<p>Une assiette large et un taux bas produisent mécaniquement moins "
-         "de frontières à contourner, moins de contentieux, et moins de fraude "
-         "involontaire.</p>",
+         "<p><b>Le mécanisme, et non la liste.</b> Toute dépense fiscale est "
+         "créée pour quatre ans au plus et s'éteint d'elle-même à ce terme, "
+         "sauf re-vote appuyé sur une évaluation indépendante publiée six "
+         "mois avant l'échéance. La charge de la preuve change de camp&nbsp;: "
+         "ce n'est plus à qui veut supprimer une niche de démontrer qu'elle "
+         "est inutile, c'est à qui veut la garder de démontrer qu'elle sert. "
+         "La liste des suppressions n'est donc pas arrêtée dans ce "
+         "programme&nbsp;: elle sort de l'évaluation, et elle est "
+         "publique.</p>"
+         "<p>Une assiette large et des régimes voisins peu dissemblables "
+         "produisent mécaniquement moins de frontières à contourner, moins de "
+         "contentieux, et moins de fraude involontaire.</p>",
          "près de 470 dépenses fiscales pour plus de 80&nbsp;Md&nbsp;€, "
          "recensées chaque année dans l'annexe « Voies et moyens » du budget, "
          "et dont une minorité seulement a fait l'objet d'une évaluation."),
@@ -928,7 +985,15 @@ trois, et c'est le plus déterminant.</p>
          "de ces données, sans déclaration de l'allocataire.</p>"
          "<p>Ce qui disparaît alors n'est pas seulement la fraude "
          "déclarative&nbsp;: c'est aussi l'indu de bonne foi, et une grande "
-         "partie du non-recours. Trois problèmes, une seule cause.</p>",
+         "partie du non-recours. Trois problèmes, une seule cause.</p>"
+         "<p><b>La limite, et il faut l'écrire.</b> La déclaration sociale "
+         "nominative ne connaît que ce qu'un employeur déclare. Les revenus "
+         "des indépendants, ceux du capital, les pensions alimentaires et le "
+         "patrimoine restent déclaratifs. La mesure couvre donc d'emblée la "
+         "majorité des situations, pas leur totalité — et la part "
+         "déclarative résiduelle doit être réduite dans le même mouvement, "
+         "source par source, à mesure qu'un tiers peut déclarer à la place de "
+         "l'allocataire.</p>",
          "l'allocataire déclare lui-même ses ressources, plusieurs fois par "
          "an&nbsp;; la DREES estime qu'environ un tiers des éligibles au RSA "
          "ne le demandent pas, pendant que les caisses poursuivent des indus "
@@ -941,6 +1006,11 @@ trois, et c'est le plus déterminant.</p>
 publication n'est pas une faveur faite aux curieux&nbsp;: c'est le seul contrôle
 qui passe à l'échelle, parce qu'il mobilise des milliers de regards au lieu de
 cinquante agents.</p>
+<p>Deux de ces cinq mesures portent sur les responsables publics eux-mêmes —
+l'argent des campagnes et le passage vers le privé. Elles ne figuraient pas
+dans la première version de ce programme, et leur absence était sa faiblesse la
+plus visible&nbsp;: un parti qui réclame la traçabilité de l'argent public et
+ne commence pas par le sien ne mérite pas d'être cru.</p>
 """
     corps += mesures((
         ("Publier 100 % de la dépense publique en données ouvertes",
@@ -950,24 +1020,86 @@ cinquante agents.</p>
          "portail unique. Les marchés suivent le standard international "
          "<i>Open Contracting Data Standard</i>, avenants et sous-traitants "
          "compris. Le non-respect prive l'acte de force exécutoire.</p>"
+         "<p>L'obligation vaut pour l'État <b>comme pour les "
+         "collectivités</b>&nbsp;: l'essentiel des marchés et la majorité des "
+         "condamnations pour atteinte à la probité relèvent de l'échelon "
+         "local, et un portail qui s'arrêterait à l'État manquerait son "
+         "objet.</p>"
          "<p>Le précédent ukrainien — <i>Prozorro</i>, et son outil de "
          "signalement citoyen <i>DoZorro</i> — montre qu'une plateforme "
          "ouverte change le comportement des acheteurs avant même qu'un "
-         "contrôle ait lieu.</p>",
+         "contrôle ait lieu. On nous objectera le classement de l'Ukraine, et "
+         "c'est justement l'argument&nbsp;: un dispositif qui produit un effet "
+         "mesurable dans un environnement hostile en produira un ici. Citer "
+         "le Danemark ne prouverait rien.</p>",
          "les données existent mais sont dispersées entre des centaines de "
          "profils d'acheteurs, publiées avec retard, dans des formats "
          "hétérogènes, et souvent sans les avenants."),
 
-        ("Rouvrir le registre des bénéficiaires effectifs",
-         "<p>Accès de plein droit, gratuit et traçable, pour les journalistes, "
-         "les chercheurs, les ONG et les entreprises soumises à des "
-         "obligations de vigilance — exactement le cadre que la Cour de "
-         "justice de l'Union européenne a jugé proportionné, et que le paquet "
+        ("Rendre visible qui détient quoi, et où",
+         "<p><b>Le registre des bénéficiaires effectifs</b>&nbsp;: accès de "
+         "plein droit, gratuit et traçable, pour les journalistes, les "
+         "chercheurs, les ONG et les entreprises soumises à des obligations "
+         "de vigilance — exactement le cadre que la Cour de justice de "
+         "l'Union européenne a jugé proportionné, et que le paquet "
          "anti-blanchiment européen de 2024 organise. La France le transpose "
-         "au maximum de ce que le droit permet, et non au minimum.</p>",
-         "l'accès du grand public est restreint depuis l'arrêt de la CJUE de "
-         "novembre&nbsp;2022&nbsp;; l'outil qui avait permis l'essentiel des "
-         "révélations de la décennie est devenu difficile d'accès."),
+         "au maximum de ce que le droit permet, et non au minimum, dans le "
+         "délai qui lui est imparti.</p>"
+         "<p><b>La déclaration pays par pays</b>&nbsp;: le droit européen "
+         "impose déjà aux grands groupes de publier où ils réalisent leur "
+         "chiffre d'affaires et où ils paient leur impôt. La France retient "
+         "le périmètre le plus large que la directive autorise et publie ces "
+         "déclarations en données ouvertes, sur le portail unique, plutôt "
+         "qu'en documents dispersés que personne ne peut agréger.</p>"
+         "<p>Aucune de ces deux obligations n'est nouvelle&nbsp;: l'une et "
+         "l'autre rendent consultable ce qui est déjà déclaré.</p>",
+         "l'accès du grand public au registre est restreint depuis l'arrêt de "
+         "la CJUE de novembre&nbsp;2022, et l'outil qui avait permis "
+         "l'essentiel des révélations de la décennie est devenu difficile "
+         "d'accès&nbsp;; "
+         "les déclarations pays par pays existent mais sont publiées en ordre "
+         "dispersé, sans format commun ni point d'accès unique."),
+
+        ("Publier l'argent de la vie politique, à commencer par le nôtre",
+         "<p>Comptes de campagne et comptes des partis publiés en données "
+         "ouvertes, au même format et dans les mêmes délais que le reste de "
+         "la dépense publique. La Commission nationale des comptes de "
+         "campagne reçoit les moyens de contrôler sur pièces, et publie ses "
+         "contrôles — pas seulement ses décisions.</p>"
+         "<p>Frais de mandat des parlementaires et des exécutifs locaux&nbsp;: "
+         "publication annuelle, poste par poste, exactement ce que nous "
+         "demandons aux acheteurs publics. Et un registre consultable de "
+         "l'exécution des peines d'inéligibilité, qui n'existe pas "
+         "aujourd'hui.</p>"
+         "<p><b>Nous appliquons cette mesure à nos propres comptes sans "
+         "attendre la loi.</b> Un parti qui réclame la traçabilité de "
+         "l'argent public et ne publie pas le sien n'est pas crédible une "
+         "minute, et l'objection nous serait faite le premier jour — elle "
+         "l'a d'ailleurs été.</p>",
+         "les comptes de campagne sont déposés à la CNCCFP et publiés sous "
+         "forme agrégée&nbsp;; les frais de mandat sont contrôlés à "
+         "l'intérieur de chaque assemblée, sans publication détaillée&nbsp;; "
+         "et aucun registre public ne permet de savoir qui exécute une peine "
+         "d'inéligibilité."),
+
+        ("Fermer la porte tournante : publier tous les avis de déontologie",
+         "<p>Tous les avis rendus sur le départ d'un responsable public vers "
+         "le privé sont publiés intégralement, réserves comprises, et non "
+         "sous forme de statistiques annuelles. Le délai de carence est porté "
+         "à cinq ans pour les fonctions de régulation, d'achat public et de "
+         "contrôle — celles où l'information emportée a une valeur "
+         "marchande.</p>"
+         "<p>Surtout, le manquement cesse de relever de la seule voie pénale, "
+         "qui n'est presque jamais empruntée&nbsp;: l'autorité prononce "
+         "elle-même une sanction financière, publique et proportionnée à la "
+         "rémunération obtenue.</p>"
+         "<p>La Haute Autorité existe et fait son travail. Nous lui donnons "
+         "la publicité et la sanction qui lui manquent&nbsp;: ce n'est pas "
+         "une agence de plus, c'est la même avec des dents.</p>",
+         "le pantouflage figure depuis dix ans parmi les trois reproches "
+         "constants du GRECO à la France&nbsp;; les avis ne sont pas tous "
+         "publiés, la carence est de trois ans, et le manquement relève d'une "
+         "infraction pénale rarement poursuivie."),
 
         ("Publier chaque année un chiffrage officiel de la fraude",
          "<p>Un <i>écart fiscal et social</i> à la française&nbsp;: une "
@@ -981,7 +1113,7 @@ cinquante agents.</p>
          "aucune estimation officielle consolidée n'existe&nbsp;; le "
          "Royaume-Uni publie la sienne depuis 2005, l'Italie, la Suède et les "
          "États-Unis également."),
-    ))
+    ), depart=4)
 
     corps += """
 <h2 id="sanctionner" tabindex="-1">Bloc III — Sanctionner <span class="badge proposition">Proposition</span></h2>
@@ -996,6 +1128,15 @@ circulaire.</p>
          "magistrats du parquet. C'est la réforme réclamée par le GRECO depuis "
          "plus de dix ans, votée en termes identiques par les deux assemblées "
          "puis abandonnée avant le Congrès en 2019.</p>"
+         "<p><b>Et si le Congrès ne vient pas.</b> Il serait malhonnête de "
+         "promettre que la révision aboutira&nbsp;: elle a été votée en termes "
+         "identiques par les deux assemblées, et abandonnée avant le Congrès. "
+         "Une partie de la mesure ne dépend donc pas de lui, et passe par la "
+         "loi ordinaire dès la première année&nbsp;: publication de toutes "
+         "les nominations du parquet, de l'avis du CSM, et — lorsque le garde "
+         "des Sceaux s'en écarte — des motifs pour lesquels il s'en écarte. "
+         "On ne retire pas le pouvoir de nommer&nbsp;; on oblige son exercice "
+         "à se justifier, ce qui n'est pas rien.</p>"
          "<p>S'y ajoute un objectif de délai&nbsp;: une procédure financière "
          "qui dure plus de cinq ans fait l'objet d'un rapport public du "
          "ministère public expliquant pourquoi.</p>",
@@ -1005,28 +1146,48 @@ circulaire.</p>
         ("Une prime au lanceur d'alerte, jusqu'à 30 % des sommes recouvrées",
          "<p>Barème public et progressif, versé uniquement sur les sommes "
          "<b>effectivement encaissées</b>, plafonné, ouvert à la fraude "
-         "fiscale, sociale et aux atteintes à la probité dans la commande "
-         "publique. La décision appartient à une autorité indépendante, pas à "
-         "l'administration bénéficiaire.</p>"
+         "fiscale et sociale <b>organisée</b> et aux atteintes à la probité "
+         "dans la commande publique. La décision appartient à une autorité "
+         "indépendante existante, pas à l'administration bénéficiaire.</p>"
+         "<p><b>Ce que la prime n'est pas.</b> Elle ne vise ni l'allocataire "
+         "ni le voisin&nbsp;: les dossiers individuels de prestations en sont "
+         "exclus par construction, et un seuil de préjudice élevé, fixé par "
+         "la loi, en ferme l'accès. La différence entre l'alerte et la "
+         "délation n'est pas morale, elle est mécanique — elle tient au "
+         "seuil, au champ et à qui décide. Un salarié qui documente une "
+         "entente sur un marché de 200&nbsp;M&nbsp;€ apporte ce qu'aucun "
+         "contrôle de routine ne trouvera&nbsp;; une dénonciation de "
+         "voisinage n'apporte rien qu'une caisse ne sache vérifier "
+         "seule.</p>"
          "<p>En regard, une protection réelle&nbsp;: prise en charge des frais "
          "de procédure dès la recevabilité du signalement, et sanction "
          "financière dissuasive des représailles et des procédures-bâillons.</p>",
          "l'aviseur fiscal rémunéré existe depuis 2017, mais son indemnisation "
          "est discrétionnaire, sans barème public, et d'un champ étroit."),
 
-        ("Exclure des marchés publics ceux qui ont corrompu",
-         "<p>Toute personne morale condamnée pour atteinte à la probité, ou "
-         "ayant conclu une convention judiciaire d'intérêt public, est exclue "
-         "de la commande publique pour une durée proportionnée, inscrite dans "
-         "un registre public tenu par l'AFA. L'exclusion peut être levée par "
-         "décision motivée et publiée si l'entreprise démontre avoir remédié "
-         "aux défaillances — le mécanisme existe déjà en droit européen.</p>"
-         "<p>La CJIP reste&nbsp;: c'est un bon outil. Mais une amende que "
-         "l'entreprise provisionne ne change pas un modèle d'affaires&nbsp;; "
-         "la perte de l'accès aux marchés, si.</p>",
-         "la CJIP éteint les poursuites sans reconnaissance de culpabilité et "
-         "n'emporte aucune exclusion automatique&nbsp;; l'entreprise "
-         "sanctionnée peut soumissionner le lendemain."),
+        ("Rendre l'exclusion des marchés effective, et vérifiable",
+         "<p>L'exclusion après condamnation définitive existe déjà en "
+         "droit&nbsp;; ce qui manque, c'est de savoir qui est exclu. Un "
+         "<b>registre public</b>, tenu par l'AFA, dit à tout acheteur la "
+         "situation d'un candidat. Sans lui, l'exclusion est une règle que "
+         "personne n'est en mesure d'appliquer.</p>"
+         "<p>Le vrai trou, c'est la convention judiciaire d'intérêt public. "
+         "Une exclusion automatique après CJIP se heurterait à la "
+         "présomption d'innocence, la convention étant sans reconnaissance de "
+         "culpabilité&nbsp;: nous proposons donc l'inverse&nbsp;: faire de "
+         "l'exclusion, et de sa durée, <b>un terme négocié de la convention "
+         "elle-même</b>, homologué par le juge qui la valide. L'entreprise "
+         "sait ce qu'elle signe, et le juge en répond.</p>"
+         "<p>L'exclusion se lève par décision motivée et publiée si "
+         "l'entreprise démontre avoir remédié aux défaillances — le mécanisme "
+         "existe déjà en droit européen. La CJIP reste&nbsp;: c'est un bon "
+         "outil. Mais une amende que l'entreprise provisionne ne change pas "
+         "un modèle d'affaires&nbsp;; la perte de l'accès aux marchés, si.</p>",
+         "l'exclusion existe pour les condamnations définitives (art. "
+         "L.&nbsp;2141-1 du code de la commande publique), mais aucun registre "
+         "ne permet à l'acheteur de la vérifier&nbsp;; et la CJIP, qui éteint "
+         "les poursuites sans reconnaissance de culpabilité, n'en emporte "
+         "aucune — l'entreprise peut soumissionner le lendemain."),
 
         ("Mesurer le recouvrement, pas les annonces",
          "<p>Publication trimestrielle, service par service, du montant "
@@ -1037,12 +1198,55 @@ circulaire.</p>
          "fraude fiscale et sociale organisée.</p>",
          "l'indicateur public est le montant notifié&nbsp;; le tiers jamais "
          "encaissé n'apparaît dans aucune série détaillée."),
-    ))
+    ), depart=9)
+
+    corps += '<h2 id="calendrier" tabindex="-1">Le calendrier, et comment nous juger</h2>'
+    corps += """
+<p>Un programme sans échéance ni indicateur n'est pas réfutable, et ce qui
+n'est pas réfutable n'a pas à être cru. Voici ce qui doit être vrai, à quelle
+date, et où le vérifier — sur des sources qui ne sont pas les nôtres.</p>
+"""
+    corps += tableau(
+        "Ce qui doit être vrai, et quand",
+        ("Échéance", "Ce qui doit être vrai", "Où le vérifier"),
+        (
+            ("6 mois",
+             "Le rescrit de droit sous trois mois est voté&nbsp;; les marchés "
+             "de l'État sont publiés au standard <i>Open Contracting</i> sur "
+             "un portail unique&nbsp;; nos propres comptes sont en ligne.",
+             "Légifrance, le portail, notre dépôt"),
+            ("1 an",
+             "Une première estimation de l'écart fiscal et social est "
+             "publiée, même provisoire, avec sa méthode&nbsp;; le registre des "
+             "bénéficiaires effectifs est rouvert&nbsp;; tous les avis de "
+             "déontologie sont publiés.",
+             "Insee, INPI, HATVP"),
+            ("3 ans",
+             "Les prestations sous condition de ressources sont versées à "
+             "la source pour les revenus salariés&nbsp;; la part encaissée des "
+             "redressements est publiée chaque trimestre, service par "
+             "service&nbsp;; le registre des exclusions de la commande "
+             "publique est ouvert.",
+             "CNAF et CNAM, DGFiP, AFA"),
+            ("5 ans",
+             "Le nombre de dépenses fiscales est divisé par deux à rendement "
+             "restitué&nbsp;; la part encaissée dépasse 80&nbsp;% sur trois "
+             "exercices consécutifs&nbsp;; l'écart fiscal publié est orienté à "
+             "la baisse sur la série.",
+             "Annexe « Voies et moyens », DGFiP, Insee"),
+        ),
+        ("date", "long", "texte"),
+    )
+    corps += """
+<p class="discret">Si ces repères ne sont pas atteints, ils seront publics et
+la comparaison sera possible&nbsp;: c'est le but. Un programme qui ne se donne
+pas les moyens d'avoir tort demande une confiance qu'il n'a pas méritée.</p>
+"""
 
     corps += cle(
         "Ce que nous refusons",
         "Un programme libéral contre la fraude ne peut pas être un programme "
-        "de surveillance. Quatre lignes que nous ne franchirons pas — et il "
+        "de surveillance. Cinq lignes que nous ne franchirons pas — et il "
         "faut les écrire avant qu'on nous les prête.",
         "<p><b>Le fichage généralisé des allocataires.</b> Croiser des "
         "fichiers pour verser un droit à la source est une chose&nbsp;; "
@@ -1059,8 +1263,15 @@ circulaire.</p>
         "vise à faire disparaître.</p>"
         "<p><b>La transparence à sens unique.</b> Nous demandons la "
         "publication de ce qui est <b>public</b> — contrats, subventions, "
-        "intérêts des décideurs, bénéficiaires effectifs des sociétés. Pas des "
-        "données personnelles des citoyens ordinaires.</p>",
+        "intérêts des décideurs, bénéficiaires effectifs des sociétés, et "
+        "l'argent de nos propres campagnes. Pas des données personnelles des "
+        "citoyens ordinaires.</p>"
+        "<p><b>La prime à la délation ordinaire.</b> La récompense du "
+        "signalement s'arrête où commence le voisinage&nbsp;: seuil élevé, "
+        "champ limité aux montages organisés et à la commande publique, "
+        "dossiers individuels de prestations exclus. Une politique qui "
+        "paierait la dénonciation du quotidien n'aurait pas le même objet, et "
+        "nous n'en voulons pas.</p>",
         "",
         "refus",
     )
@@ -1072,17 +1283,21 @@ circulaire.</p>
   <p>Nous ne promettons pas de « récupérer 100&nbsp;milliards ». La page
   suivante donne, mesure par mesure, un ordre de grandeur du coût, du rendement
   possible, et surtout <b>notre degré de confiance</b> dans chaque ligne — y
-  compris quand il est faible.</p>
-  <p class="actions"><a class="bouton" href="chiffrage.html">Voir le chiffrage</a></p>
+  compris quand il est faible. La page <a href="objections.html">Objections</a>
+  traite ensuite les neuf critiques les plus solides qui nous sont faites, dont
+  trois qui portent.</p>
+  <p class="actions"><a class="bouton" href="chiffrage.html">Voir le chiffrage</a>
+  <a class="bouton second" href="objections.html">Lire les objections</a></p>
 </div>
 """
 
     return page(
         "programme.html",
-        "Programme — dix mesures libérales contre la fraude et la corruption",
-        "Dix mesures : simplification fiscale, prestations à la source, "
+        "Programme — douze mesures libérales contre la fraude et la corruption",
+        "Douze mesures : simplification fiscale, prestations à la source, "
         "publication intégrale de la dépense publique, réouverture du registre "
-        "des bénéficiaires effectifs, chiffrage annuel de la fraude, "
+        "des bénéficiaires effectifs, transparence de l'argent de la vie "
+        "politique, encadrement du pantouflage, chiffrage annuel de la fraude, "
         "indépendance du parquet, prime au lanceur d'alerte, exclusion des "
         "marchés publics.",
         corps,
@@ -1125,9 +1340,17 @@ def chiffrage() -> str:
         "renforcer le contrôle agissent sur la même assiette&nbsp;: additionner "
         "leurs rendements supposés serait la première tricherie d'un programme "
         "qui parle de fraude.",
-        "<strong>Le degré de confiance est affiché.</strong> Quand nous ne "
-        "savons pas, la colonne le dit, et la ligne ne se somme pas avec les "
-        "autres.",
+        "<strong>Le degré de confiance est affiché.</strong> Quand la "
+        "fourchette est fragile, la colonne le dit et la fourchette "
+        "s'élargit&nbsp;; quand nous ne savons pas chiffrer du tout, la ligne "
+        "ne porte aucun montant et ne s'additionne à rien. Sur les six mesures "
+        "que le tableau de rendement examine, <b>trois seulement portent un "
+        "montant</b>.",
+        "<strong>Nos hypothèses sont isolées et nommées.</strong> Six valeurs "
+        "de cette page ne viennent pas d'une source publique&nbsp;: ce sont "
+        "les nôtres. Elles sont listées à part, sur "
+        "<a href=\"sources.html#hypotheses\">Sources</a>, pour être "
+        "contestées une par une plutôt que fondues dans un total.",
     ))
 
     corps += '<h2 id="cout" tabindex="-1">Ce que cela coûte</h2>'
@@ -1238,7 +1461,7 @@ législature.</p>
         "l'intégralité d'une assiette&nbsp;: une partie des montants est "
         "insolvable, une autre disparaît avec l'activité qui la portait, une "
         "troisième n'aurait jamais existé sous un régime différent.</p>"
-        "<p>C'est pourquoi la mesure n°&nbsp;6 du programme — le chiffrage "
+        "<p>C'est pourquoi la mesure n°&nbsp;8 du programme — le chiffrage "
         "annuel — n'est pas une mesure technique parmi d'autres&nbsp;: c'est la "
         "condition pour que le débat cesse d'être une enchère.</p>",
         "",
@@ -1251,15 +1474,16 @@ législature.</p>
         "est construit à partir de sources publiques, avec des hypothèses que "
         "nous indiquons et qui peuvent être contestées — et nous préférons une "
         "fourchette large assumée à un chiffre rond invérifiable. Le détail "
-        "des hypothèses et les sources sont sur la page "
-        "<a href=\"sources.html\">Sources</a>&nbsp;; une erreur se signale sur "
-        "le dépôt, et se corrige."
+        "des hypothèses est sur "
+        "<a href=\"sources.html#hypotheses\">Sources</a>, les critiques qui "
+        "nous sont faites sur <a href=\"objections.html#maigre\">Objections</a>, "
+        "et une erreur se signale sur le dépôt, où elle se corrige."
     )
 
     return page(
         "chiffrage.html",
         "Chiffrage — ce que coûte et ce que peut rapporter le programme",
-        "Le coût annuel et le rendement possible de chacune des dix mesures, "
+        "Le coût annuel et le rendement possible de chacune des douze mesures, "
         "avec le degré de confiance associé — et les raisons pour lesquelles "
         "nous refusons d'annoncer un chiffre unique.",
         corps,
@@ -1267,7 +1491,316 @@ législature.</p>
 
 
 # ---------------------------------------------------------------------------
-# 7. Sources — tout ce qui est cité, avec le lien et la date
+# 7. Objections — ce qu'on nous oppose, et ce que nous répondons
+# ---------------------------------------------------------------------------
+
+def objections() -> str:
+    """Les neuf objections les plus solides, écrites du point de vue de qui les
+    fait, et traitées une par une.
+
+    C'est la page la plus utile du site et la plus désagréable à écrire. Un
+    programme qui n'expose pas ce qu'on lui oppose demande qu'on le croie sur
+    parole ; celui qui l'expose se prive de l'effet de surprise, et gagne le
+    seul terrain qui compte. Deux règles ici : l'objection est formulée dans
+    sa version FORTE, telle qu'un adversaire compétent la poserait, et quand
+    elle porte, on le dit.
+    """
+    corps = affiche(
+        "La contradiction",
+        "Voici ce qu'on<br>nous oppose de<br>"
+        '<span class="cle-texte">plus solide</span>',
+        "Neuf objections, dans leur version la plus forte — pas la version "
+        "commode. Trois d'entre elles portent, au moins en partie, et nous le "
+        "disons. Un programme qui ne publie pas ses points faibles demande "
+        "qu'on le croie sur parole&nbsp;; ce n'est pas ce que nous demandons.",
+    )
+
+    corps += """
+<div class="note resume">
+  <p>Cette page est faite pour être utilisée contre nous. Si une objection
+  manque, ou si une réponse vous paraît courte, <a href="sources.html">ouvrez
+  un signalement</a>&nbsp;: elle sera ajoutée, et la réponse écrite au même
+  endroit que les autres.</p>
+</div>
+"""
+
+    corps += plan((
+        ("chiffrage", "« Vous chiffrez l\'inchiffrable »"),
+        ("maigre", "« Deux milliards, c\'est dérisoire »"),
+        ("cadeau", "« Un cadeau fiscal déguisé »"),
+        ("taux", "« Votre théorie du taux est fausse »"),
+        ("surveillance", "« C\'est la société de surveillance »"),
+        ("delation", "« La délation rémunérée »"),
+        ("congres", "« Vous promettez l\'impossible »"),
+        ("ukraine", "« Vous citez l\'Ukraine en modèle »"),
+        ("nous", "« Et vos propres comptes ? »"),
+    ))
+
+    corps += cle(
+        "« Vous dites que personne ne sait mesurer la fraude, et vous la chiffrez »",
+        "L'objection est exacte, et c'est pourquoi nous ne chiffrons pas la "
+        "fraude&nbsp;: nous chiffrons <b>l'effet de douze mesures</b>, ce qui "
+        "n'est pas la même chose.",
+        "<p>Un rendement n'a pas besoin d'une assiette connue pour être "
+        "estimé, s'il passe par un canal observable. Nous n'écrivons jamais "
+        "« la fraude coûte X, nous en récupérerons Y&nbsp;% ». Nous écrivons "
+        "« la part encaissée des redressements est de 70&nbsp;%, la porter à "
+        "80&nbsp;% vaut tant » — une règle de trois sur deux nombres "
+        "publiés.</p>"
+        "<p>Là où ce canal n'existe pas, la ligne ne porte aucun montant. Sur "
+        "les six mesures que notre tableau de rendement examine, <b>trois "
+        "seulement portent un chiffre</b>&nbsp;; les trois autres disent "
+        "pourquoi elles n'en portent pas — effet net incertain, rendement "
+        "neutre par construction, rendement nul par nature. C'est précisément "
+        "ce qu'un chiffrage malhonnête ne fait jamais.</p>"
+        "<p>Reste que l'objection touche un point réel&nbsp;: <b>tant que "
+        "l'écart fiscal n'est pas publié, personne — nous compris — ne peut "
+        "dire quelle fraction du problème ce programme traite.</b> C'est la "
+        "raison d'être de la mesure n°&nbsp;8, et la raison pour laquelle elle "
+        "n'est pas négociable.</p>",
+        "Voir le détail ligne à ligne sur <a href=\"chiffrage.html\">Chiffrage</a>, "
+        "et nos hypothèses sur <a href=\"sources.html#hypotheses\">Sources</a>.",
+        "chiffrage",
+    )
+
+    corps += cle(
+        "« 1,7 à 5,5 milliards, c'est dérisoire au regard des enjeux »",
+        "C'est exact, et c'est volontaire. <b>Tout programme qui annonce "
+        "davantage vend une assiette pour un rendement</b> — la confusion la "
+        "plus répandue du débat français.",
+        "<p>Les « 80 » ou « 100 milliards » qui circulent sont des estimations "
+        "de ce qui échapperait à l'impôt, pas de ce qu'une politique peut "
+        "faire rentrer. Une partie de ces montants est insolvable, une autre "
+        "disparaît avec l'activité qui la portait, une troisième n'existerait "
+        "pas sous un régime fiscal différent. Aucun pays, y compris ceux qui "
+        "mesurent leur écart fiscal depuis vingt ans, n'en récupère la "
+        "majeure partie.</p>"
+        "<p>S'y ajoute ce que nous ne chiffrons pas, faute de canal "
+        "observable&nbsp;: la fraude découragée avant d'être commise, le "
+        "contentieux évité par un droit opposable, l'indu de bonne foi qui "
+        "cesse d'exister. Ces effets sont probablement supérieurs aux nôtres. "
+        "Nous ne les comptons pas, parce que nous ne savons pas les "
+        "compter.</p>"
+        "<p>Enfin, la comparaison qui compte n'est pas au montant de la "
+        "fraude&nbsp;: elle est au coût. Un programme qui coûte de 215 à "
+        "365&nbsp;M&nbsp;€ par an et en rapporte de 1,7 à "
+        "5,5&nbsp;Md&nbsp;€ rapporte <b>cinq fois sa mise dans l'hypothèse la "
+        "plus défavorable</b> — 1,7&nbsp;Md&nbsp;€ pour 365&nbsp;M&nbsp;€ — et "
+        "vingt-cinq fois dans la plus favorable. C'est la seule multiplication "
+        "de cette page que nous faisons dans les deux sens, et c'est exprès."
+        "</p>",
+        "",
+        "maigre",
+    )
+
+    corps += cle(
+        "« Supprimer des niches pour baisser les taux, c'est un cadeau fiscal "
+        "déguisé en lutte contre la fraude »",
+        "L'opération est <b>neutre pour les recettes par construction</b>, et "
+        "cette neutralité est inscrite dans la loi organique qui porte la "
+        "réforme&nbsp;: sans elle, la simplification serait une hausse d'impôt "
+        "déguisée, ce que nous ne voulons pas davantage.",
+        "<p>Le chiffrage l'écrit noir sur blanc&nbsp;: la ligne « réduction "
+        "des dépenses fiscales » vaut <i>zéro</i> dans notre rendement. Nous "
+        "ne finançons rien avec. Si nous voulions un cadeau fiscal, nous "
+        "proposerions de baisser les taux <b>sans</b> supprimer les niches "
+        "— c'est plus simple, et c'est ce que font ceux qui en veulent un.</p>"
+        "<p>L'objection garde pourtant une part de vérité, et il faut la "
+        "nommer&nbsp;: une opération neutre en masse ne l'est jamais pour les "
+        "personnes. Supprimer une niche fait des perdants identifiables, "
+        "baisser un taux fait des gagnants diffus, et rien ne garantit que ce "
+        "soient les mêmes. C'est un arbitrage politique assumé, pas un effet "
+        "technique&nbsp;; la publication de l'évaluation niche par niche est "
+        "ce qui permet d'en débattre autrement qu'en aveugle.</p>",
+        "",
+        "cadeau",
+    )
+
+    corps += cle(
+        "« Votre thèse selon laquelle un taux élevé nourrit la fraude est "
+        "contestée par la littérature »",
+        "<b>L'objection est fondée, et nous avons corrigé la page "
+        "Diagnostic.</b> Dans le modèle même que nous citions, une hausse du "
+        "taux peut <i>réduire</i> la fraude lorsque la pénalité est "
+        "proportionnelle à l'impôt éludé — ce qui est le cas en France.",
+        "<p>C'est le résultat de Yitzhaki (1974), qui corrige Allingham et "
+        "Sandmo (1972). Nous avons d'abord écrit l'inverse. La cause "
+        "n°&nbsp;2 du diagnostic a été réécrite autour de ce que la "
+        "littérature empirique établit solidement&nbsp;: ce qui protège "
+        "l'impôt, c'est <b>la déclaration par un tiers</b>. Là où un "
+        "employeur ou une banque déclare à la place du contribuable, la "
+        "fraude est marginale quel que soit le taux&nbsp;; là où l'on "
+        "s'auto-déclare, elle est massive.</p>"
+        "<p>Cette correction ne fragilise pas le programme&nbsp;: elle le "
+        "renforce. Elle fonde directement la mesure n°&nbsp;3 — verser les "
+        "prestations sur des données déjà déclarées par un tiers — et la "
+        "mesure n°&nbsp;1, puisque ce sont les régimes particuliers qui "
+        "créent les zones où plus aucun tiers ne déclare.</p>",
+        "Voir la cause n°&nbsp;2 sur "
+        "<a href=\"diagnostic.html#tiers\">Diagnostic</a>.",
+        "taux",
+    )
+
+    corps += cle(
+        "« Publier tout, croiser tous les fichiers : c'est la société de "
+        "surveillance »",
+        "La distinction est nette et elle tient en une ligne&nbsp;: nous "
+        "demandons la publication de <b>l'argent public</b> et des "
+        "<b>décideurs</b>, jamais celle des citoyens.",
+        "<p>Un contrat, une subvention, une aide publique, le patrimoine d'un "
+        "ministre, le bénéficiaire effectif d'une société qui soumissionne&nbsp;: "
+        "tout cela est déjà, en droit, de nature publique. Un revenu "
+        "d'allocataire ne l'est pas et ne le deviendra pas.</p>"
+        "<p>Sur le croisement, la frontière est celle-ci&nbsp;: les données "
+        "circulent <b>vers le calcul d'un droit</b>, jamais vers un score. "
+        "Verser une prestation à partir de revenus déjà déclarés supprime une "
+        "déclaration&nbsp;; construire un profil de risque sur des millions de "
+        "personnes en ajoute une, invisible. La page Programme écrit les "
+        "quatre lignes que nous ne franchirons pas, et elle les écrit "
+        "<i>avant</i> qu'on nous les prête.</p>",
+        "Voir « Ce que nous refusons » sur "
+        "<a href=\"programme.html#refus\">Programme</a>.",
+        "surveillance",
+    )
+
+    corps += cle(
+        "« Payer les dénonciateurs, c'est instituer la délation »",
+        "C'est pourquoi la prime <b>exclut par construction les dossiers "
+        "individuels de prestations</b> et ne s'ouvre qu'au-delà d'un seuil "
+        "de préjudice élevé, sur des montages organisés et sur la commande "
+        "publique.",
+        "<p>La différence entre l'alerte et la délation n'est pas morale, "
+        "elle est mécanique&nbsp;: elle tient au seuil, au champ et à qui "
+        "décide. Un salarié qui documente une entente sur un marché de "
+        "200&nbsp;M&nbsp;€ prend un risque professionnel majeur et apporte ce "
+        "qu'aucun contrôle de routine ne trouvera. Un voisin qui signale un "
+        "allocataire n'apporte rien que la caisse ne puisse vérifier "
+        "elle-même, et coûte davantage qu'il ne rapporte.</p>"
+        "<p>Trois garde-fous&nbsp;: la décision appartient à une autorité "
+        "indépendante et non à l'administration bénéficiaire&nbsp;; la prime "
+        "est versée sur les sommes <b>effectivement encaissées</b>, ce qui "
+        "élimine le signalement spéculatif&nbsp;; le barème est public, donc "
+        "contestable.</p>"
+        "<p>Et la contrepartie est réelle&nbsp;: la France protège aujourd'hui "
+        "les lanceurs d'alerte contre les représailles, mais ne compense "
+        "rien. Perdre son emploi et cinq ans de sa vie pour avoir eu raison "
+        "reste le parcours type.</p>",
+        "",
+        "delation",
+    )
+
+    corps += cle(
+        "« L'indépendance du parquet exige le Congrès : vous promettez ce que "
+        "personne n'a jamais obtenu »",
+        "C'est vrai, et nous ne le cachons pas&nbsp;: la révision a été votée "
+        "par les deux assemblées puis abandonnée avant le Congrès en 2019. "
+        "<b>La mesure comporte donc une partie qui ne dépend pas de lui.</b>",
+        "<p>Par la loi ordinaire, dès la première année&nbsp;: publication de "
+        "toutes les nominations du parquet, de l'avis du Conseil supérieur de "
+        "la magistrature et, lorsque le garde des Sceaux s'en écarte, des "
+        "motifs pour lesquels il s'en écarte. On ne retire pas le pouvoir de "
+        "nommer&nbsp;; on rend son exercice visible, et l'expérience montre "
+        "qu'un pouvoir discrétionnaire qui doit se motiver publiquement "
+        "s'exerce autrement.</p>"
+        "<p>La révision constitutionnelle reste l'objectif, parce qu'elle "
+        "seule règle la question. Mais un programme qui ferait dépendre sa "
+        "crédibilité d'un vote aux trois cinquièmes serait un programme "
+        "suspendu.</p>",
+        "",
+        "congres",
+    )
+
+    corps += cle(
+        "« Vous citez l'Ukraine, l'un des pays les plus corrompus d'Europe, "
+        "comme modèle anticorruption »",
+        "Oui — et c'est exactement pour cela que l'exemple vaut. <b>Un "
+        "dispositif qui produit un effet mesurable dans un environnement "
+        "hostile en produira un ici.</b>",
+        "<p>L'argument inverse serait de citer le Danemark&nbsp;: on ne "
+        "saurait jamais si le résultat vient de la plateforme ou du pays. "
+        "<i>Prozorro</i> a été mis en place dans un État où la commande "
+        "publique était notoirement captée, et l'effet observé — baisse des "
+        "prix d'attribution, hausse du nombre de soumissionnaires — est "
+        "attribuable à la publication elle-même, parce que rien d'autre "
+        "n'avait changé.</p>"
+        "<p>Nous citons aussi <i>USAspending</i> aux États-Unis et le "
+        "<i>tax gap</i> britannique, qui sont des environnements tout autres. "
+        "Le point commun des trois n'est pas le pays&nbsp;: c'est qu'une "
+        "donnée publiée en format ouvert change le comportement de ceux qui "
+        "savent qu'elle sera lue.</p>",
+        "",
+        "ukraine",
+    )
+
+    corps += cle(
+        "« Un parti qui réclame la transparence de l'argent public ferait "
+        "mieux de commencer par le sien »",
+        "<b>L'objection porte, et elle a produit la mesure n°&nbsp;6.</b> "
+        "Elle ne figurait pas dans la première version de ce programme, et "
+        "son absence était le trou le plus visible.",
+        "<p>La mesure demande la publication en données ouvertes des comptes "
+        "de campagne et des comptes des partis, des frais de mandat poste par "
+        "poste, et des moyens réels de contrôle pour la Commission nationale "
+        "des comptes de campagne. Elle s'applique à nous exactement comme aux "
+        "autres.</p>"
+        "<p>Nous ne demandons pas qu'on nous croie sur parole&nbsp;: le code "
+        "de ce site, son historique de corrections et les hypothèses de son "
+        "chiffrage sont publics depuis le premier jour. C'est un début, et "
+        "ce n'est pas suffisant.</p>",
+        "Voir la mesure n°&nbsp;6 sur "
+        "<a href=\"programme.html#exposer\">Programme</a>.",
+        "nous",
+    )
+
+    corps += depliant(
+        "Trois objections plus courtes, et leurs réponses",
+        "<p><b>« Vos chiffres datent. »</b> En partie vrai. Le contrôle "
+        "fiscal s'arrête à 2023, l'indice de perception à 2024, le "
+        "non-recours et les cotisations éludées à 2022 — ce sont les "
+        "millésimes publiés par ces sources à la date de notre dernière "
+        "revue. Quand une source publie plus récent et que ce site ne l'a pas "
+        "repris, c'est un défaut&nbsp;: il se signale sur le dépôt et se "
+        "corrige.</p>"
+        "<p><b>« Vous ne créez aucune agence, mais vous ajoutez 2 000 "
+        "agents. »</b> Les deux sont compatibles, et c'est le cœur de notre "
+        "position&nbsp;: la France n'a pas besoin d'une quinzième institution, "
+        "elle a besoin que les quatorze existantes aient les effectifs, les "
+        "données et l'indépendance qui leur manquent. L'AFA compte une "
+        "cinquantaine d'agents, le parquet national financier une vingtaine "
+        "de magistrats.</p>"
+        "<p><b>« L'exclusion des marchés après une convention judiciaire "
+        "viole la présomption d'innocence. »</b> Elle la violerait si elle "
+        "était automatique, la convention étant sans reconnaissance de "
+        "culpabilité. C'est pourquoi nous proposons l'inverse&nbsp;: faire de "
+        "l'exclusion et de sa durée un <b>terme négocié de la convention "
+        "elle-même</b>, homologué par le juge qui la valide. L'entreprise "
+        "sait ce qu'elle signe.</p>",
+    )
+
+    corps += vigilance(
+        "<b>Trois des objections ci-dessus portent</b>, et nous l'écrivons à "
+        "l'endroit où on les lira&nbsp;: nous ne savons pas quelle fraction "
+        "du problème ce programme traite tant que l'écart fiscal n'est pas "
+        "publié&nbsp;; la neutralité de la réforme fiscale vaut en masse et "
+        "non pour chaque contribuable&nbsp;; et notre première version "
+        "soutenait sur le niveau des prélèvements une thèse que la "
+        "littérature ne soutient pas, ce qui nous a valu de réécrire une "
+        "page. Les corrections sont dans l'historique du dépôt, à la vue de "
+        "tous."
+    )
+
+    return page(
+        "objections.html",
+        "Objections — ce qu'on nous oppose, et ce que nous répondons",
+        "Les neuf objections les plus solides faites à ce programme, dans "
+        "leur version la plus forte, et nos réponses — y compris les trois "
+        "qui portent.",
+        corps,
+    )
+
+
+# ---------------------------------------------------------------------------
+# 8. Sources — tout ce qui est cité, avec le lien et la date
 # ---------------------------------------------------------------------------
 
 def _lien(libelle: str, adresse: str) -> str:
@@ -1293,6 +1826,13 @@ def sources() -> str:
   — un montant <b>détecté</b> n'est pas un montant <b>commis</b>&nbsp;: mieux
   détecter fait monter les chiffres sans que rien ait changé&nbsp;;<br>
   — un montant <b>notifié</b> n'est pas un montant <b>encaissé</b>.</p>
+  <p>Les <b>millésimes</b> repris ici sont les plus récents publiés par chaque
+  source à la date de notre dernière revue&nbsp;: contrôle fiscal 2023 (DGFiP),
+  fraude sociale détectée 2023, cotisations éludées 2022 (HCFiPS), non-recours
+  2022 (DREES), indice de perception 2024 (Transparency International),
+  estimation du CPO 2007 — faute de plus récente. Quand une source publie un
+  millésime plus neuf et que ce site ne l'a pas repris, <b>c'est un
+  défaut</b>&nbsp;: il se signale sur le dépôt et se corrige.</p>
   <p class="discret">Liens vérifiés en septembre&nbsp;2026.</p>
 </div>
 """
@@ -1326,8 +1866,8 @@ def sources() -> str:
              "théorique et la TVA perçue, par État membre. Attention, le "
              "périmètre inclut les erreurs et les défaillances, pas seulement "
              "la fraude.",
-             _lien("taxation-customs.ec.europa.eu",
-                   "https://taxation-customs.ec.europa.eu/taxation/vat/vat-gap_en")),
+             _lien("taxation-customs.ec.europa.eu — TVA",
+                   "https://taxation-customs.ec.europa.eu/taxation/vat_en")),
             ("Solidaires Finances Publiques",
              "Estimation syndicale de 80 à 100&nbsp;Md&nbsp;€ (2019), la plus "
              "citée dans le débat public et jamais reprise par l'État.",
@@ -1335,7 +1875,7 @@ def sources() -> str:
                    "https://solidairesfinancespubliques.org/")),
             ("HM Revenue &amp; Customs (Royaume-Uni)",
              "<i>Measuring tax gaps</i>&nbsp;: la série annuelle de référence, "
-             "publiée depuis 2005. C'est le modèle de notre mesure n°&nbsp;6.",
+             "publiée depuis 2005. C'est le modèle de notre mesure n°&nbsp;8.",
              _lien("gov.uk — Measuring tax gaps",
                    "https://www.gov.uk/government/statistics/measuring-tax-gaps")),
         ),
@@ -1487,15 +2027,83 @@ def sources() -> str:
             ("Allingham M. et Sandmo A., <i>Income tax evasion: a theoretical "
              "analysis</i>, Journal of Public Economics, 1972",
              "Le modèle économique de référence de la décision de "
-             "fraude&nbsp;: gain attendu, probabilité de détection, sanction."),
+             "fraude&nbsp;: gain attendu, probabilité de détection, sanction. "
+             "Attention&nbsp;: il ne conclut pas de façon univoque sur l'effet "
+             "du <i>niveau</i> du taux, contrairement à ce que nous avons "
+             "d'abord écrit."),
+            ("Yitzhaki S., <i>A note on income tax evasion: a theoretical "
+             "analysis</i>, Journal of Public Economics, 1974",
+             "Corrige le précédent&nbsp;: lorsque la pénalité est "
+             "proportionnelle à l'impôt éludé — le cas français —, une hausse "
+             "du taux peut <i>réduire</i> la fraude. C'est l'objection qui "
+             "nous a fait réécrire la cause n°&nbsp;2 du diagnostic."),
+            ("Kleven H. et al., <i>Unwilling or unable to cheat?</i>, "
+             "Econometrica, 2011",
+             "L'expérience danoise à grande échelle qui établit le résultat "
+             "central de notre diagnostic&nbsp;: la fraude est quasi nulle sur "
+             "les revenus déclarés par un tiers, massive sur les revenus "
+             "auto-déclarés."),
             ("<i>SEC Whistleblower Program</i> (États-Unis, depuis 2011)",
              "Récompense de 10 à 30&nbsp;% des sanctions supérieures à un "
-             "million de dollars&nbsp;; modèle de notre mesure n°&nbsp;8. Voir "
+             "million de dollars&nbsp;; modèle de notre mesure n°&nbsp;10. Voir "
              + _lien("sec.gov/whistleblower",
                      "https://www.sec.gov/whistleblower") + "."),
         ),
         ("long", "long"),
     )
+
+    corps += '<h2 id="hypotheses" tabindex="-1">Nos hypothèses de chiffrage</h2>'
+    corps += """
+<p>Tout le reste de ce site reprend des chiffres publics. La page
+<a href="chiffrage.html">Chiffrage</a>, elle, ne le peut pas entièrement&nbsp;:
+estimer le coût et le rendement de mesures qui n'existent pas encore suppose
+des hypothèses, et ces hypothèses sont de nous. Les voici, isolées et nommées,
+<b>pour qu'on puisse les contester une par une</b>.</p>
+"""
+    corps += tableau(
+        "Les six hypothèses qui ne viennent pas d'une source publique",
+        ("Hypothèse", "Valeur retenue", "Sur quoi elle s'appuie"),
+        (
+            ("Coût complet employeur d'un agent",
+             "80 à 110 k&nbsp;€/an",
+             "Rémunération chargée, fonctions support et immobilier, pour des "
+             "corps de catégorie A et des magistrats&nbsp;; ordres de grandeur "
+             "des rapports annuels de performances et du jaune budgétaire "
+             "consacré à la fonction publique."),
+            ("Effectifs supplémentaires",
+             "≈ 2&nbsp;000 ETP",
+             "<b>C'est une décision politique, pas une donnée.</b> Ils "
+             "viennent en sus des 1&nbsp;500 agents du plan de 2023, et ne "
+             "rattrapent pas la baisse d'environ un quart observée dans les "
+             "années 2010."),
+            ("Refonte des systèmes d'information des caisses",
+             "150 à 400 M&nbsp;€ sur cinq ans",
+             "Ordre de grandeur du chantier du prélèvement à la source "
+             "(2019), à périmètre comparable."),
+            ("Portail unique de la dépense publique",
+             "20 à 50 M&nbsp;€/an",
+             "Coûts publiés de plateformes de données publiques comparables, "
+             "en réutilisant des briques existantes plutôt qu'en repartant de "
+             "zéro."),
+            ("Effet de la publication des marchés",
+             "− 0,5 à − 3&nbsp;% sur ≈ 160&nbsp;Md&nbsp;€",
+             "Travaux sur <i>Prozorro</i> et sur l'ouverture des enchères "
+             "publiques. C'est notre hypothèse la plus incertaine&nbsp;; la "
+             "fourchette est large pour cette raison."),
+            ("Part encaissée visée",
+             "80 % des montants notifiés",
+             "Niveau atteint en 2019 et en 2021 (DGFiP). Nous le retenons "
+             "comme cible parce qu'il a déjà été observé, et non comme un "
+             "progrès inédit."),
+        ),
+        ("texte", "nombre", "long"),
+    )
+    corps += """
+<p class="discret">Ces six lignes sont les seules du site qui ne sont pas
+reprises d'une source extérieure. Si l'une d'elles vous paraît fausse, le
+chiffrage entier bouge&nbsp;: c'est exactement pour cela qu'elles sont
+écrites ici plutôt que fondues dans un total.</p>
+"""
 
     corps += """
 <p class="discret">Les textes français sont consultables sur

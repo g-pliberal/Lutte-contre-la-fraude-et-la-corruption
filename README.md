@@ -4,7 +4,7 @@ Le site du **Parti libéral français** sur la fraude et la corruption : ce que 
 France fait aujourd'hui, ce que cela donne, et l'alternative libérale que nous
 proposons.
 
-Sept pages, statiques, sans serveur, sans script côté client, sans requête vers
+Huit pages, statiques, sans serveur, sans script côté client, sans requête vers
 un tiers — polices comprises. On ouvre `index.html` dans un navigateur et le
 site est là.
 
@@ -16,8 +16,9 @@ site est là.
 | `constat.html` | Les estimations publiques de la fraude fiscale, sociale et de la corruption — avec leurs contradictions |
 | `dispositif.html` | La politique actuelle : onze textes majeurs depuis 1993, quatorze institutions, leurs moyens réels |
 | `diagnostic.html` | Pourquoi ce dispositif plafonne, en sept causes |
-| `programme.html` | Les dix mesures, en trois blocs — assécher, exposer, sanctionner |
+| `programme.html` | Les douze mesures, en trois blocs — assécher, exposer, sanctionner, et le calendrier |
 | `chiffrage.html` | Ce que cela coûte, ce que cela peut rapporter, et notre degré de confiance ligne à ligne |
+| `objections.html` | Les neuf objections les plus solides qui nous sont faites, et nos réponses |
 | `sources.html` | Toutes les sources citées, avec leur date et le lien pour les vérifier |
 
 ## Les règles d'écriture
@@ -36,6 +37,13 @@ l'État, il se doit d'être vérifiable lui-même.
    confiance, y compris quand il est faible.
 5. **Ce que nous refusons est écrit** au même endroit que ce que nous proposons
    (`programme.html`, section « Ce que nous refusons »).
+6. **Les objections sont publiées avec les réponses**, dans leur version forte
+   et non dans une version commode (`objections.html`) — et quand l'une d'elles
+   porte, on l'écrit.
+7. **Nos propres hypothèses sont isolées et nommées.** Les six valeurs du
+   chiffrage qui ne viennent pas d'une source publique sont listées à part
+   (`sources.html#hypotheses`), pour être contestées une par une plutôt que
+   fondues dans un total.
 
 ## Construire
 
@@ -45,8 +53,9 @@ ne doivent exister qu'à un seul endroit ; un onglet ajouté à la main sur six
 pages sur sept est un onglet manquant.
 
 ```sh
-python3 scripts/construire.py   # réécrit les sept pages à la racine
+python3 scripts/construire.py   # réécrit les huit pages à la racine
 python3 scripts/verifier.py     # les vérifie
+python3 scripts/verifier.py --liens   # interroge les sources citées (réseau)
 ```
 
 Aucune dépendance : Python 3.10 ou plus récent, bibliothèque standard seulement.
@@ -65,10 +74,18 @@ voit pas en relisant :
 
 **À relancer après toute modification de `scripts/`**, et à commiter avec elle.
 
+`verifier.py --liens` est à part : il a besoin du réseau, il interroge une à
+une les adresses de `sources.html`, et il n'est donc pas dans le contrôle par
+défaut. Un site qui promet que tout y est vérifiable ne peut pas se permettre
+une source dont l'adresse a disparu en silence — mais tous ses signalements ne
+sont pas des fautes : plusieurs administrations françaises répondent `403` à
+un outil qui ne se présente pas comme un navigateur. À relancer avant chaque
+revue des chiffres, et à lire avec discernement.
+
 ## Organisation
 
 ```
-index.html … sources.html   les pages servies (générées — ne pas éditer à la main)
+index.html … sources.html   les huit pages servies (générées — ne pas éditer à la main)
 ressources/style.css        la feuille de style, seul point de vérité de la charte
 ressources/polices/         Public Sans et Instrument Serif, servies par le dépôt (OFL)
 ressources/icone.svg        l'icône du site

@@ -3,7 +3,7 @@
 
     python3 scripts/verifier.py
 
-Un site statique de sept pages n'a pas besoin d'une suite de tests, mais il a
+Un site statique de huit pages n'a pas besoin d'une suite de tests, mais il a
 besoin de ces cinq-là : ce sont exactement les erreurs qu'on ne voit pas en
 relisant, et qu'un lecteur voit tout de suite.
 
@@ -16,12 +16,27 @@ relisant, et qu'un lecteur voit tout de suite.
   5. les fichiers que l'en-tête appelle existent, chaque page porte un titre
      de premier niveau — un seul —, et aucune entité HTML n'a été échappée
      deux fois.
+
+Une sixième vérification existe, et elle ne tourne QUE sur demande :
+
+    python3 scripts/verifier.py --liens
+
+Elle interroge une à une les adresses extérieures citées par le site. Ce site
+promet que tout y est vérifiable ; une source dont l'adresse a disparu casse
+cette promesse en silence, et rien d'autre ne le signale. Elle n'est pas dans
+le contrôle par défaut pour deux raisons : elle a besoin du réseau, et elle
+échoue pour des motifs qui ne sont pas des fautes du dépôt — un site
+momentanément indisponible, un hébergeur qui refuse les robots. À relancer
+avant chaque revue des chiffres, et à lire avec discernement.
 """
 
 import re
 import sys
+import urllib.error
+import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 RACINE = Path(__file__).resolve().parent.parent
 PAGES = sorted(RACINE.glob("*.html"))
@@ -78,6 +93,73 @@ def classes_de_la_feuille() -> set[str]:
     # qui ne sont pas des sélecteurs : les retirer d'abord.
     feuille = re.sub(r"/\*.*?\*/", " ", feuille, flags=re.S)
     return set(re.findall(r"\.([a-zA-Z_][\w-]*)", feuille))
+
+
+#: Certains hébergeurs refusent une requête sans navigateur déclaré, et
+#: répondent 403 à un outil qui se présente comme tel. On se nomme, et on
+#: attend : un contrôle de liens qui ment sur ce qu'il est vérifie mal.
+AGENT = ("Mozilla/5.0 (compatible; verificateur-de-liens/1.0; "
+         "+https://github.com/g-pliberal/Lutte-contre-la-fraude-et-la-corruption)")
+
+DELAI = 20
+
+
+def adresses_externes() -> dict[str, set[str]]:
+    """Les adresses extérieures citées, et les pages qui les citent."""
+    trouvees: dict[str, set[str]] = {}
+    for chemin in PAGES:
+        arbre = Arbre()
+        arbre.feed(chemin.read_text(encoding="utf-8"))
+        arbre.close()
+        for lien in arbre.liens:
+            if lien.startswith(("http://", "https://")):
+                trouvees.setdefault(lien, set()).add(chemin.name)
+    return trouvees
+
+
+def interroger(adresse: str) -> str:
+    """Rend une chaîne vide si l'adresse répond, le motif de l'échec sinon.
+
+    On essaie ``HEAD`` d'abord — c'est la requête polie, elle ne rapatrie pas
+    la page —, puis ``GET`` si le serveur ne la comprend pas : beaucoup
+    répondent 405 à ``HEAD`` alors que la page existe.
+    """
+    for methode in ("HEAD", "GET"):
+        requete = urllib.request.Request(
+            adresse, method=methode, headers={"User-Agent": AGENT})
+        try:
+            with urllib.request.urlopen(requete, timeout=DELAI) as reponse:
+                if reponse.status < 400:
+                    return ""
+                motif = f"code {reponse.status}"
+        except urllib.error.HTTPError as erreur:
+            if erreur.code in (403, 405, 999) and methode == "HEAD":
+                continue
+            motif = f"code {erreur.code}"
+        except urllib.error.URLError as erreur:
+            motif = f"injoignable ({erreur.reason})"
+        except Exception as erreur:  # noqa: BLE001 — on rapporte, on n'arrête pas
+            motif = f"{type(erreur).__name__}: {erreur}"
+        if methode == "GET":
+            return motif
+    return motif
+
+
+def verifier_les_liens() -> int:
+    """Le contrôle des adresses extérieures. Rend le nombre d'échecs."""
+    trouvees = adresses_externes()
+    echecs = 0
+    for adresse in sorted(trouvees):
+        motif = interroger(adresse)
+        domaine = urlsplit(adresse).netloc
+        if motif:
+            echecs += 1
+            pages = ", ".join(sorted(trouvees[adresse]))
+            print(f"{domaine} — {motif}\n    {adresse}\n    cité par {pages}",
+                  file=sys.stderr)
+    print(f"{len(trouvees)} adresses extérieures interrogées, "
+          f"{echecs} sans réponse valide.")
+    return echecs
 
 
 def main() -> int:
@@ -149,4 +231,6 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    if "--liens" in sys.argv[1:]:
+        raise SystemExit(1 if verifier_les_liens() else 0)
     raise SystemExit(main())

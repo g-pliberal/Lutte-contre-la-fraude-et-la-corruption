@@ -1,8 +1,8 @@
 """Le gabarit du site : ce qui est le même sur toutes les pages.
 
-Les sept pages sont du HTML statique, écrit une fois et servi tel quel. Mais le
+Les huit pages sont du HTML statique, écrit une fois et servi tel quel. Mais le
 bandeau, le pied et l'affiche ne doivent exister qu'à UN seul endroit : un
-onglet ajouté à la main sur six pages sur sept est un onglet manquant, et cela
+onglet ajouté à la main sur sept pages sur huit est un onglet manquant, et cela
 finit toujours par arriver. Ce module les écrit, ``construire.py`` les assemble,
 et les fichiers produits sont versionnés — le site se sert sans rien exécuter.
 
@@ -34,7 +34,8 @@ GROUPES_NAVIGATION = (
                     ("dispositif.html", "Dispositif"),
                     ("diagnostic.html", "Diagnostic"))),
     ("Ce que nous proposons", (("programme.html", "Programme"),
-                               ("chiffrage.html", "Chiffrage"))),
+                               ("chiffrage.html", "Chiffrage"),
+                               ("objections.html", "Objections"))),
     ("La confiance", (("sources.html", "Sources"),)),
 )
 
@@ -95,7 +96,7 @@ def entete(page_active: str) -> str:
     """Bandeau de tête, précédé du lien d'évitement.
 
     Le lien d'évitement est le premier élément parcouru au clavier : sans lui,
-    atteindre le contenu depuis la barre d'adresse impose de traverser les sept
+    atteindre le contenu depuis la barre d'adresse impose de traverser les huit
     onglets à chaque page (WCAG 2.4.1).
 
     Le nom du site n'est PAS un ``<h1>`` : chaque page porte son propre titre,
@@ -196,20 +197,28 @@ def cle(question: str, reponse: str, corps: str, source: str = "",
             f'<p class="reponse">{reponse}</p>{corps}{fin}</section>')
 
 
-def mesures(liste: tuple) -> str:
+def mesures(liste: tuple, depart: int = 1) -> str:
     """Les mesures du programme : rang, titre, effet, et ce qu'elles remplacent.
 
     La ligne « Aujourd'hui » n'est pas un ornement : sans elle, une mesure ne
     se lit pas comme une alternative mais comme un vœu.
+
+    ``depart`` donne le rang de la première mesure du bloc, et il est
+    obligatoire dès le deuxième : le programme est découpé en trois blocs mais
+    sa numérotation est CONTINUE, et le reste du site y renvoie par le numéro
+    — « la mesure n° 8 ». Trois blocs qui repartiraient de 01 afficheraient
+    trois fois le même rang, et aucun renvoi ne désignerait plus rien.
+    ``start`` de ``enumerate`` porte donc le décalage, et ``__doc__`` le dit
+    pour que personne n'ajoute un bloc en l'oubliant.
     """
     lignes = "".join(
-        f'<li><span class="rang">{rang:02d}</span><div class="corps">'
+        f'<li value="{rang}"><span class="rang">{rang:02d}</span><div class="corps">'
         f'<h3>{escape(titre)}</h3>{corps}'
         f'<p class="aujourdhui"><b>Aujourd\'hui —</b> {actuel}</p>'
         f'</div></li>'
-        for rang, (titre, corps, actuel) in enumerate(liste, start=1)
+        for rang, (titre, corps, actuel) in enumerate(liste, start=depart)
     )
-    return f'<ol class="mesures">{lignes}</ol>'
+    return f'<ol class="mesures" start="{depart}">{lignes}</ol>'
 
 
 def tableau(legende: str, entetes: tuple, lignes: tuple,
@@ -269,7 +278,8 @@ def pied() -> str:
 
     Il porte ce que le lecteur doit savoir avant de citer un chiffre : que ce
     site est un document politique, d'où viennent ses données, et ce qu'il
-    n'est pas. Un site qui réclame la transparence de l'État se doit d'être
+    n'est pas. Il renvoie aussi aux objections : un programme qui ne publie
+    pas ce qu'on lui oppose n'a pas de raison d'être cru. Un site qui réclame la transparence de l'État se doit d'être
     transparent sur lui-même.
     """
     return f"""<footer>
@@ -282,7 +292,9 @@ def pied() -> str:
   juridictions financières et d'organisations internationales, et ne sont
   jamais de notre fabrication. Beaucoup sont des <em>estimations</em> : quand
   deux méthodes officielles donnent deux résultats différents, nous donnons les
-  deux. Dernière revue&nbsp;: {escape(REVUE)}.</p>
+  deux. Les objections qui nous sont faites sont rassemblées et traitées sur
+  la page <a href="objections.html">Objections</a>. Dernière
+  revue&nbsp;: {escape(REVUE)}.</p>
   <p>Textes et infographies sous
   <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">CC&nbsp;BY-SA&nbsp;4.0</a>,
   code du site sous licence Apache&nbsp;2.0. Tout est sur
