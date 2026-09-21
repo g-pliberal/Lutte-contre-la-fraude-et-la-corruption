@@ -77,10 +77,21 @@ voit pas en relisant :
 `verifier.py --liens` est à part : il a besoin du réseau, il interroge une à
 une les adresses de `sources.html`, et il n'est donc pas dans le contrôle par
 défaut. Un site qui promet que tout y est vérifiable ne peut pas se permettre
-une source dont l'adresse a disparu en silence — mais tous ses signalements ne
-sont pas des fautes : plusieurs administrations françaises répondent `403` à
-un outil qui ne se présente pas comme un navigateur. À relancer avant chaque
-revue des chiffres, et à lire avec discernement.
+une source dont l'adresse a disparu en silence.
+
+Il trie ses résultats en trois, et c'est tout son intérêt : sur la trentaine
+d'adresses citées, près de la moitié des administrations françaises et
+américaines refusent de répondre à autre chose qu'un navigateur. Un outil qui
+les compterait comme des fautes serait rouge en permanence, donc ignoré — et
+le lien réellement mort passerait avec elles.
+
+| Catégorie | Ce que dit le serveur | Faute ? |
+| --- | --- | --- |
+| **Lien mort** | `404`, `410` : la page n'existe pas | **Oui** — seule catégorie qui fait échouer la commande |
+| **Refus** | `403`, `405`, `429` : serveur vivant qui écarte un robot | Non — à vérifier dans un navigateur |
+| **Indéterminé** | connexion coupée, échec TLS, DNS | Non — ne dit rien de la page |
+
+À relancer avant chaque revue des chiffres.
 
 ## Organisation
 

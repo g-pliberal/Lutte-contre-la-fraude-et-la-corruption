@@ -24,10 +24,23 @@ Une sixième vérification existe, et elle ne tourne QUE sur demande :
 Elle interroge une à une les adresses extérieures citées par le site. Ce site
 promet que tout y est vérifiable ; une source dont l'adresse a disparu casse
 cette promesse en silence, et rien d'autre ne le signale. Elle n'est pas dans
-le contrôle par défaut pour deux raisons : elle a besoin du réseau, et elle
-échoue pour des motifs qui ne sont pas des fautes du dépôt — un site
-momentanément indisponible, un hébergeur qui refuse les robots. À relancer
-avant chaque revue des chiffres, et à lire avec discernement.
+le contrôle par défaut parce qu'elle a besoin du réseau.
+
+Elle trie ses résultats en TROIS catégories, et c'est tout l'intérêt : sur
+trente et une adresses, la moitié des administrations françaises et
+américaines citées ici refusent de répondre à autre chose qu'un navigateur.
+Un outil qui les compterait comme des fautes serait ignoré au bout de deux
+exécutions, et le lien réellement mort passerait avec elles.
+
+  - « lien mort » : le serveur répond et dit que la page n'existe pas
+    (404, 410). C'est une faute du dépôt, et la seule qui fasse échouer
+    la commande.
+  - « refus » : le serveur est vivant et refuse un outil automatique
+    (403, 405, 429). La page existe probablement ; à vérifier à la main.
+  - « indéterminé » : la connexion n'aboutit pas (coupure, échec TLS, DNS).
+    Cela ne dit rien de la page.
+
+À relancer avant chaque revue des chiffres.
 """
 
 import re
@@ -117,49 +130,94 @@ def adresses_externes() -> dict[str, set[str]]:
     return trouvees
 
 
-def interroger(adresse: str) -> str:
-    """Rend une chaîne vide si l'adresse répond, le motif de l'échec sinon.
+#: Les codes par lesquels un serveur bien vivant écarte un outil automatique.
+#: Ils ne disent rien de l'existence de la page — seulement de qui la demande.
+REFUS = {401, 403, 405, 406, 429, 999}
+
+#: Les codes par lesquels un serveur affirme que la page n'existe pas. Eux
+#: seuls sont des fautes du dépôt.
+MORT = {404, 410}
+
+
+def interroger(adresse: str) -> tuple:
+    """Rend ``(categorie, motif)`` : ``""`` si l'adresse répond, sinon
+    ``"mort"``, ``"refus"`` ou ``"indetermine"``.
 
     On essaie ``HEAD`` d'abord — c'est la requête polie, elle ne rapatrie pas
     la page —, puis ``GET`` si le serveur ne la comprend pas : beaucoup
     répondent 405 à ``HEAD`` alors que la page existe.
     """
+    categorie, motif = "indetermine", "aucune réponse"
     for methode in ("HEAD", "GET"):
         requete = urllib.request.Request(
             adresse, method=methode, headers={"User-Agent": AGENT})
         try:
             with urllib.request.urlopen(requete, timeout=DELAI) as reponse:
                 if reponse.status < 400:
-                    return ""
-                motif = f"code {reponse.status}"
+                    return "", ""
+                code = reponse.status
+            categorie = ("mort" if code in MORT
+                         else "refus" if code in REFUS else "indetermine")
+            motif = f"code {code}"
         except urllib.error.HTTPError as erreur:
-            if erreur.code in (403, 405, 999) and methode == "HEAD":
-                continue
+            if erreur.code in REFUS and methode == "HEAD":
+                continue          # le serveur écarte HEAD : réessayer en GET
+            categorie = ("mort" if erreur.code in MORT
+                         else "refus" if erreur.code in REFUS
+                         else "indetermine")
             motif = f"code {erreur.code}"
         except urllib.error.URLError as erreur:
-            motif = f"injoignable ({erreur.reason})"
+            categorie, motif = "indetermine", f"injoignable ({erreur.reason})"
         except Exception as erreur:  # noqa: BLE001 — on rapporte, on n'arrête pas
+            categorie = "indetermine"
             motif = f"{type(erreur).__name__}: {erreur}"
         if methode == "GET":
-            return motif
-    return motif
+            break
+    return categorie, motif
+
+
+#: L'intitulé de chaque catégorie, et l'ordre dans lequel on les imprime :
+#: ce qui est une faute d'abord, ce qui n'en est pas ensuite.
+CATEGORIES = (
+    ("mort", "LIENS MORTS — le serveur dit que la page n'existe pas"),
+    ("refus", "REFUS — serveur vivant qui écarte un outil automatique ; "
+              "à vérifier dans un navigateur"),
+    ("indetermine", "INDÉTERMINÉ — la connexion n'a pas abouti ; ne dit rien "
+                    "de la page"),
+)
 
 
 def verifier_les_liens() -> int:
-    """Le contrôle des adresses extérieures. Rend le nombre d'échecs."""
+    """Le contrôle des adresses extérieures. Rend le nombre de liens MORTS.
+
+    Les refus et les indéterminés sont imprimés mais ne font pas échouer la
+    commande : les compter comme des fautes reviendrait à la rendre toujours
+    rouge, donc à ne plus la lire.
+    """
     trouvees = adresses_externes()
-    echecs = 0
+    releve: dict[str, list] = {nom: [] for nom, _ in CATEGORIES}
     for adresse in sorted(trouvees):
-        motif = interroger(adresse)
-        domaine = urlsplit(adresse).netloc
-        if motif:
-            echecs += 1
+        categorie, motif = interroger(adresse)
+        if categorie:
+            releve[categorie].append((adresse, motif))
+
+    for nom, intitule in CATEGORIES:
+        if not releve[nom]:
+            continue
+        print(f"\n{intitule}", file=sys.stderr)
+        for adresse, motif in releve[nom]:
             pages = ", ".join(sorted(trouvees[adresse]))
-            print(f"{domaine} — {motif}\n    {adresse}\n    cité par {pages}",
-                  file=sys.stderr)
-    print(f"{len(trouvees)} adresses extérieures interrogées, "
-          f"{echecs} sans réponse valide.")
-    return echecs
+            print(f"  {urlsplit(adresse).netloc} — {motif}\n"
+                  f"    {adresse}\n    cité par {pages}", file=sys.stderr)
+
+    morts = len(releve["mort"])
+    valides = len(trouvees) - sum(len(v) for v in releve.values())
+    print(f"\n{len(trouvees)} adresses interrogées : {valides} valides, "
+          f"{morts} morte(s), {len(releve['refus'])} refus, "
+          f"{len(releve['indetermine'])} indéterminée(s).")
+    if not morts:
+        print("Aucun lien mort.")
+    return morts
 
 
 def main() -> int:

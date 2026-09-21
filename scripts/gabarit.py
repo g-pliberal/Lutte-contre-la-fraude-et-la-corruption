@@ -101,7 +101,7 @@ def entete(page_active: str) -> str:
 
     Le nom du site n'est PAS un ``<h1>`` : chaque page porte son propre titre,
     énorme et en capitales, et c'est lui le ``<h1>``. « Lutte contre la fraude
-    et la corruption » est le nom du site, répété à l'identique sept fois.
+    et la corruption » est le nom du site, répété à l'identique huit fois.
     """
     return f"""<a class="evitement" href="#contenu">Aller au contenu</a>
 <header class="bandeau"><div class="interieur">
@@ -135,7 +135,7 @@ def reperes(fiches: tuple) -> str:
     """La frise de chiffres d'ouverture d'une page.
 
     L'étiquette passe AU-DESSUS du nombre : on lit « ce qui échappe » puis
-    « 60 à 100 Md € », dans cet ordre, et non un nombre dont on cherche le sens.
+    « 6 à 100 Md € », dans cet ordre, et non un nombre dont on cherche le sens.
     ``precision`` est du HTML, et porte la source.
     """
     blocs = "".join(
@@ -289,10 +289,12 @@ def pied() -> str:
   cause nommément.</p>
   <p>Les chiffres cités sont publics, datés et sourcés un par un sur la page
   <a href="sources.html">Sources</a> ; ils viennent d'administrations, de
-  juridictions financières et d'organisations internationales, et ne sont
-  jamais de notre fabrication. Beaucoup sont des <em>estimations</em> : quand
-  deux méthodes officielles donnent deux résultats différents, nous donnons les
-  deux. Les objections qui nous sont faites sont rassemblées et traitées sur
+  juridictions financières et d'organisations internationales. Beaucoup sont
+  des <em>estimations</em> : quand deux méthodes officielles donnent deux
+  résultats différents, nous donnons les deux. Six valeurs font exception — les
+  hypothèses de notre chiffrage, qui ne peuvent venir de personne d'autre que
+  nous ; elles sont isolées et nommées sur
+  <a href="sources.html#hypotheses">Sources</a>, pour être contestées. Les objections qui nous sont faites sont rassemblées et traitées sur
   la page <a href="objections.html">Objections</a>. Dernière
   revue&nbsp;: {escape(REVUE)}.</p>
   <p>Textes et infographies sous

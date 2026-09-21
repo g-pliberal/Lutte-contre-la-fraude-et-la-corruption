@@ -1857,7 +1857,7 @@ def objections() -> str:
         "l'endroit où on les lira&nbsp;: nous ne savons pas quelle fraction "
         "du problème ce programme traite tant que l'écart fiscal n'est pas "
         "publié&nbsp;; la neutralité de la réforme fiscale vaut en masse et "
-        "non pour chaque contribuable&nbsp;; et notre première version "
+        "non pour chaque contribuable&nbsp;; notre première version "
         "soutenait sur le niveau des prélèvements une thèse que la "
         "littérature ne soutient pas, ce qui nous a valu de réécrire une "
         "page&nbsp;; et notre estimation du rendement de la publication des "
