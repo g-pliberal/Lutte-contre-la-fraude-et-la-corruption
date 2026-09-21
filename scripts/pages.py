@@ -60,7 +60,7 @@ def accueil() -> str:
          "méthode, une série, un débat. La France n'a jamais publié "
          "d'estimation officielle consolidée — les chiffres qui circulent "
          "viennent d'un syndicat, d'un institut ou d'une commission, et vont "
-         "du simple au double."),
+         "de 9 à 100&nbsp;milliards d'euros selon le périmètre retenu."),
         ("30 %",
          "Jusqu'à 30&nbsp;% des sommes recouvrées pour qui fait tomber une "
          "fraude.",
@@ -94,7 +94,8 @@ def accueil() -> str:
 
     corps += points((
         ("Ce n'est pas une affaire de moyens seulement",
-         "Ajouter des contrôleurs à un code fiscal de 1&nbsp;900 pages "
+         "Ajouter des contrôleurs à un code fiscal de plusieurs milliers de "
+         "pages "
          "revient à embaucher des traducteurs pour un texte que personne "
          "n'écrit lisiblement. Les moyens comptent&nbsp;: ils ne suffisent "
          "pas, et l'histoire des vingt dernières années le montre."),
@@ -131,8 +132,8 @@ def accueil() -> str:
   l'on ne sait pas de la fraude et de la corruption en France, chiffre par
   chiffre.<br>
   <a href="dispositif.html"><b>Dispositif</b></a> — la politique actuelle&nbsp;:
-  trente ans de lois, douze institutions, ce qu'elles font et ce qu'elles
-  obtiennent.<br>
+  trente ans de textes, quatorze institutions, ce qu'elles font et ce
+  qu'elles obtiennent.<br>
   <a href="diagnostic.html"><b>Diagnostic</b></a> — pourquoi ce dispositif
   plafonne, en sept causes.<br>
   <a href="programme.html"><b>Programme</b></a> — les dix mesures, et ce que
@@ -166,8 +167,9 @@ def constat() -> str:
         "Ce n'est pas une formule&nbsp;: aucune administration française ne "
         "publie d'estimation officielle et consolidée de la fraude. Les "
         "chiffres qui circulent viennent d'un syndicat, d'un institut de "
-        "statistique, d'une commission ou d'une caisse — et vont du simple au "
-        "quintuple. Voici ce qu'ils disent, avec leur date et leur périmètre.",
+        "statistique, d'une commission ou d'une caisse — et vont de 9 à "
+        "100&nbsp;milliards d'euros selon le périmètre retenu. Voici ce qu'ils "
+        "disent, avec leur date et leur périmètre.",
     )
 
     corps += plan((
@@ -184,8 +186,8 @@ def constat() -> str:
          "Fourchette la plus citée dans le débat public&nbsp;: estimation "
          "syndicale de 2019, jamais reprise à son compte par l'État."),
         ("Ce que le contrôle fiscal notifie", "≈ 15 Md €",
-         "Par an, droits et pénalités. Environ deux tiers seulement finissent "
-         "encaissés (DGFiP)."),
+         "Par an, droits et pénalités. Environ 70&nbsp;% seulement finissent "
+         "encaissés en 2023 (DGFiP)."),
         ("Cotisations sociales éludées", "6,8 à 8,4 Md €",
          "Par an, essentiellement du travail dissimulé "
          "(Haut Conseil du financement de la protection sociale, 2022)."),
@@ -196,7 +198,8 @@ def constat() -> str:
 
     corps += cle(
         "Combien coûte la fraude fiscale ?",
-        "Cinq sources publiques, cinq réponses, et aucun arbitrage de l'État. "
+        "Cinq sources publiques, quatre chiffres, un refus de chiffrer — et "
+        "aucun arbitrage de l'État. "
         "L'écart n'est pas seulement statistique&nbsp;: les <b>périmètres</b> "
         "diffèrent, et personne n'est chargé de les réconcilier.",
         tableau(
@@ -228,7 +231,7 @@ def constat() -> str:
         "Le contrôle fiscal rapporte-t-il ?",
         "Il notifie de l'ordre de 15&nbsp;milliards d'euros par an et en "
         "encaisse environ 10. <b>L'écart d'un tiers est structurel</b>, et "
-        "c'est lui qu'il faudrait suivre&nbsp;: une redressement annoncé et "
+        "c'est lui qu'il faudrait suivre&nbsp;: un redressement annoncé et "
         "jamais recouvré ne finance rien.",
         tableau(
             "Contrôle fiscal : droits et pénalités notifiés puis encaissés (ordres de grandeur)",
@@ -328,8 +331,9 @@ def constat() -> str:
         "pour l'Union à environ <b>120&nbsp;milliards d'euros par an</b>&nbsp;; "
         "une étude du Parlement européen de 2016, retenant un périmètre plus "
         "large, aboutissait à une fourchette de <b>179 à 990&nbsp;milliards</b>. "
-        "L'écart de un à cinq entre deux travaux de la même institution dit "
-        "l'état réel de la connaissance.</p>"
+        "L'écart de un à huit entre deux travaux européens — l'un de la "
+        "Commission, l'autre du Parlement — dit l'état réel de la "
+        "connaissance.</p>"
         "<p>Trois traits rendent le risque français particulier&nbsp;:</p>"
         "<p>— les <b>seuils de dispense de publicité</b> ont été relevés à "
         "plusieurs reprises depuis 2020, jusqu'à 100&nbsp;000&nbsp;€ pour "
@@ -418,9 +422,10 @@ def dispositif() -> str:
     ))
 
     corps += reperes((
-        ("Lois majeures depuis 1993", "11",
-         "De Sapin&nbsp;I à la loi de finances pour 2024, sans compter les "
-         "décrets et les plans."),
+        ("Textes majeurs depuis 1993", "11",
+         "Huit lois, de Sapin&nbsp;I à la loi de finances pour 2024, un "
+         "décret, un plan gouvernemental et la mise en place du Parquet "
+         "européen."),
         ("Administrations et autorités mobilisées", "≈ 14",
          "Deux ministères, quatre autorités ou agences, trois réseaux "
          "juridictionnels, cinq caisses."),
@@ -557,6 +562,13 @@ colonnes qui est instructive.</p>
         ("texte", "date", "long", "long"),
     )
 
+    corps += """
+<p class="discret">La colonne « Depuis » donne l'année d'<b>installation
+effective</b>, qui suit en général d'un an la loi qui crée l'entité&nbsp;: le
+PNF et la HATVP sont créés par les lois de 2013 et installés en 2014, l'AFA par
+la loi de 2016 et installée en 2017, l'AGRASC par la loi de 2010 et installée
+en 2011.</p>
+"""
     corps += '<h2 id="resultats" tabindex="-1">Ce que cela donne</h2>'
     corps += """
 <p>Trois résultats, et leur envers. Nous les prenons dans l'ordre où
@@ -629,7 +641,8 @@ l'administration les met en avant.</p>
     return page(
         "dispositif.html",
         "Dispositif — la politique française contre la fraude et la corruption",
-        "Les onze lois, les quatorze institutions et les moyens réels de la "
+        "Les onze textes majeurs, les quatorze institutions et les moyens "
+        "réels de la "
         "politique française de lutte contre la fraude et la corruption, de la "
         "loi Sapin I au plan antifraude de 2023.",
         corps,
@@ -820,7 +833,10 @@ def diagnostic() -> str:
         "des signalements exploitables. Le programme de la <i>Securities and "
         "Exchange Commission</i> américaine, qui verse de 10 à 30&nbsp;% des "
         "sanctions supérieures à un million de dollars, a distribué plus d'un "
-        "milliard de dollars et rapporté plusieurs fois cette somme.</p>",
+        "milliard de dollars de primes, sur plusieurs milliards de sanctions "
+        "<b>ordonnées</b> — ordonnées, et non encaissées&nbsp;: la distinction "
+        "que nous demandons à l'État vaut aussi pour l'exemple dont nous nous "
+        "réclamons.</p>",
         "",
         "alerte",
     )
@@ -1130,12 +1146,16 @@ effectifs et la refonte des systèmes d'information.</p>
              "20 à 50 M&nbsp;€", "Bonne"),
             ("Versement des prestations à la source",
              "Refonte des systèmes d'information des caisses&nbsp;; comparable "
-             "au prélèvement à la source de 2019",
-             "150 à 400 M&nbsp;€ sur cinq ans", "Moyenne"),
+             "au prélèvement à la source de 2019. 150 à 400&nbsp;M&nbsp;€ au "
+             "total, amortis sur cinq ans",
+             "30 à 80 M&nbsp;€", "Moyenne"),
             ("Renforcement des effectifs de contrôle et de poursuite",
              "≈ 2&nbsp;000 équivalents temps plein supplémentaires (contrôle "
-             "fiscal, AFA, HATVP, PNF, juridictions financières)",
-             "120 à 160 M&nbsp;€", "Bonne"),
+             "fiscal, AFA, HATVP, PNF, juridictions financières), <b>en sus</b> "
+             "des 1&nbsp;500 agents du plan de 2023&nbsp;; au coût complet "
+             "employeur de 80 à 110&nbsp;k&nbsp;€ par agent, rémunération "
+             "chargée, support et immobilier compris",
+             "160 à 220 M&nbsp;€", "Bonne"),
             ("Chiffrage annuel de l'écart fiscal et social",
              "Une équipe permanente à l'Insee, enquêtes de contrôle aléatoire",
              "5 à 15 M&nbsp;€", "Bonne"),
@@ -1143,15 +1163,19 @@ effectifs et la refonte des systèmes d'information.</p>
              "Versée sur les sommes <b>effectivement encaissées</b>&nbsp;: le "
              "poste ne coûte que s'il rapporte",
              "Autofinancé par construction", "Bonne"),
-            ("<b>Total</b>", "Hors investissement initial",
-             "<b>≈ 150 à 250 M&nbsp;€/an</b>", "—"),
+            ("<b>Total</b>",
+             "Somme des lignes ci-dessus, refonte des systèmes d'information "
+             "amortie sur cinq ans",
+             "<b>≈ 215 à 365 M&nbsp;€/an</b>", "—"),
         ),
         ("texte", "long", "nombre", "texte"),
     )
     corps += """
-<p class="discret">À comparer aux ≈&nbsp;15&nbsp;Md&nbsp;€ que le seul contrôle
-fiscal notifie chaque année&nbsp;: le coût du programme représente de l'ordre de
-1 à 2&nbsp;% de ce montant.</p>
+<p class="discret">À comparer aux ≈&nbsp;10,6&nbsp;Md&nbsp;€ que le seul
+contrôle fiscal a <b>effectivement encaissés</b> en 2023 — et non aux
+≈&nbsp;15&nbsp;Md&nbsp;€ notifiés, car la distinction que nous demandons à
+l'État vaut d'abord pour nous&nbsp;: le coût du programme représente de l'ordre
+de 2 à 3,5&nbsp;% de ce montant.</p>
 """
 
     corps += '<h2 id="rendement" tabindex="-1">Ce que cela peut rapporter</h2>'
@@ -1177,9 +1201,11 @@ législature.</p>
              "≈ 160&nbsp;Md&nbsp;€ vaut 1,6&nbsp;Md&nbsp;€",
              "0,5 à 3 Md&nbsp;€", "Moyenne"),
             ("Recouvrement effectif renforcé",
-             "Ramener la part encaissée de ≈ 70&nbsp;% à ≈ 80&nbsp;% des "
-             "montants notifiés",
-             "1 à 1,5 Md&nbsp;€", "Bonne"),
+             "Ramener <b>durablement</b> la part encaissée de ≈ 70&nbsp;% "
+             "(2023) à ≈ 80&nbsp;% des montants notifiés — un niveau déjà "
+             "atteint en 2019 et en 2021, ce qui rend le gain plausible mais "
+             "interdit de le présenter comme acquis",
+             "1 à 1,5 Md&nbsp;€", "Moyenne"),
             ("Prime au lanceur d'alerte",
              "Signalements exploitables sur des montages que le contrôle de "
              "routine ne voit pas",
@@ -1194,8 +1220,9 @@ législature.</p>
              "autres évaluables",
              "Nul par nature", "—"),
             ("<b>Ordre de grandeur agrégé</b>",
-             "Hors effets non chiffrables, sans double compte",
-             "<b>≈ 2 à 5 Md&nbsp;€/an</b>", "Moyenne"),
+             "Somme des trois lignes chiffrables, hors effets non chiffrables "
+             "et sans double compte",
+             "<b>≈ 1,7 à 5,5 Md&nbsp;€/an</b>", "Moyenne"),
         ),
         ("texte", "long", "nombre", "texte"),
     )
