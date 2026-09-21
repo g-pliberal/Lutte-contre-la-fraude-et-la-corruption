@@ -14,7 +14,7 @@ site est là.
 | --- | --- |
 | `index.html` | L'affiche, les quatre engagements, la méthode en trois gestes |
 | `constat.html` | Les estimations publiques de la fraude fiscale, sociale et de la corruption — avec leurs contradictions |
-| `dispositif.html` | La politique actuelle : onze lois depuis 1993, quatorze institutions, leurs moyens réels |
+| `dispositif.html` | La politique actuelle : onze textes majeurs depuis 1993, quatorze institutions, leurs moyens réels |
 | `diagnostic.html` | Pourquoi ce dispositif plafonne, en sept causes |
 | `programme.html` | Les dix mesures, en trois blocs — assécher, exposer, sanctionner |
 | `chiffrage.html` | Ce que cela coûte, ce que cela peut rapporter, et notre degré de confiance ligne à ligne |
