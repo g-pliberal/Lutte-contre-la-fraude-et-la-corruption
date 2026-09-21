@@ -1,0 +1,742 @@
+/* La charte du site : elle est celle de « Retraite à comptes notionnels », et
+   c'est voulu. Les deux pages sont des outils du même parti, et un électeur
+   qui passe de l'une à l'autre doit reconnaître la maison : fond vert profond,
+   titres massifs en capitales, or pour ce qui compte, crème pour ce qu'on
+   remplit ou qu'on emporte. Les noms des variables sont les mêmes des deux
+   côtés — un hôte qui voudrait ajuster une couleur les redéfinit dans une
+   feuille chargée après celle-ci, et n'a besoin de connaître ni un sélecteur,
+   ni un fichier. */
+
+/* Les deux polices de l'affiche, servies par le dépôt et non par un tiers :
+   une requête de police chez Google emporterait l'adresse IP du lecteur, et
+   une page qui parle de transparence n'a pas à en prendre l'habitude. Sous
+   licence OFL, avec les deux sous-ensembles dont le français a besoin —
+   `latin` pour l'essentiel, `latin-ext` pour les œ, les ÿ et les guillemets
+   qu'il traîne.
+
+   `font-display: swap` : le texte s'affiche tout de suite dans la pile du
+   système et se recompose quand la police arrive. Un titre invisible pendant
+   trois secondes sur un réseau lent serait pire que le même titre dans une
+   autre police. */
+@font-face {
+  font-family: "Public Sans"; font-style: normal; font-weight: 100 900;
+  font-display: swap; src: url(polices/public-sans-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Public Sans"; font-style: normal; font-weight: 100 900;
+  font-display: swap; src: url(polices/public-sans-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Instrument Serif"; font-style: normal; font-weight: 400;
+  font-display: swap; src: url(polices/instrument-serif-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Instrument Serif"; font-style: normal; font-weight: 400;
+  font-display: swap; src: url(polices/instrument-serif-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Un seul thème, et c'est voulu. L'affiche EST l'identité : la décliner en
+     clair donnerait deux sites qui ne disent pas la même chose. `color-scheme`
+     est figé sur `dark`, ce qui donne aussi aux champs, aux menus déroulants et
+     aux barres de défilement du navigateur le rendu sombre qui va avec. */
+  color-scheme: dark;
+  --fond: #0b3d3a;
+  --fond-carte: #0f4a46;
+  --fond-appui: #0f4a46;
+  --fond-defilant: var(--fond);
+  /* Le crème porte 12,9:1 sur le fond et le crème atténué 7,1:1 : au-dessus du
+     plancher de 4,5:1 même pour le petit texte. La troisième teinte, 5,4:1,
+     est réservée aux textes d'au moins 15 px. */
+  --texte: #f4efe4;
+  --texte-doux: #c3d8d4;
+  --texte-tres-doux: #a7c3bf;
+  /* Le filet décoratif ne porte aucune information et plafonne à 1,76:1 ;
+     la bordure des CHAMPS, elle, dit où l'on peut écrire et doit atteindre
+     3:1 sur les deux fonds qu'elle sépare (WCAG 1.4.11) : 4,12:1 sur le fond,
+     3,44:1 sur la carte. */
+  --trait: #2f6360;
+  --trait-champ: #6fa09c;
+  /* L'accent est l'or : 9,4:1 sur le fond, et du vert profond lisible sur un
+     bouton plein — le contraste inverse, 9,4:1 lui aussi. */
+  --accent: #e9c53d;
+  --accent-doux: #14514c;
+  --or: #e9c53d;
+  /* Le crème des panneaux qu'on lit de près. Une affiche entièrement sombre
+     fatigue dès qu'il faut lire vingt lignes de tableau ; le crème dit
+     « ici, on travaille ». */
+  --creme: #f4efe4;
+  --sur-creme: #0b3d3a;
+  --sur-creme-doux: #2a4a47;
+  --sur-creme-accent: #0b6167;
+  --creme-trait: #c9c2b4;
+  --bandeau: #0b3d3a;
+  --bandeau-texte: #f4efe4;
+  --bandeau-doux: #c3d8d4;
+  --bandeau-vif: #e9c53d;
+  /* Les couleurs porteuses de sens. Elles ne sont jamais SEULES à porter ce
+     qu'elles disent : un mot, un signe ou une étiquette le redit toujours. */
+  --actuel: #76a2ff;
+  --liberal: #e9c53d;
+  --alerte: #f0b849;
+  --manque: #e8807f;
+  --reste: #8ac44a;
+  /* La marge latérale, fluide : 18 px sur un téléphone, 40 px au large. Le
+     bandeau, l'affiche et les engagements s'y alignent au pixel. */
+  --marge: clamp(1.125rem, 5vw, 2.5rem);
+  /* La largeur de l'affiche. Le texte courant, lui, reste borné par `.chapeau`
+     et par `p` : une ligne de 80 rem ne se lit pas. */
+  --largeur: 80rem;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  /* En `rem` et non en pixels : une taille en pixels ignore la préférence de
+     taille de police du navigateur, sur laquelle comptent ceux qui l'ont
+     agrandie une fois pour toutes. */
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+main { max-width: var(--largeur); margin: 0 auto; padding: 0 var(--marge); }
+/* Lien d'évitement : premier élément parcouru au clavier, invisible tant qu'il
+   n'a pas le focus. Sans lui, atteindre le contenu depuis la barre d'adresse
+   impose de traverser les sept onglets à chaque page (WCAG 2.4.1). Il n'est
+   pas caché par `display:none`, qui le sortirait de l'ordre de tabulation. */
+.evitement {
+  position: absolute; left: 0.5rem; top: -4rem; z-index: 30;
+  background: var(--or); color: var(--fond);
+  border: 1px solid var(--or); border-radius: 0 0 4px 4px;
+  padding: 0.5rem 0.9rem; font-size: 0.92rem; font-weight: 700;
+  text-decoration: none; transition: top 0.15s;
+}
+.evitement:focus { top: 0; }
+main:focus { outline: none; }
+
+/* -- le bandeau -------------------------------------------------------------
+
+   Une seule rangée : le nom du site à gauche, les onglets à droite, sur le
+   même vert que la page et fermé par un simple filet. Collé en haut, parce que
+   les pages sont longues et que reperdre la navigation au premier défilement
+   oblige à remonter de six écrans pour changer de page. */
+header.bandeau {
+  border-bottom: 1px solid var(--trait);
+  background: var(--fond);
+  color: var(--bandeau-texte);
+  padding: 0; margin-bottom: 0;
+  position: sticky; top: 0; z-index: 20;
+}
+header.bandeau .interieur {
+  max-width: var(--largeur); margin: 0 auto; padding: 0 var(--marge);
+  display: flex; flex-wrap: wrap; gap: 0 1.5rem;
+  align-items: stretch; justify-content: space-between;
+}
+/* Le nom du site, en capitales serrées, précédé du carré d'or : c'est la
+   marque de l'affiche, et elle tient en douze pixels de côté. Le carré est
+   décoratif — dessiné par le style, pas écrit dans le HTML, et aucune synthèse
+   vocale n'a à l'annoncer. */
+header.bandeau .nom {
+  font-size: 0.8125rem; margin: 0; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.3;
+  display: flex; align-items: center; min-height: 3.5rem; min-width: 0;
+}
+header.bandeau .nom a {
+  color: inherit; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.75rem;
+}
+header.bandeau .nom a:hover span { color: var(--or); }
+header.bandeau .nom a::before {
+  content: ""; flex: none; width: 0.75rem; height: 0.75rem; background: var(--or);
+}
+/* Les onglets. Toute la hauteur de la barre — 56 px, bien plus que les 44 de
+   la cible tactile (WCAG 2.5.8) —, capitales serrées, et un filet sous chacun :
+   c'est ce filet qui prend l'or sur l'onglet courant. L'ACTIF NE SE SIGNALE PAS
+   QUE PAR LA COULEUR — il porte un soulignement de 2 px ET `aria-current`. */
+header.bandeau nav {
+  display: flex; flex-wrap: wrap; gap: 0; margin-bottom: -1px;
+  margin-right: -0.55rem;
+}
+nav .groupe { display: contents; }
+/* L'étiquette de groupe : lue par les synthèses vocales, invisible à l'œil.
+   `clip-path` plutôt que `display:none`, qui la retirerait aussi de l'arbre
+   d'accessibilité — c'est-à-dire de la seule oreille qui l'entend encore. */
+nav .etiquette {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* `display: contents` ici AUSSI : sinon la barre se replie par groupes, et
+   « Le constat » occuperait une rangée à lui seul sur un téléphone. */
+nav .liens { display: contents; }
+header.bandeau nav a {
+  color: var(--texte-doux); text-decoration: none;
+  font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; white-space: nowrap;
+  display: inline-flex; align-items: center; min-height: 3.5rem;
+  padding: 0 0.55rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+header.bandeau nav a:hover {
+  color: var(--bandeau-texte); border-bottom-color: var(--trait-champ);
+}
+header.bandeau nav a[aria-current="page"] {
+  color: var(--or); border-bottom-color: var(--or);
+}
+/* Sous 70 rem, la rangée unique ne tient plus : le nom prend sa propre rangée,
+   plus basse, et les onglets passent dessous, sur toute la largeur. Deux
+   rangées de 44 px : la barre reste collée sans manger l'écran. */
+@media (max-width: 70rem) {
+  header.bandeau .nom { flex: 1 1 100%; min-height: 2.75rem; padding-top: 0.25rem; }
+  header.bandeau nav { width: 100%; margin-left: -0.55rem; }
+  header.bandeau nav a { min-height: 2.75rem; }
+}
+
+/* -- l'affiche --------------------------------------------------------------
+
+   Le premier titre de chaque page est massif, en capitales, très serré : c'est
+   lui qu'on retient. Il est fluide — de 36 px sur un téléphone à 76 px au
+   large — parce qu'une taille fixe coupe « Corruption » en trois sur 320
+   points. La mise en capitales est faite PAR LE STYLE, jamais dans le texte :
+   certaines synthèses vocales épellent lettre à lettre un mot écrit en
+   majuscules. */
+h1, h2, h3, h4 { text-wrap: balance; }
+h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem); line-height: 0.95;
+  font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase;
+}
+/* L'accueil crie un peu plus fort que les autres pages : c'est la seule qui
+   soit lue par quelqu'un qui n'a pas demandé à lire. */
+.affiche h1 {
+  font-size: clamp(2.5rem, 7vw, 6.0625rem); line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1;
+  margin: 3rem 0 1rem; font-weight: 900;
+  letter-spacing: -0.03em; text-transform: uppercase;
+}
+h3 { font-size: 1.25rem; margin: 2rem 0 0.5rem; font-weight: 700;
+     letter-spacing: -0.01em; }
+h4 { letter-spacing: -0.01em; }
+/* Le titre en serif : celui d'un encadré, d'un bloc qui parle plutôt qu'il
+   n'assène. Il coexiste avec les capitales sans les concurrencer, parce qu'il
+   ne joue pas dans la même famille. */
+.serif {
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+  line-height: 1.05;
+}
+p { margin: 0.7rem 0; max-width: 46rem; }
+a { color: var(--accent); }
+a:hover { opacity: 0.85; }
+/* Le sur-titre d'une page : deux ou trois mots en or, en capitales espacées,
+   au-dessus du titre. Il dit où l'on est, ce que le titre ne dit plus depuis
+   qu'il est une phrase et non un intitulé. */
+.surtitre {
+  margin: 0 0 1rem; font-size: 0.975rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--or);
+  line-height: 1;
+}
+/* Le chapeau : la phrase sous le titre, en serif, plus grande que le texte
+   courant. C'est la seule chose que lira celui qui ne lit que deux lignes. */
+.chapeau {
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1875rem, 2vw, 1.625rem); line-height: 1.45;
+  color: var(--texte-doux); max-width: 51rem; margin: 1.5rem 0 0;
+}
+.affiche { padding: 3rem 0 2.5rem; }
+.affiche .chapeau { font-size: clamp(1.25rem, 2.4vw, 1.875rem); }
+/* Ce qui, dans une phrase, porte le message. En or ET en demi-gras : l'or seul
+   disparaît pour une vision basse ou un daltonisme fort, et l'emphase avec
+   lui. Deux signaux valent mieux qu'un, et le gras ne coûte rien à personne. */
+.cle-texte, strong.cle-texte { color: var(--or); font-weight: 600; }
+
+/* -- les blocs --------------------------------------------------------------- */
+
+.carte {
+  background: var(--fond-carte); border: 1px solid var(--trait);
+  border-radius: 4px; padding: 1.25rem 1.4rem; margin: 1.5rem 0;
+}
+.note {
+  border-left: 3px solid var(--or); background: var(--fond-carte);
+  padding: 0.85rem 1.1rem; margin: 1.5rem 0; font-size: 0.95rem;
+  border-radius: 0 4px 4px 0;
+}
+.note.avertissement, .note.vigilance { border-left-color: var(--alerte); }
+.note.avertissement {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+}
+/* Le pictogramme garde sa taille quand le texte passe à la ligne, et se pose
+   sur la première ligne plutôt qu'au milieu du bloc. */
+.note.avertissement > .icone {
+  color: var(--alerte); width: 1.15em; height: 1.15em; margin-top: 0.12em;
+}
+.note.resume { font-size: 1rem; }
+.note.entree { font-size: 1rem; margin: 1.2rem 0; }
+.note.entree p { margin: 0; }
+.note.entree .actions { margin-top: 0.7rem; }
+.discret { color: var(--texte-tres-doux); font-size: 0.9rem; }
+/* Le badge : « en vigueur » ou « proposition », redit à côté de chaque bloc ce
+   que le préambule a dit une fois. Petit, en capitales espacées, sans couleur
+   porteuse de sens à elle seule : le mot suffit. */
+.badge {
+  display: inline-block; font-size: 0.68rem; letter-spacing: 0.06em;
+  text-transform: uppercase; font-weight: 700; line-height: 1.4;
+  padding: 0.05em 0.45em; border-radius: 3px; vertical-align: 0.15em;
+  border: 1px solid var(--trait-champ); color: var(--texte-doux);
+  white-space: nowrap;
+}
+.badge.proposition { color: var(--or); border-color: var(--or); }
+
+/* -- le panneau crème -------------------------------------------------------
+
+   Tout ce qu'on emporte est posé sur du crème. C'est le seul endroit du site
+   où le texte est sombre sur clair, et il faut donc y redéfinir les couleurs
+   de tout ce qui peut s'y trouver — liens, filets, boutons —, sans quoi un
+   lien d'or sur du crème tomberait à 1,7:1. */
+.creme {
+  background: var(--creme); color: var(--sur-creme);
+  border-radius: 4px; padding: clamp(1.25rem, 4vw, 2rem);
+  margin: 1.5rem 0;
+}
+.creme h2, .creme h3 { color: inherit; }
+.creme .surtitre { color: var(--sur-creme-accent); }
+.creme a { color: var(--sur-creme-accent); }
+.creme .discret { color: var(--sur-creme-doux); }
+.creme :focus-visible { outline-color: var(--sur-creme); }
+.creme a.bouton {
+  background: var(--sur-creme); color: var(--or); border-color: var(--sur-creme);
+}
+.creme table th, .creme table td { border-bottom-color: var(--creme-trait); }
+.creme thead th { color: var(--sur-creme-doux); border-bottom-color: var(--sur-creme); }
+.creme .cle-texte { color: var(--sur-creme-accent); }
+
+/* -- les engagements --------------------------------------------------------
+
+   Les quatre chiffres du programme, en section à part : fond d'un ton
+   au-dessus, filet d'or en tête, numérotés 01 à 04. La numérotation les fait
+   lire comme une liste d'engagements et non comme quatre statistiques
+   orphelines.
+
+   DEUX PAR LIGNE, ET JAMAIS TROIS : à trois colonnes, la quatrième carte
+   tomberait seule sur sa ligne. Le passage à une colonne se fait sous 48 rem,
+   dans la même requête que le retrait et le filet des cartes paires. */
+.engagements {
+  margin: 4rem 0 0; background: var(--fond-carte);
+  border-top: 4px solid var(--or);
+}
+.engagements .grille {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; padding: 0.5rem clamp(1.25rem, 4vw, 2rem) 2.25rem;
+  /* Le filet de séparation est porté par les cartes, et non par le fond du
+     conteneur : un fond qui sert de trait laisse un rectangle vert vide dès
+     qu'une rangée est incomplète. */
+  overflow: hidden;
+}
+.engagements .engagement {
+  padding: 1.75rem 1.5rem 0 0; display: grid; gap: 1rem; align-content: start;
+}
+/* La deuxième colonne porte son filet à GAUCHE : à droite, il pendrait dans le
+   vide au bord du bloc. */
+.engagements .engagement:nth-child(even) {
+  padding: 1.75rem 1.5rem 0; box-shadow: -1px 0 0 var(--trait);
+}
+.engagements .rang {
+  font-size: 0.9375rem; font-weight: 700; letter-spacing: 0.16em;
+  color: var(--texte-doux); line-height: 1;
+}
+/* Le chiffre. Fluide, et sans `nowrap` : « 100 % » ne doit pas pouvoir
+   franchir sa colonne, et un chiffre coupé vaut mieux qu'une page qui déborde. */
+.engagements .chiffre {
+  font-size: clamp(2.375rem, 8vw, 3.75rem); line-height: 0.9;
+  font-weight: 900; letter-spacing: -0.05em; color: var(--or);
+}
+/* La promesse, en serif, en crème plein contraste, séparée par un filet :
+   c'est elle qui porte le message. */
+.engagements .promesse {
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+  font-size: 1.5625rem; line-height: 1.25; color: var(--texte);
+  border-top: 1px solid var(--trait); padding-top: 1rem;
+}
+/* Le détail technique : 18 px et non 15. Le petit texte d'un programme est
+   précisément celui qu'on lit en plein jour sur un téléphone. */
+.engagements .detail {
+  font-size: 1.125rem; line-height: 1.6; color: var(--texte-doux);
+}
+
+/* -- les gestes -------------------------------------------------------------
+
+   Comment la mesure marche, en trois ou quatre lignes numérotées. Le chiffre
+   est énorme et l'interligne serré : à taille de texte courant, les gestes se
+   lisent comme une note de bas de page, alors qu'ils pèsent autant que le
+   tableau qui leur fait face. */
+ol.gestes {
+  margin: 0; padding: 0; list-style: none; display: grid; gap: 0;
+  font-size: 1.5rem; line-height: 1.45; color: var(--texte-doux);
+  border-top: 1px solid var(--trait);
+}
+ol.gestes > li {
+  display: grid; grid-template-columns: 4rem 1fr; gap: 1.125rem;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--trait);
+  align-items: baseline;
+}
+ol.gestes > li > .rang {
+  font-size: 3.125rem; line-height: 0.85; font-weight: 900;
+  letter-spacing: -0.05em; color: var(--or);
+}
+ol.gestes > li strong { color: var(--texte); font-weight: 700; }
+
+/* L'encadré d'or : un bloc qui se détache sans changer de fond. Il porte ce
+   qui mérite d'être lu à part — un repère, une mise en garde argumentée. */
+.encadre {
+  border: 2px solid var(--or); padding: clamp(1.25rem, 4vw, 2rem);
+  margin: 1.5rem 0;
+}
+.encadre > :first-child { margin-top: 0; }
+.encadre > :last-child { margin-bottom: 0; }
+/* Deux colonnes de même poids, qui se mettent l'une sous l'autre quand la
+   place manque. */
+.paire {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(23.75rem, 100%), 1fr));
+  gap: clamp(1.75rem, 4vw, 3rem); margin: 3.5rem 0; align-items: start;
+}
+
+/* -- les chiffres -----------------------------------------------------------
+
+   Les trois ou quatre chiffres d'ouverture d'une page : ce sont eux qu'on
+   emporte si on ne lit rien d'autre, et ils doivent donc se lire de loin,
+   avant le texte. L'étiquette passe AU-DESSUS du nombre — on lit « ce qui
+   échappe » puis « 60 à 100 Md € », dans cet ordre, et non un nombre dont on
+   cherche le sens. */
+.fiches { display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr));
+          gap: 1rem; }
+.fiche .valeur { font-size: 1.25rem; font-variant-numeric: tabular-nums;
+                 font-weight: 700; }
+.fiche .etiquette { font-size: 0.85rem; color: var(--texte-doux); }
+.fiche .precision { font-size: 0.85rem; color: var(--texte-doux); margin-top: 0.3rem; }
+.fiches.reperes {
+  gap: 0; margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
+  border-top: 1px solid var(--trait); border-bottom: 1px solid var(--trait);
+  overflow: hidden;
+}
+.fiches.reperes .fiche {
+  background: none; border: 0; border-radius: 0;
+  padding: 1.25rem 1.25rem 1.25rem 0;
+  box-shadow: 1px 0 0 var(--trait);
+  display: flex; flex-direction: column;
+}
+/* Étiquette, nombre, précision : trois rangées PARTAGÉES entre les cartes
+   d'une même ligne, pour que les nombres s'alignent quand une étiquette tient
+   sur deux lignes. Là où la sous-grille n'existe pas, la colonne flexible
+   reste. */
+@supports (grid-template-rows: subgrid) {
+  .fiches.reperes .fiche {
+    display: grid; grid-template-rows: subgrid; grid-row: span 3;
+    align-content: start;
+  }
+}
+.fiches.reperes .fiche .valeur {
+  font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.05; font-weight: 900;
+  letter-spacing: -0.04em; color: var(--or); order: 2;
+}
+.fiches.reperes .fiche .etiquette {
+  order: 1; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--texte-doux); margin-bottom: 0.4rem;
+}
+.fiches.reperes .fiche .precision { order: 3; margin-top: 0.4rem; }
+/* Quelques idées, une par bloc. Elles se lisent côte à côte, de même poids :
+   c'est ce qui les distingue d'une liste, où la première l'emporte. */
+.points { display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+          gap: 1.5rem; margin: 2rem 0; }
+.points .point { border-top: 3px solid var(--or); padding: 1rem 0 0; }
+.points .point > h3 {
+  margin: 0 0 0.4rem; font-size: 1.25rem; font-weight: 900;
+  letter-spacing: -0.02em; text-transform: uppercase;
+}
+.points .point > p { margin: 0; font-size: 1rem; color: var(--texte-doux); }
+
+/* Une question, sa réponse, ce qui la montre. Encadrée pour se découper : une
+   capture de ce bloc se comprend hors du site. */
+section.cle {
+  background: var(--fond-carte); border: 0; border-top: 3px solid var(--or);
+  border-radius: 0; padding: 1.5rem clamp(1.25rem, 3vw, 1.75rem) 1.25rem;
+  margin: 2.5rem 0;
+}
+section.cle > h3 {
+  margin: 0; font-size: clamp(1.375rem, 3vw, 1.75rem); font-weight: 900;
+  letter-spacing: -0.03em; text-transform: uppercase;
+}
+section.cle > .reponse {
+  font-size: 1.1875rem; line-height: 1.5; max-width: 46rem; margin: 0.5rem 0 0.2rem;
+  color: var(--texte-doux);
+}
+/* Le tableau d'une carte respire sous la réponse : collée dessous, sa légende
+   se lisait comme la fin de la phrase précédente. */
+section.cle > .defilant { margin-top: 1.1rem; }
+section.cle > .source {
+  font-size: 0.875rem; color: var(--texte-tres-doux); margin: 0.2rem 0 0;
+}
+
+/* -- les mesures ------------------------------------------------------------
+
+   Une mesure du programme : son rang, son titre, ce qu'elle change, et ce
+   qu'elle remplace. La colonne de gauche porte le rang en or, comme les
+   gestes ; la droite, le texte. */
+ol.mesures { margin: 2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0; }
+ol.mesures > li {
+  display: grid; grid-template-columns: 4.5rem 1fr; gap: 0 1.25rem;
+  padding: 1.5rem 0; border-top: 1px solid var(--trait);
+}
+ol.mesures > li:last-child { border-bottom: 1px solid var(--trait); }
+ol.mesures > li > .rang {
+  font-size: 2.25rem; line-height: 0.9; font-weight: 900;
+  letter-spacing: -0.05em; color: var(--or); font-variant-numeric: tabular-nums;
+}
+ol.mesures > li > .corps > h3 { margin: 0 0 0.4rem; font-size: 1.3125rem; }
+ol.mesures > li > .corps > p { margin: 0.4rem 0 0; }
+/* Ce que la mesure remplace : la ligne de comparaison, en retrait et en petit,
+   qui dit l'état actuel. Sans elle, une mesure ne se lit pas comme une
+   alternative mais comme un vœu. */
+ol.mesures .aujourdhui {
+  font-size: 0.9375rem; color: var(--texte-tres-doux);
+  border-left: 2px solid var(--trait); padding-left: 0.85rem;
+  margin: 0.75rem 0 0;
+}
+ol.mesures .aujourdhui b { color: var(--texte-doux); font-weight: 700; }
+
+/* -- les pictogrammes ------------------------------------------------------- */
+/* Un seul jeu — Lucide, grille de 24, trait de 2 —, une seule règle : ils
+   prennent la taille et la couleur du texte qui les porte. */
+.icone { width: 1.05em; height: 1.05em; flex: none; vertical-align: -0.16em; }
+
+/* -- les dépliants ---------------------------------------------------------- */
+details { margin-top: 1.25rem; }
+/* Le résumé porte SON chevron, et non celui du navigateur : le marqueur natif
+   n'a ni la même forme ni la même taille d'un moteur à l'autre. */
+summary {
+  cursor: pointer; color: var(--texte-doux); font-size: 0.95rem;
+  display: flex; align-items: center; gap: 0.45rem; list-style: none;
+  min-height: 2.75rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::marker { content: ""; }
+summary > .icone { color: var(--or); transition: transform 0.15s; }
+details[open] > summary > .icone { transform: rotate(180deg); }
+summary:hover { color: var(--texte); }
+/* Une section repliée. Son titre a le poids d'un intertitre, parce qu'il en
+   tient lieu. Les sections se suivent sans espace, séparées par un filet, pour
+   qu'une pile de dix se lise comme un sommaire. */
+details.section { margin: 0; border-top: 1px solid var(--trait); }
+details.section:last-of-type { border-bottom: 1px solid var(--trait); }
+details.section > summary {
+  color: var(--texte); font-size: 1.0625rem; font-weight: 700;
+  padding: 0.85rem 0.2rem; gap: 0.6rem;
+}
+details.section > summary:hover { color: var(--or); }
+details.section > .dedans { padding: 0 0 1.2rem 1.65rem; }
+details.section > .dedans > :first-child { margin-top: 0; }
+details.section > .dedans > h4 {
+  font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.4rem;
+}
+
+/* -- les tableaux -----------------------------------------------------------
+
+   Un tableau plus large que l'écran défile horizontalement. La zone qui défile
+   doit pouvoir recevoir le focus, sinon elle est inatteignable au clavier chez
+   les moteurs qui ne rendent pas focusables les boîtes défilantes (WCAG 2.1.1) :
+   le HTML lui donne `tabindex="0"`, et le style rend ce focus visible. Et elle
+   le DIT : une ombre portée au bord apparaît tant qu'il reste des colonnes à
+   atteindre, et disparaît en bout de course. */
+.defilant {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  container-type: inline-size;
+  background:
+    linear-gradient(to right, var(--fond-defilant) 30%, transparent) left center,
+    linear-gradient(to left, var(--fond-defilant) 30%, transparent) right center,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.4), transparent) left center,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4), transparent) right center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem 100%, 2.5rem 100%, 0.9rem 100%, 0.9rem 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+/* Le voile prend la couleur de ce qui porte le tableau : peint dans le vert de
+   la page, il ferait sur chaque carte une bande plus sombre au bord droit,
+   même quand rien ne défile. */
+.carte, .note, .plan, .encadre, .engagements, section.cle {
+  --fond-defilant: var(--fond-carte);
+}
+.creme { --fond-defilant: var(--creme); }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+/* Le titre du tableau, énoncé par les synthèses vocales avant son contenu. */
+caption {
+  caption-side: top; text-align: left; font-size: 0.9rem;
+  color: var(--texte-doux); padding: 0 0 0.5rem;
+}
+/* Une `<caption>` est large comme son tableau : quand il déborde de l'écran,
+   elle est coupée avec lui. Elle porte donc un `<span>` collant, large comme
+   la zone visible — `cqw` se mesure sur `.defilant` —, qui suit le défilement
+   sans jamais le quitter. */
+caption > span {
+  display: block; position: sticky; left: 0; width: 100cqw; box-sizing: border-box;
+}
+tbody th { font-weight: 700; }
+th, td { text-align: right; padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--trait); }
+th:first-child, td:first-child { text-align: left; }
+thead th {
+  font-size: 0.875rem; color: var(--texte-doux); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-bottom: 2px solid var(--or);
+}
+/* `:is(th, td)`, et non `td` seul : l'en-tête de rangée garderait son filet,
+   et chaque tableau finirait par un trait orphelin sous sa première cellule. */
+tbody tr:last-child :is(th, td) { border-bottom: none; }
+td.nombre, th.nombre { font-variant-numeric: tabular-nums; }
+/* Un nombre ne se coupe pas : « 15,2 Md € » se lirait sur deux lignes. */
+td.nombre, td.date, th.date { white-space: nowrap; }
+/* Une colonne de PHRASES, et non de nombres : elle se lit alignée à gauche.
+   `.long` est la même chose en plus large — une colonne de notes de trois
+   lignes que la grille réduirait sinon à deux cents points, et dont chaque
+   rangée ferait la hauteur d'un paragraphe. Les deux s'alignent à gauche : un
+   texte aligné à droite se lit deux fois plus lentement, et le contraste avec
+   la colonne voisine se perd. */
+td.texte, th.texte, td.long, th.long { text-align: left; }
+td.long, th.long { min-width: 18rem; }
+/* Une colonne de dates ou de millésimes : ce sont des étiquettes, pas des
+   quantités, et elles se rangent à gauche comme les intitulés. */
+td.date, th.date { text-align: left; }
+
+/* Le plan d'une page longue : ce qu'elle contient, en une liste de liens qui
+   se parcourt du regard avant de lire. */
+.plan {
+  background: var(--fond-carte); border-left: 3px solid var(--or);
+  padding: 0.85rem 1.1rem; margin: 1.5rem 0; font-size: 0.95rem;
+}
+.plan .etiquette {
+  margin: 0 0 0.35rem; font-size: 0.78rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--texte-doux); font-weight: 700;
+}
+.plan ol {
+  margin: 0; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem;
+}
+.plan a {
+  color: var(--texte); text-decoration: none;
+  font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; min-height: 2.75rem;
+  padding: 0 0.7rem;
+  border-bottom: 1px solid var(--trait-champ);
+}
+.plan a:hover { color: var(--or); border-bottom-color: var(--or); }
+
+/* -- les boutons ------------------------------------------------------------
+
+   Un seul indicateur de focus pour tout ce qui se parcourt au clavier. Trois
+   pixels d'or, décalés de trois, sur fond sombre ; du vert profond dans les
+   panneaux crème, où l'or se perdrait. */
+:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; border-radius: 0; }
+/* Le bouton de l'affiche : or plein, vert profond dessus, capitales, carré.
+   Rien d'arrondi — une affiche n'arrondit pas ses angles. Il reste un LIEN :
+   il mène à une autre adresse, se copie et s'ouvre dans un onglet ; seul son
+   habit change. */
+a.bouton {
+  display: inline-flex; align-items: center; min-height: 3rem;
+  text-decoration: none;
+  color: var(--fond); background: var(--or);
+  border: 2px solid var(--or); border-radius: 0;
+  padding: 0.85rem 1.5rem; font-size: 1rem; font-weight: 900;
+  letter-spacing: 0.02em; text-transform: uppercase;
+}
+a.bouton:hover { opacity: 0.88; }
+/* Le bouton secondaire : même taille, même cible tactile, mais creux. Il porte
+   ce qu'on PEUT faire, et non ce qu'on est venu faire. */
+a.bouton.second {
+  background: transparent; color: var(--texte); border-color: var(--trait-champ);
+  font-weight: 700; text-transform: none; letter-spacing: 0;
+}
+a.bouton.second:hover { border-color: var(--or); opacity: 1; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1.4rem; align-items: center;
+           margin: 1.5rem 0 0; }
+p.actions > a:not(.bouton) { display: inline-flex; align-items: center; min-height: 1.5rem; }
+
+/* -- le pied ----------------------------------------------------------------
+
+   Il porte ce que le lecteur doit savoir avant de citer un chiffre : d'où
+   vient ce qui est écrit, sous quelle licence, et ce que le site n'est pas. */
+footer {
+  width: calc(100% - 2 * var(--marge)); max-width: calc(var(--largeur) - 2 * var(--marge));
+  margin: 4rem auto 0; padding: 1.5rem 0 5rem;
+  border-top: 1px solid var(--trait);
+  font-size: 0.9rem; color: var(--texte-tres-doux);
+}
+footer a { color: var(--or); }
+
+/* Ce qui n'est lu que par les synthèses vocales. */
+.hors-ecran {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* Téléphone. Tout ce qui est fluide s'est déjà réduit tout seul ; ne restent
+   ici que les choses qui doivent CHANGER DE FORME — une rangée qui passe en
+   colonne, un filet vertical qui ne sépare plus rien. */
+@media (max-width: 48rem) {
+  .engagements .grille { grid-template-columns: 1fr; }
+  .engagements .engagement,
+  .engagements .engagement:nth-child(even) {
+    padding: 1.5rem 0 0; box-shadow: none; border-top: 1px solid var(--trait);
+  }
+  .engagements .engagement:first-child { border-top: 0; }
+}
+@media (max-width: 34rem) {
+  body { font-size: 1rem; }
+  /* Le bandeau ne colle plus : à sept onglets sur deux ou trois rangées, il
+     mangerait un tiers de la hauteur d'un téléphone, et c'est cette hauteur
+     qu'on vient chercher. */
+  header.bandeau { position: static; }
+  header.bandeau nav { margin-left: -0.5rem; margin-right: -0.5rem; }
+  header.bandeau nav a { padding: 0 0.5rem; font-size: 0.75rem; }
+  .plan a { padding: 0 0.5rem; font-size: 0.8125rem; }
+  .affiche { padding: 2rem 0 1.5rem; }
+  table { font-size: 0.9rem; }
+  th, td { padding: 0.5rem 0.45rem; }
+  details.section > .dedans { padding-left: 0.6rem; }
+  .fiches.reperes { grid-template-columns: 1fr; }
+  .fiches.reperes .fiche {
+    padding: 1rem 0; box-shadow: none; border-top: 1px solid var(--trait);
+  }
+  .fiches.reperes .fiche:first-child { border-top: 0; }
+  ol.gestes { font-size: 1.25rem; }
+  ol.gestes > li { grid-template-columns: 3rem 1fr; gap: 0.875rem; }
+  ol.gestes > li > .rang { font-size: 2.5rem; }
+  ol.mesures > li { grid-template-columns: 3rem 1fr; gap: 0 0.875rem; }
+  ol.mesures > li > .rang { font-size: 1.75rem; }
+  .paire { gap: 2rem; margin: 2.5rem 0; }
+  section.cle { padding: 1.25rem 1rem 1rem; }
+}
+/* Le mouvement n'est pas une information : quand le système demande de le
+   réduire, les transitions s'effacent. */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
