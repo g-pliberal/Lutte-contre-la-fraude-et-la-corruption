@@ -65,10 +65,13 @@ def accueil() -> str:
          "Jusqu'à 30&nbsp;% des sommes recouvrées pour qui fait tomber une "
          "fraude.",
          "C'est le barème du programme de la <i>Securities and Exchange "
-         "Commission</i> américaine, étendu ici à la fraude fiscale, sociale "
-         "et aux marchés publics. La France a bien un « aviseur fiscal » "
-         "depuis 2017, mais son indemnisation reste discrétionnaire, "
-         "confidentielle et sans barème public."),
+         "Commission</i> américaine — 10 à 30&nbsp;% des sanctions "
+         "<b>effectivement recouvrées</b>, 2,2&nbsp;Md&nbsp;$ versés à "
+         "444 personnes depuis 2011 —, étendu ici à la fraude organisée et "
+         "aux marchés publics, et fermé aux dossiers individuels de "
+         "prestations. La France a bien un « aviseur fiscal » depuis 2017, "
+         "mais son indemnisation reste discrétionnaire, confidentielle et "
+         "sans barème public."),
         ("0",
          "Zéro marché public attribué sans que le contrat soit publié d'abord.",
          "La commande publique pèse 233&nbsp;milliards d'euros recensés en "
@@ -217,9 +220,11 @@ def constat() -> str:
                 ("Conseil des prélèvements obligatoires", "2007",
                  "Fraude aux prélèvements obligatoires", "29 à 40 Md&nbsp;€/an"),
                 ("Insee", "2022 (année 2012)", "TVA seule", "20 à 26 Md&nbsp;€"),
-                ("Commission européenne, <i>VAT&nbsp;Gap</i>", "2023 (année 2021)",
+                ("Commission européenne, <i>VAT&nbsp;Gap</i>", "2025 (année 2023)",
                  "TVA seule, fraude <b>et</b> erreurs et défaillances",
-                 "≈ 9,6 Md&nbsp;€, soit 4,9&nbsp;% des recettes théoriques"),
+                 "4,9&nbsp;% de la TVA due en 2021 (≈ 9,6&nbsp;Md&nbsp;€), "
+                 "<b>5,6&nbsp;% en 2023</b>&nbsp;: l'écart se creuse, comme "
+                 "dans l'ensemble de l'Union (7,9 à 9,5&nbsp;%)"),
                 ("DGFiP, travaux préliminaires", "2024",
                  "TVA <b>déclarée</b> seule", "6 à 10 Md&nbsp;€"),
                 ("<b>Cour des comptes</b>", "décembre&nbsp;2025",
@@ -277,10 +282,16 @@ def constat() -> str:
 
     corps += cle(
         "Et la fraude sociale ?",
-        "Elle est réelle, elle est mieux mesurée que la fraude fiscale, et "
-        "elle reste <b>plus petite d'un ordre de grandeur</b> que ce qui "
-        "échappe aux prélèvements. Le dire n'est pas l'excuser&nbsp;: c'est "
-        "refuser de se tromper de cible.",
+        "Elle est réelle, mieux mesurée que la fraude fiscale, et son ordre "
+        "de grandeur est connu&nbsp;: <b>≈ 14&nbsp;Md&nbsp;€</b>, 17,5 avec "
+        "les erreurs de bonne foi. Reste à la comparer honnêtement, ce que "
+        "personne ne fait&nbsp;: c'est <i>bien moins</i> que les estimations "
+        "hautes de la fraude fiscale (70 à 100&nbsp;Md&nbsp;€), c'est du "
+        "<i>même ordre</i> que la seule fraude à la TVA selon l'Insee (20 à "
+        "26&nbsp;Md&nbsp;€), et c'est <i>davantage</i> que l'écart de TVA "
+        "déclarée mesuré par la DGFiP (6 à 10&nbsp;Md&nbsp;€). Les trois "
+        "phrases sont vraies en même temps, et c'est pourquoi le débat "
+        "s'enlise.",
         tableau(
             "Fraude sociale : estimations et montants détectés",
             ("Poste", "Source", "Nature", "Montant"),
@@ -291,8 +302,18 @@ def constat() -> str:
                 ("dont cotisations éludées", "HCFiPS, décembre&nbsp;2024",
                  "Travail dissimulé, salariés du privé non agricole",
                  "6 à 7,8 Md&nbsp;€/an"),
-                ("dont prestations familiales et RSA", "CNAF",
-                 "Préjudice estimé par la caisse", "≈ 2,5 à 3 Md&nbsp;€/an"),
+                ("dont prestations familiales et RSA", "CNAF, enquête 2022",
+                 "Préjudice <b>estimé</b> par la caisse, dont ≈ 1,5 pour le "
+                 "seul RSA&nbsp;; enquête reconduite tous les deux ans",
+                 "≈ 4,9 Md&nbsp;€/an"),
+                ("<i>en regard</i>, fraude détectée", "CNAF, 2025",
+                 "Soit un <b>taux de détection de l'ordre de 9&nbsp;%</b> — la "
+                 "branche famille est la seule à le publier",
+                 "508,8 M&nbsp;€"),
+                ("<i>et</i>, sans fraude&nbsp;: les erreurs", "CNAF, 2024",
+                 "Indus versés puis réclamés d'un côté, droits non versés de "
+                 "l'autre&nbsp;— des deux côtés, personne n'a fraudé",
+                 "1,2 Md&nbsp;€ et 480 M&nbsp;€"),
                 ("Travail dissimulé redressé", "URSSAF, 2025",
                  "Redressements notifiés", "1,5 Md&nbsp;€"),
                 ("Toutes branches", "Sécurité sociale, 2024",
@@ -304,13 +325,20 @@ def constat() -> str:
             ),
             ("texte", "texte", "long", "nombre"),
         ),
-        "Deux remarques. La fraude sociale est <b>mieux estimée que la fraude "
-        "fiscale</b> — il existe un chiffre annuel, révisé, discuté&nbsp;; "
-        "c'est exactement ce qui manque de l'autre côté, et cela montre que "
-        "notre mesure n°&nbsp;8 n'a rien d'irréaliste. Et la dernière ligne "
-        "n'est pas une provocation&nbsp;: un tiers d'allocataires qui ne "
-        "réclament pas ce à quoi ils ont droit est le symptôme de la même "
-        "complexité. Voir <a href=\"sources.html#social\">Sources</a>.",
+        "Trois remarques. La fraude sociale est <b>mieux estimée que la "
+        "fraude fiscale</b> — il existe un chiffre annuel, révisé, "
+        "discuté&nbsp;; c'est exactement ce qui manque de l'autre côté, et "
+        "cela montre que notre mesure n°&nbsp;8 n'a rien d'irréaliste. "
+        "Mieux&nbsp;: la branche famille publie un <b>taux de détection</b>, "
+        "9&nbsp;%, c'est-à-dire le rapport que l'on réclame en vain au "
+        "contrôle fiscal — on y sait ce qu'on ne voit pas. Enfin, les lignes "
+        "sur les erreurs et sur le non-recours ne sont pas des "
+        "provocations&nbsp;: 1,2 milliard "
+        "d'euros versés à tort puis réclamés, 480 millions jamais versés à "
+        "qui y avait droit, et un tiers d'allocataires qui ne demandent rien "
+        "sont le symptôme d'une même complexité — celle que la mesure "
+        "n°&nbsp;3 supprime. Voir "
+        "<a href=\"sources.html#social\">Sources</a>.",
         "sociale",
     )
 
@@ -343,10 +371,15 @@ def constat() -> str:
         "l'autre. Ce qui est significatif ici, c'est donc le passage de 72 à "
         "66 en trois ans — pas le recul de six places, que nous donnons pour "
         "mémoire. Deux autres signaux complètent le tableau&nbsp;:</p>"
-        "<p>— le <b>GRECO</b>, organe anticorruption du Conseil de l'Europe, "
-        "classe la France en conformité seulement <i>partielle</i> sur la "
-        "majorité des recommandations de son cinquième cycle, qui porte sur "
-        "les hautes fonctions de l'exécutif et les services répressifs&nbsp;;<br>"
+        "<p>— le <b>GRECO</b>, organe anticorruption du Conseil de l'Europe, a "
+        "adressé à la France 18 recommandations dans son cinquième cycle, qui "
+        "porte sur les hautes fonctions de l'exécutif et les services "
+        "répressifs. À son deuxième rapport de conformité, "
+        "<b>deux seulement sont mises en œuvre de façon satisfaisante</b>, dix "
+        "le sont partiellement et six ne le sont pas du tout — parmi ces "
+        "dernières, la Cour de justice de la République, le statut du lanceur "
+        "d'alerte et la remontée d'informations du parquet national financier "
+        "vers l'exécutif&nbsp;;<br>"
         "— la justice condamne, d'après l'analyse de l'AFA portant sur "
         "2016-2022, de l'ordre de <b>400 infractions par an</b> au titre des "
         "atteintes à la probité — corruption, favoritisme, prise illégale "
@@ -383,10 +416,17 @@ def constat() -> str:
         "ce que l'on mesure</i>. Le secteur public <b>local</b> en concentre "
         "100,7&nbsp;Md&nbsp;€, soit 43&nbsp;% du total.</p>"
         "<p>Trois traits rendent le risque français particulier&nbsp;:</p>"
-        "<p>— les <b>seuils de dispense de publicité</b> ont été relevés à "
-        "plusieurs reprises depuis 2020, jusqu'à 100&nbsp;000&nbsp;€ pour "
-        "certains marchés de travaux&nbsp;: autant de contrats attribués sans "
-        "mise en concurrence formelle&nbsp;;<br>"
+        "<p>— les <b>seuils de dispense de publicité et de mise en "
+        "concurrence</b> n'ont cessé de monter depuis 2020, et la dérogation "
+        "née du covid est devenue la règle&nbsp;: 100&nbsp;000&nbsp;€ HT pour "
+        "les marchés de travaux, <b>pérennisés au 1ᵉʳ&nbsp;janvier&nbsp;2026</b> "
+        "(art. R.&nbsp;2122-8 du code de la commande publique), et "
+        "60&nbsp;000&nbsp;€ HT pour les fournitures et services depuis le "
+        "1ᵉʳ&nbsp;avril&nbsp;2026, contre 40&nbsp;000 auparavant. Autant de "
+        "contrats attribués sans mise en concurrence formelle — et l'écart "
+        "s'ouvre avec le seuil de <i>recensement</i>, abaissé lui à "
+        "40&nbsp;000&nbsp;€&nbsp;: une tranche entière de marchés est "
+        "désormais comptée sans avoir été mise en concurrence&nbsp;;<br>"
         "— les <b>données de la commande publique</b> sont publiées, mais "
         "incomplètes, tardives et dispersées entre profils d'acheteurs&nbsp;;<br>"
         "— les <b>avenants</b>, qui font souvent le vrai prix d'un marché, ne "
@@ -579,23 +619,26 @@ colonnes qui est instructive.</p>
             ("TRACFIN", "1990",
              "Cellule de renseignement financier&nbsp;: reçoit les "
              "déclarations de soupçon des banques, notaires, casinos",
-             "≈ 200 agents&nbsp;; plus de 180&nbsp;000 informations reçues "
-             "par an, quelques milliers de notes transmises"),
+             "≈ 200 agents pour <b>278&nbsp;484 déclarations de soupçon "
+             "reçues en 2025</b> (+32&nbsp;% en un an, flux multiplié par six "
+             "depuis 2015)&nbsp;; quelques milliers de notes transmises"),
             ("SEJF", "2019",
              "Service d'enquêtes judiciaires des finances — la « police "
              "fiscale et douanière »",
              "≈ 300 agents, officiers fiscaux et douaniers judiciaires"),
             ("URSSAF", "—",
              "Contrôle des cotisations, lutte contre le travail dissimulé",
-             "≈ 1&nbsp;Md&nbsp;€ de redressements pour travail dissimulé par an"),
+             "1,5&nbsp;Md&nbsp;€ de redressements pour travail dissimulé en "
+             "2025"),
             ("CNAF, CNAM, CNAV, MSA", "—",
              "Contrôle des prestations versées",
-             "≈ 2,1&nbsp;Md&nbsp;€ de fraude détectée et stoppée en 2023, "
+             "≈ 2,9&nbsp;Md&nbsp;€ de fraude détectée et redressée en 2024, "
              "toutes branches"),
             ("PNF", "2014",
              "Parquet national financier&nbsp;: poursuites en matière de "
              "corruption, fraude fiscale complexe, atteintes à la probité",
-             "≈ 20 magistrats pour plusieurs centaines de procédures"),
+             "20 magistrats et ≈ 30 juristes et greffiers pour <b>771 "
+             "procédures</b> fin 2025, soit <b>43 dossiers par magistrat</b>"),
             ("OCLCIFF", "2013",
              "Office central de lutte contre la corruption et les infractions "
              "financières et fiscales — les enquêteurs du PNF",
@@ -606,11 +649,16 @@ colonnes qui est instructive.</p>
             ("AFA", "2017",
              "Agence française anticorruption&nbsp;: contrôle les programmes "
              "de conformité des entreprises et des acteurs publics, conseille, "
-             "forme", "≈ 50 agents"),
+             "forme",
+             "60 agents au 31&nbsp;décembre&nbsp;2025, contre 52 un an plus "
+             "tôt"),
             ("HATVP", "2014",
              "Déclarations d'intérêts et de patrimoine, répertoire des "
              "représentants d'intérêts, contrôle déontologique des départs "
-             "vers le privé", "≈ 60 agents pour ≈ 16&nbsp;000 déclarants"),
+             "vers le privé",
+             "79 équivalents temps plein et ≈ 8&nbsp;M&nbsp;€ de budget en "
+             "2025, pour 5&nbsp;795 déclarations examinées et 641 avis de "
+             "mobilité public-privé"),
             ("AGRASC", "2011",
              "Gestion et recouvrement des avoirs saisis et confisqués",
              "Effectif restreint&nbsp;; plusieurs centaines de millions "
@@ -908,13 +956,17 @@ def diagnostic() -> str:
         "2015 et 2024</b> — le chiffre est de la Cour des comptes, "
         "décembre&nbsp;2025. Le plan de 2023 promet 1&nbsp;500 agents d'ici "
         "2027&nbsp;: cela ne rattrape pas ce qui a été perdu.",
-        "<p>Le contraste est plus net encore sur le versant anticorruption. "
-        "L'Agence française anticorruption compte de l'ordre de 50 agents pour "
-        "contrôler les programmes de conformité de milliers d'entreprises et "
-        "de collectivités. La Haute Autorité pour la transparence de la vie "
-        "publique en compte une soixantaine pour ≈ 16&nbsp;000 déclarants. Le "
-        "parquet national financier, une vingtaine de magistrats pour des "
-        "centaines de procédures, souvent internationales.</p>"
+        "<p>Le contraste est plus net encore sur le versant anticorruption, "
+        "et il se chiffre. L'Agence française anticorruption comptait "
+        "<b>60 agents</b> au 31&nbsp;décembre&nbsp;2025 pour contrôler les "
+        "programmes de conformité de milliers d'entreprises et de "
+        "collectivités. La Haute Autorité pour la transparence de la vie "
+        "publique fonctionne avec <b>79 équivalents temps plein et "
+        "8&nbsp;M&nbsp;€</b>, pour près de 5&nbsp;800 déclarations examinées "
+        "en 2025. Le parquet national financier aligne <b>20 magistrats pour "
+        "771 procédures</b>, soit 43 dossiers chacun, souvent "
+        "internationaux — et Tracfin, environ 200 agents pour "
+        "278&nbsp;484 déclarations de soupçon reçues dans l'année.</p>"
         "<p>Le même reflux se lit du côté pénal, et la Cour des comptes le "
         "documente&nbsp;: les poursuites pour fraude fiscale sont passées de "
         "plus de <b>850 par an avant 2018 à environ 700 en 2023-2024</b>, et "
@@ -941,12 +993,13 @@ def diagnostic() -> str:
         "<p>Les pays qui ont fait le choix inverse — une récompense "
         "proportionnelle aux sommes effectivement recouvrées — ont vu affluer "
         "des signalements exploitables. Le programme de la <i>Securities and "
-        "Exchange Commission</i> américaine, qui verse de 10 à 30&nbsp;% des "
-        "sanctions supérieures à un million de dollars, a distribué plus d'un "
-        "milliard de dollars de primes, sur plusieurs milliards de sanctions "
-        "<b>ordonnées</b> — ordonnées, et non encaissées&nbsp;: la distinction "
-        "que nous demandons à l'État vaut aussi pour l'exemple dont nous nous "
-        "réclamons.</p>",
+        "Exchange Commission</i> américaine verse de 10 à 30&nbsp;% des "
+        "sanctions pécuniaires <b>effectivement recouvrées</b> au-delà d'un "
+        "million de dollars&nbsp;: c'est la loi elle-même qui retient "
+        "l'encaissement, et non la somme annoncée. Depuis 2011, il a versé "
+        "<b>plus de 2,2&nbsp;milliards de dollars à 444 personnes</b>, et "
+        "reçu environ 27&nbsp;000 signalements pour la seule année "
+        "2025.</p>",
         "",
         "alerte",
     )
@@ -1049,7 +1102,12 @@ trois, et c'est le plus déterminant.</p>
          "de ces données, sans déclaration de l'allocataire.</p>"
          "<p>Ce qui disparaît alors n'est pas seulement la fraude "
          "déclarative&nbsp;: c'est aussi l'indu de bonne foi, et une grande "
-         "partie du non-recours. Trois problèmes, une seule cause.</p>"
+         "partie du non-recours. Trois problèmes, une seule cause — et deux "
+         "d'entre eux sont chiffrés. Pour la seule branche famille en "
+         "2024&nbsp;: <b>1,2&nbsp;Md&nbsp;€ versés à tort puis réclamés</b> à "
+         "des allocataires qui n'avaient pas fraudé, et "
+         "<b>480&nbsp;M&nbsp;€ de droits jamais versés</b> à qui y avait "
+         "droit. Les deux sortent de la même case mal remplie.</p>"
          "<p><b>La limite, et il faut l'écrire.</b> La déclaration sociale "
          "nominative ne connaît que ce qu'un employeur déclare. Les revenus "
          "des indépendants, ceux du capital, les pensions alimentaires et le "
@@ -1158,17 +1216,23 @@ ne commence pas par le sien ne mérite pas d'être cru.</p>
          "à cinq ans pour les fonctions de régulation, d'achat public et de "
          "contrôle — celles où l'information emportée a une valeur "
          "marchande.</p>"
-         "<p>Surtout, le manquement cesse de relever de la seule voie pénale, "
-         "qui n'est presque jamais empruntée&nbsp;: l'autorité prononce "
-         "elle-même une sanction financière, publique et proportionnée à la "
-         "rémunération obtenue.</p>"
+         "<p>Surtout, le manquement cesse de relever de la seule voie pénale. "
+         "L'article 432-13 du code pénal punit la prise illégale d'intérêts "
+         "d'un ancien agent public de trois ans d'emprisonnement et "
+         "200&nbsp;000&nbsp;€ d'amende&nbsp;: une peine lourde, donc "
+         "rarement requise, et qui de ce fait ne dissuade pas. L'autorité "
+         "prononce elle-même une sanction financière, publique et "
+         "proportionnée à la rémunération obtenue — praticable, donc "
+         "appliquée.</p>"
          "<p>La Haute Autorité existe et fait son travail. Nous lui donnons "
          "la publicité et la sanction qui lui manquent&nbsp;: ce n'est pas "
          "une agence de plus, c'est la même avec des dents.</p>",
-         "le pantouflage figure depuis dix ans parmi les trois reproches "
-         "constants du GRECO à la France&nbsp;; les avis ne sont pas tous "
-         "publiés, la carence est de trois ans, et le manquement relève d'une "
-         "infraction pénale rarement poursuivie."),
+         "le pantouflage figure parmi les reproches constants du GRECO à la "
+         "France&nbsp;; la carence est de trois ans (art. 432-13 du code "
+         "pénal), les avis ne sont pas tous publiés, et un avis favorable de "
+         "la Haute Autorité <b>ne protège pas des poursuites pénales</b> — "
+         "elle examine le risque, elle ne le lève pas. La Haute Autorité a "
+         "rendu 641 avis de mobilité public-privé en 2025."),
 
         ("Publier chaque année un chiffrage officiel de la fraude",
          "<p>Un <i>écart fiscal et social</i> à la française&nbsp;: une "
@@ -1197,7 +1261,10 @@ circulaire.</p>
          "supérieur de la magistrature pour la nomination et la discipline des "
          "magistrats du parquet. C'est la réforme réclamée par le GRECO depuis "
          "plus de dix ans, votée en termes identiques par les deux assemblées "
-         "puis abandonnée avant le Congrès en 2019.</p>"
+         "puis abandonnée avant le Congrès en 2019. La remontée d'informations "
+         "du parquet national financier vers l'exécutif figure d'ailleurs "
+         "parmi les <b>six recommandations du cinquième cycle que la France "
+         "n'a pas mises en œuvre du tout</b>.</p>"
          "<p><b>Et si le Congrès ne vient pas.</b> Il serait malhonnête de "
          "promettre que la révision aboutira&nbsp;: elle a été votée en termes "
          "identiques par les deux assemblées, et abandonnée avant le Congrès. "
@@ -1232,15 +1299,20 @@ circulaire.</p>
          "<p>En regard, une protection réelle&nbsp;: prise en charge des frais "
          "de procédure dès la recevabilité du signalement, et sanction "
          "financière dissuasive des représailles et des procédures-bâillons.</p>",
-         "l'aviseur fiscal rémunéré existe depuis 2017, mais son indemnisation "
-         "est discrétionnaire, sans barème public, et d'un champ étroit."),
+         "l'aviseur fiscal rémunéré existe depuis 2017, mais son "
+         "indemnisation est discrétionnaire, sans barème public, et d'un "
+         "champ étroit. Le programme américain dont nous reprenons le barème "
+         "a versé plus de 2,2&nbsp;Md&nbsp;$ à 444 personnes depuis 2011, "
+         "toujours sur des sanctions <b>effectivement recouvrées</b>."),
 
         ("Rendre l'exclusion des marchés effective, et vérifiable",
-         "<p>L'exclusion après condamnation définitive existe déjà en "
-         "droit&nbsp;; ce qui manque, c'est de savoir qui est exclu. Un "
-         "<b>registre public</b>, tenu par l'AFA, dit à tout acheteur la "
-         "situation d'un candidat. Sans lui, l'exclusion est une règle que "
-         "personne n'est en mesure d'appliquer.</p>"
+         "<p>L'exclusion après condamnation définitive existe déjà&nbsp;: "
+         "cinq ans de plein droit, et elle atteint la société elle-même quand "
+         "c'est un de ses dirigeants qui est condamné (art. L.&nbsp;2141-1 du "
+         "code de la commande publique). Ce qui manque, c'est de savoir qui "
+         "est exclu. Un <b>registre public</b>, tenu par l'AFA, dit à tout "
+         "acheteur la situation d'un candidat. Sans lui, l'exclusion est une "
+         "règle que personne n'est en mesure d'appliquer.</p>"
          "<p>Le vrai trou, c'est la convention judiciaire d'intérêt public. "
          "Une exclusion automatique après CJIP se heurterait à la "
          "présomption d'innocence, la convention étant sans reconnaissance de "
@@ -1253,11 +1325,13 @@ circulaire.</p>
          "existe déjà en droit européen. La CJIP reste&nbsp;: c'est un bon "
          "outil. Mais une amende que l'entreprise provisionne ne change pas "
          "un modèle d'affaires&nbsp;; la perte de l'accès aux marchés, si.</p>",
-         "l'exclusion existe pour les condamnations définitives (art. "
-         "L.&nbsp;2141-1 du code de la commande publique), mais aucun registre "
-         "ne permet à l'acheteur de la vérifier&nbsp;; et la CJIP, qui éteint "
-         "les poursuites sans reconnaissance de culpabilité, n'en emporte "
-         "aucune — l'entreprise peut soumissionner le lendemain."),
+         "l'exclusion de plein droit existe pour les condamnations "
+         "définitives — cinq ans, art. L.&nbsp;2141-1 du code de la commande "
+         "publique — mais aucun registre ne permet à l'acheteur de la "
+         "vérifier&nbsp;; et la CJIP, qui éteint les poursuites sans "
+         "reconnaissance de culpabilité, n'en emporte aucune. Vingt-deux "
+         "conventions ont été conclues entre 2016 et 2024&nbsp;: aucune n'a "
+         "fermé l'accès aux marchés."),
 
         ("Mesurer le recouvrement, pas les annonces",
          "<p>Publication trimestrielle, service par service, du montant "
@@ -1840,9 +1914,9 @@ def objections() -> str:
         "agents. »</b> Les deux sont compatibles, et c'est le cœur de notre "
         "position&nbsp;: la France n'a pas besoin d'une quinzième institution, "
         "elle a besoin que les quatorze existantes aient les effectifs, les "
-        "données et l'indépendance qui leur manquent. L'AFA compte une "
-        "cinquantaine d'agents, le parquet national financier une vingtaine "
-        "de magistrats.</p>"
+        "données et l'indépendance qui leur manquent. L'AFA comptait "
+        "60 agents fin 2025&nbsp;; le parquet national financier aligne "
+        "20 magistrats pour 771 procédures, soit 43 dossiers chacun.</p>"
         "<p><b>« L'exclusion des marchés après une convention judiciaire "
         "viole la présomption d'innocence. »</b> Elle la violerait si elle "
         "était automatique, la convention étant sans reconnaissance de "
@@ -1910,8 +1984,10 @@ def sources() -> str:
   au RSA mai 2026 (DREES), indice de perception 2025 (Transparency
   International), commande publique 2024 (OECP), comptes publics 2025 (Insee),
   dépenses fiscales du projet de loi de finances pour 2026, condamnations pour
-  atteinte à la probité 2016-2022 (AFA) et estimation du Conseil des
-  prélèvements obligatoires de 2007 — faute de plus récente. Quand une source
+  atteinte à la probité 2016-2022 (AFA), effectifs des autorités au
+  31&nbsp;décembre 2025, Tracfin 2025, PNF 2025, écart de TVA 2023
+  (Commission européenne) et estimation du Conseil des prélèvements
+  obligatoires de 2007 — faute de plus récente. Quand une source
   publie un millésime plus neuf et que ce site ne l'a pas repris, <b>c'est un
   défaut</b>&nbsp;: il se signale sur le dépôt et se corrige.</p>
   <p class="discret">Liens vérifiés en septembre&nbsp;2026.</p>
@@ -1998,7 +2074,13 @@ def sources() -> str:
              _lien("urssaf.org", "https://www.urssaf.org/")),
             ("CNAF, CNAM, CNAV, MSA",
              "Rapports annuels&nbsp;: préjudice estimé et fraude détectée, "
-             "branche par branche.",
+             "branche par branche. Branche famille&nbsp;: préjudice estimé à "
+             "≈ 4,9&nbsp;Md&nbsp;€/an (dont ≈ 1,5 pour le RSA), fraude "
+             "détectée de 449&nbsp;M&nbsp;€ en 2024 puis 508,8&nbsp;M&nbsp;€ "
+             "en 2025, soit un <b>taux de détection de l'ordre de "
+             "9&nbsp;%</b>&nbsp;; 1,2&nbsp;Md&nbsp;€ d'indus et "
+             "480&nbsp;M&nbsp;€ de droits non versés en 2024, hors toute "
+             "fraude.",
              _lien("securite-sociale.fr", "https://www.securite-sociale.fr/")),
             ("Cour des comptes",
              "Rapports sur la lutte contre les fraudes aux prestations "
@@ -2029,27 +2111,46 @@ def sources() -> str:
              _lien("transparency.org — CPI 2025",
                    "https://www.transparency.org/en/cpi/2025")),
             ("GRECO — Conseil de l'Europe",
-             "Rapports d'évaluation et de conformité sur la France, "
-             "notamment le cinquième cycle (hautes fonctions de l'exécutif et "
-             "services répressifs).",
+             "Rapports d'évaluation et de conformité sur la France. Cinquième "
+             "cycle (hautes fonctions de l'exécutif et services "
+             "répressifs)&nbsp;: 18 recommandations, dont <b>2 seulement "
+             "mises en œuvre de façon satisfaisante</b>, 10 partiellement et "
+             "6 pas du tout au deuxième rapport de conformité — parmi "
+             "celles-ci, la Cour de justice de la République, le statut du "
+             "lanceur d'alerte et la remontée d'informations du PNF vers "
+             "l'exécutif.",
              _lien("coe.int — GRECO", "https://www.coe.int/fr/web/greco")),
             ("Agence française anticorruption",
              "Rapports annuels, recommandations, suivi des CJIP, et analyse "
              "des condamnations pénales pour atteinte à la probité portant "
              "sur 2016-2022&nbsp;: ≈ 3&nbsp;000 infractions sanctionnées sur "
              "la période, soit de l'ordre de 400 par an, dont 502 pour la "
-             "seule année 2022.",
+             "seule année 2022. Rapport d'activité 2025 (publié en "
+             "juillet&nbsp;2026)&nbsp;: 60 agents au 31&nbsp;décembre&nbsp;2025, "
+             "contre 52 un an plus tôt.",
              _lien("agence-francaise-anticorruption.gouv.fr",
                    "https://www.agence-francaise-anticorruption.gouv.fr/")),
             ("Haute Autorité pour la transparence de la vie publique",
-             "Déclarations d'intérêts et de patrimoine, répertoire des "
-             "représentants d'intérêts, avis de déontologie.",
+             "Rapport d'activité 2025&nbsp;: 5&nbsp;795 déclarations "
+             "examinées (+13&nbsp;%), 641 avis sur des mobilités "
+             "public-privé, 57 saisines du procureur pour absence de "
+             "déclaration — avec 79 équivalents temps plein et ≈ "
+             "8&nbsp;M&nbsp;€ de budget.",
              _lien("hatvp.fr", "https://www.hatvp.fr/")),
             ("TRACFIN",
-             "Rapport annuel d'activité&nbsp;: volume de déclarations de "
-             "soupçon reçues, notes transmises.",
+             "Rapport d'activité et d'impact&nbsp;: 278&nbsp;484 déclarations "
+             "de soupçon reçues en 2025 (+32&nbsp;% en un an, après "
+             "211&nbsp;165 en 2024), pour un effectif de l'ordre de "
+             "200 agents.",
              _lien("economie.gouv.fr — TRACFIN",
                    "https://www.economie.gouv.fr/tracfin")),
+            ("Parquet national financier",
+             "Synthèse annuelle&nbsp;: 771 procédures en cours fin 2025 "
+             "(766 fin 2024) pour 20 magistrats, soit 43 dossiers chacun. "
+             "Fiscal et probité représentent respectivement 48 et "
+             "46&nbsp;% des procédures.",
+             _lien("tribunal-de-paris.justice.fr — PNF",
+                   "https://www.tribunal-de-paris.justice.fr/75/organisation-du-pnf")),
             ("Parquet européen",
              "Rapport annuel&nbsp;: enquêtes ouvertes en France sur les "
              "atteintes au budget de l'Union.",
@@ -2138,6 +2239,27 @@ def sources() -> str:
             ("Directive (UE) 2019/1937 du 23 octobre 2019",
              "Protection des personnes qui signalent des violations du droit "
              "de l'Union."),
+            ("Article L.&nbsp;2141-1 du code de la commande publique",
+             "Exclusion <b>de plein droit</b> des marchés publics, pour cinq "
+             "ans à compter d'une condamnation définitive pour certaines "
+             "infractions pénales et fiscales, sauf durée différente fixée "
+             "par le juge. Elle s'étend à la personne morale lorsque c'est "
+             "un de ses dirigeants qui est condamné. C'est le texte qui "
+             "existe déjà, et dont notre mesure n°&nbsp;11 comble les deux "
+             "trous&nbsp;: l'absence de registre, et la CJIP."),
+            ("Article 432-13 du code pénal",
+             "Prise illégale d'intérêts par un ancien agent public&nbsp;: "
+             "trois ans de carence, trois ans d'emprisonnement et "
+             "200&nbsp;000&nbsp;€ d'amende. Le fondement du contrôle "
+             "déontologique de la HATVP — dont l'avis favorable ne fait pas "
+             "obstacle aux poursuites."),
+            ("Article R.&nbsp;2122-8 du code de la commande publique",
+             "Dispense de publicité et de mise en concurrence. Seuil de "
+             "100&nbsp;000&nbsp;€ HT pour les travaux, <b>pérennisé au "
+             "1ᵉʳ&nbsp;janvier&nbsp;2026</b> après avoir été une dérogation "
+             "temporaire née du covid&nbsp;; 60&nbsp;000&nbsp;€ HT pour les "
+             "fournitures et services depuis le 1ᵉʳ&nbsp;avril&nbsp;2026, "
+             "contre 40&nbsp;000 auparavant."),
             ("Directive (UE) 2021/2101 du 24 novembre 2021",
              "Publication par les grands groupes des informations relatives à "
              "l'impôt sur les bénéfices, pays par pays. Le fondement de la "
@@ -2177,8 +2299,13 @@ def sources() -> str:
              "les revenus déclarés par un tiers, massive sur les revenus "
              "auto-déclarés."),
             ("<i>SEC Whistleblower Program</i> (États-Unis, depuis 2011)",
-             "Récompense de 10 à 30&nbsp;% des sanctions supérieures à un "
-             "million de dollars&nbsp;; modèle de notre mesure n°&nbsp;10. Voir "
+             "Récompense de 10 à 30&nbsp;% des sanctions pécuniaires "
+             "<b>effectivement recouvrées</b> au-delà d'un million de "
+             "dollars — c'est la loi qui retient l'encaissement, non le "
+             "montant annoncé. Rapport annuel au Congrès pour l'exercice "
+             "2025&nbsp;: plus de 2,2&nbsp;Md&nbsp;$ versés à 444 personnes "
+             "depuis 2011, ≈ 27&nbsp;000 signalements reçus sur le seul "
+             "exercice. Modèle de notre mesure n°&nbsp;10. Voir "
              + _lien("sec.gov/whistleblower",
                      "https://www.sec.gov/whistleblower") + "."),
         ),
